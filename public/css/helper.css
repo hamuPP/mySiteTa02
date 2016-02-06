@@ -1,0 +1,29 @@
+/*字体颜色*/
+.color-purp-main{
+    color: #a95ee1;
+}
+/*背景颜色*/
+.bg-purp-main{
+    background-color: #a95ee1;
+}
+
+/*无边框*/
+.no-border{
+    border:none !important;
+}
+
+/*内外补丁*/
+.mt20{
+    margin-top: 20px !important;
+}
+.mtb30{
+    margin:30px 0;
+}
+.mlr15{
+    margin:0 15px;
+}
+
+/*字体对齐*/
+.text-center{
+    text-align: center;
+}

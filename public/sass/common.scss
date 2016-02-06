@@ -1,0 +1,77 @@
+@import "compass/reset";
+@import "compass/layout";
+@import "compass/css3";
+@import "compass/utilities";
+
+@import "../css/helper.css";
+@import "../sass/compo";
+
+/*vars start*/
+$hover-bgcolor-grey: #e4e4e4;
+$main-font-color-pur:#790d86;
+/*vars end*/
+html{
+  font-family:"weiruanyahei",sans-serif;
+}
+body{
+  background: #e4e4e4;
+}
+.container{
+  max-width:1000px;
+}
+/*header start*/
+.header{
+   width:100%;
+  height: 50px;
+  color:#fff;
+  background:black;
+  position: absolute;
+  top:0;
+  left:0;
+  a{
+    color:#fff;
+    &:hover{
+      background:$hover-bgcolor-grey !important;
+      color:$main-font-color-pur;
+      font-weight: bolder;
+    };
+    &:focus{
+      background:none !important;
+    };
+  }
+  @media (max-width:768px){
+    .navbar-right{
+      float: right;
+      text-align: right;
+      padding:0 5px;
+      margin:0 -15px 0 0;
+      background: black;
+
+
+    }
+  }
+}
+.IE-notice{
+  display: none;
+  background: #790d86;
+  color:white;
+  font-weight: 600;
+  position: relative;
+  top:50px;
+  left:0;
+  padding:5px;
+}
+/*footer start*/
+.footer{
+  width:100%;
+  background:black;
+}
+
+
+/*footer end*/
+
+/*main-content start*/
+.footer + .main-content{
+  padding:0;
+}
+/*main-content end*/
