@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.min.js"></script>
+        <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/common.css"/>
+    <title>首页</title>
+    <style>
+        .wrapper{
+            /*background: pink;*/
+            overflow: hidden;
+        }
+        .logo-img{
+            background: url(imgs/logo200.png) no-repeat;
+            background-size:100% 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+
+    <% include common-header.ejs %>
+
+    <div id="IENotice" class="IE-notice" >
+        看到此消息，说明你的浏览器是IE9以下。本站不支持IE9以下，为达到更好浏览效果，请换其他浏览器
+        <a href="javascript:;">关闭提示</a>
+    </div>
+
+    <section class="container main-content ">
+        <div class="row" style="max-width: 1000px;margin:0 auto;">
+            <img src="imgs/bg-main.jpg" alt="" style="width:100%;"/>
+        </div>
+        <div class="row title-with-line">
+            <h2 class="inner-title">随便看看</h2>
+            <hr class="inner-line"/>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 img-list-comtainer">
+                <a class="img-list-item" href="/divine">
+                    <img src="imgs/justice.jpg" alt="test-img"/>
+                    <div class="img-list-item-content">
+                        单牌-每日自测
+                    </div>
+                </a>
+                <div class="img-list-item">
+                    <img src="imgs/moon.jpg" alt="test-img"/>
+                    <div class="img-list-item-content">
+                        未开放
+                    </div>
+                </div>
+                <div class="img-list-item">
+                    <img src="imgs/justice.jpg" alt="test-img"/>
+                    <div class="img-list-item-content">
+                        未开放
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <% include common-footer.ejs%>
+    </div>
+    <script src="js/jquery-1.11.2-min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/template.js"></script>
+    <script src="js/indexJS.js"></script>
+
+</body>
+</html>

@@ -10,12 +10,17 @@ var http = require('http');
 var path = require('path');
 var product = require('./routes/product');
 
+//var webRouter = require('./webRouter');
+
+var index = require('./routes/index');
+
 var app = express();
 
 // all environments
 app.set('port', process.env.PORT || 88);
 app.set('views', path.join(__dirname, 'views'));// 设置模板相对路径(相对当前目录)
-app.set('view engine', 'jade');//设置模板引擎
+//app.set('view engine', 'jade');//设置模板引擎为jade
+app.set('view engine', 'ejs');//设置模板引擎为jade
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.json());
@@ -28,14 +33,20 @@ app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
+//app.use(webRouter);//页面逻辑,express 3.0以前的写法
+
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', routes.index);
+
 app.get('/users', user.list);
 app.get('/users', user.list);
+
+/*首页的各种请求*/
+app.get('/', index.index);
+app.get('/divine',index.divine);
 
 app.get('/validateUsername',user.validateUsername);
 app.get('/validateEmail',user.validateEmail);

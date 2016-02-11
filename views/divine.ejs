@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/common.css"/>
+    <title>首页</title>
+    <style>
+        .wrapper{
+            /*background: pink;*/
+            overflow: hidden;
+        }
+        .logo-img{
+            background: url(imgs/logo200.png) no-repeat;
+            background-size:100% 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+
+    <% include common-header.ejs %>
+
+    <div id="IENotice" class="IE-notice" >
+        看到此消息，说明你的浏览器是IE9以下。本站不支持IE9以下，为达到更好浏览效果，请换其他浏览器
+        <a href="javascript:;">关闭提示</a>
+    </div>
+
+    <section class="container main-content ">
+        <div class="row inner-title-box">
+            <form class="form-inline mt50" role="form">
+                <div class="form-group">
+                    <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="exampleInputPassword2">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> Remember me
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-default">Sign in</button>
+            </form>
+        </div>
+        <div class="row "></div>
+
+    </section>
+    <% include common-footer.ejs%>
+</div>
+<script src="js/jquery-1.11.2-min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/template.js"></script>
+<script src="js/indexJS.js"></script>
+
+</body>
+</html>

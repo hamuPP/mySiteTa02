@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>test EJS</title>
+    <script src="../js/jquery-1.11.2-min.js"></script>
+    <script src="../../node_modules/ejs/ejs.js"></script>
+</head>
+<body>
+    <h1>这是标题1</h1>
+    <section id="content"></section>
+    <% include ('mySiteTarot/views/common-header.ejs') %>
+    <%- partial('common-header.ejs') %>
+
+    <script id="testTemp1" type="text/template">
+        <h1>这是section的标题<%= datas.title %></h1>
+        <ul>
+            <% for(var i = 0;i< datas.banners.length;i++){ %>
+                <li><%= datas.banners[i]%></li>
+            <% } %>
+        </ul>
+        <% include mySiteTarot/views/common-header.ejs %>
+    </script>
+
+    <script>
+        $(function(){
+            var datas = {"title":"标题2",
+                "banners":["111","222","333"]
+            };
+            var html = ejs.render($("#testTemp1").html(),{
+                datas:datas,
+                filename:"htmls/testEJS.html"
+            });
+            console.log(html);
+            $("#content").html(html);
+        });
+
+    </script>
+</body>
+</html>
