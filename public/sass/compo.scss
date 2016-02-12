@@ -77,6 +77,46 @@ $main-font-color-pur:#790d86;
 //.tm-popular-item-img { margin-left: 3px; }
 /*img list end*/
 
+/*form one row start*/
+.t-form-inline{
+
+  .t-form-group{
+    display:block;
+    line-height:34px;
+    .t-inline-dis{
+      display: inline-block;
+    }
+    label{
+      display:inline-block;
+
+    }
+    input{
+      display: inline-block;
+    }
+    select{
+      display:inline-block;
+    }
+  }
+}
+
+@media (min-width:601px){
+  .t-form-inline{
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display:flex;
+    .t-form-group{
+      -webkit-box-flex: 1;
+      -moz-box-flex:1;
+      /*box-flex: 1;*/
+      flex:1;
+    }
+  }
+}
+/*form one row start*/
+
 .title-with-line{
   display: -webkit-box;
   display: -webkit-flex;
