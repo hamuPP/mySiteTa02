@@ -14,7 +14,10 @@ exports.index = function(req, res){
     res.render('index');
     //res.send("hello");
 };
-
 exports.divine = function(req,res){
     res.render('divine');
+};
+
+exports.divineDetail = function(req,res){
+    res.render('divineDetail');
 };

@@ -44,9 +44,13 @@ if ('development' == app.get('env')) {
 app.get('/users', user.list);
 app.get('/users', user.list);
 
+/*common-header,common-footer的各种请求*/
+app.get('/index',index.index);
+app.get('/divine',index.divine);
+
 /*首页的各种请求*/
 app.get('/', index.index);
-app.get('/divine',index.divine);
+app.get('/divineDetail',index.divineDetail);
 
 app.get('/validateUsername',user.validateUsername);
 app.get('/validateEmail',user.validateEmail);
