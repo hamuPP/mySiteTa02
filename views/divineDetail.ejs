@@ -36,14 +36,14 @@
     </div>
 
     <section class="container main-content ">
-        <form class="t-form-inline mt50" role="form">
+        <form class="t-form-inline mt50" id="divineDetail" role="form">
             <div class="t-form-group">
-                <label class="col-sm-3 plr0" for="exampleInputEmail2">所用牌组:</label>
+                <label class="col-sm-3 plr0" for="paiZu">所用牌组:</label>
                 <div class="t-inline-dis col-sm-7">
-                    <select name="" id="exampleInputEmail2"  class="" disabled>
+                    <select name="paiZu" id="paiZu"  class="" disabled>
                         <option value="majorArcana">22张大牌</option>
                         <option value="minorArcana">56张小牌</option>
-                        <option value="allCards">全部78张牌</option>
+                        <option value="allCards">全78张牌</option>
                         <option value="WANDS">权杖</option>
                         <option value="SWORDS">宝剑</option>
                         <option value="PENTACLES">五角星</option>
@@ -52,26 +52,30 @@
                 </div>
             </div>
             <div class="t-form-group">
-                <label class="col-sm-3 plr0" for="exampleInputEmail2">牌形：</label>
+                <label class="col-sm-3 plr0" for="oneCard">牌形：</label>
                 <div class="t-inline-dis col-sm-7">
-                    单牌预测
+                    <input type="text" value="单牌预测" name="paiXing" disabled/>
                 </div>
             </div>
+            <div class="t-form-group">
+                <button type="button" id="take" class="btn btn-default">抽牌</button>
+                <button type="button" id="moreOpts" class="btn btn-info">更多自定义选项</button>
+            </div>
 
-            <button type="submit" class="btn btn-default">抽牌</button>
-            <button type="button" id="moreOpts" class="btn btn-info">更多自定义选项</button>
 
         </form>
         <% include divine-usage-msg.ejs %>
-        <div class="row "></div>
+        <div class="row divine-result-wrap">
+
+        </div>
 
     </section>
     <% include common-footer.ejs %>
 </div>
 <script src="js/jquery-1.11.2-min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/template.js"></script>
-<script src="js/indexJS.js"></script>
+<script src="js/divine.js"></script>
+<!--<script src="js/indexJS.js"></script>-->
 
 </body>
 </html>

@@ -14,6 +14,9 @@
 .no-border{
     border:none !important;
 }
+.border-q{
+    border:1px solid #eee;
+}
 
 /*内外补丁*/
 .mt20{
@@ -43,6 +46,13 @@
 .text-right{
     text-align: right;
 }
+/*浮动*/
+.fr{
+    float:right;
+}
+
+
+
 /*长宽 百分比 不分什么大小屏 start*/
 /*.t-per-1{*/
     /*width:8%;*/

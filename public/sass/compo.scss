@@ -84,6 +84,7 @@ $main-font-color-pur:#790d86;
   .t-form-group{
     display:block;
     line-height:34px;
+    white-space: nowrap;
     .t-inline-dis{
       display: inline-block;
     }
@@ -92,11 +93,13 @@ $main-font-color-pur:#790d86;
 
     }
     input{
+      height:22px;
       width:100%;
+      line-height: 22px;
       display: inline-block;
     }
     select{
-      width:99%;
+      width:95%;
       display:inline-block;
     }
   }
@@ -146,4 +149,18 @@ $main-font-color-pur:#790d86;
     margin-top:0;
   }
 
+}
+.divine-usage-msg{
+  padding:10px;
+  margin:20px 0;
+  background:#fff;
+  line-height: 1.3;
+  overflow: hidden;
+  zoom:1;
+  border:1px solid $main-font-color-pur;
+}
+
+.divine-result-wrap{
+  height: 550px;
+  background:url(../imgs/logo-per.png) no-repeat 50% 50%;
 }

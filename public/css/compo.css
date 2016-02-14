@@ -74,24 +74,27 @@
 /* line 84, ../sass/compo.scss */
 .t-form-inline .t-form-group {
   display: block;
-  line-height: 34px; }
-  /* line 87, ../sass/compo.scss */
+  line-height: 34px;
+  white-space: nowrap; }
+  /* line 88, ../sass/compo.scss */
   .t-form-inline .t-form-group .t-inline-dis {
     display: inline-block; }
-  /* line 90, ../sass/compo.scss */
+  /* line 91, ../sass/compo.scss */
   .t-form-inline .t-form-group label {
     display: inline-block; }
-  /* line 94, ../sass/compo.scss */
+  /* line 95, ../sass/compo.scss */
   .t-form-inline .t-form-group input {
+    height: 22px;
     width: 100%;
+    line-height: 22px;
     display: inline-block; }
-  /* line 98, ../sass/compo.scss */
+  /* line 101, ../sass/compo.scss */
   .t-form-inline .t-form-group select {
-    width: 99%;
+    width: 95%;
     display: inline-block; }
 
 @media (min-width: 601px) {
-  /* line 106, ../sass/compo.scss */
+  /* line 109, ../sass/compo.scss */
   .t-form-inline {
     display: -webkit-box;
     display: -moz-box;
@@ -99,26 +102,26 @@
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex; }
-    /* line 113, ../sass/compo.scss */
+    /* line 116, ../sass/compo.scss */
     .t-form-inline .t-form-group {
       -webkit-box-flex: 1;
       -moz-box-flex: 1;
       /*box-flex: 1;*/
       flex: 1; } }
 /*form one row start*/
-/* line 123, ../sass/compo.scss */
+/* line 126, ../sass/compo.scss */
 .title-with-line {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   margin: 0 20px; }
-  /* line 129, ../sass/compo.scss */
+  /* line 132, ../sass/compo.scss */
   .title-with-line .inner-title {
     color: #790d86;
     padding: 0 30px 0 10px;
     line-height: 43px; }
-  /* line 134, ../sass/compo.scss */
+  /* line 137, ../sass/compo.scss */
   .title-with-line .inner-line {
     height: 2px;
     padding: 0;
@@ -126,10 +129,24 @@
     background: #790d86; }
 
 @media (max-width: 466px) {
-  /* line 142, ../sass/compo.scss */
+  /* line 145, ../sass/compo.scss */
   .title-with-line {
     display: block; }
 
-  /* line 145, ../sass/compo.scss */
+  /* line 148, ../sass/compo.scss */
   .inner-line {
     margin-top: 0; } }
+/* line 153, ../sass/compo.scss */
+.divine-usage-msg {
+  padding: 10px;
+  margin: 20px 0;
+  background: #fff;
+  line-height: 1.3;
+  overflow: hidden;
+  zoom: 1;
+  border: 1px solid #790d86; }
+
+/* line 163, ../sass/compo.scss */
+.divine-result-wrap {
+  height: 550px;
+  background: url(../imgs/logo-per.png) no-repeat 50% 50%; }
