@@ -51,22 +51,11 @@
     float:right;
 }
 
+.hide{
+    display:none;
+}
 
+.show{
+    display:block;
+}
 
-/*长宽 百分比 不分什么大小屏 start*/
-/*.t-per-1{*/
-    /*width:8%;*/
-/*}*/
-/*.t-per-2{*/
-    /*width:16%;*/
-/*}*/
-/*.t-per-3{*/
-    /*width:24%;*/
-/*}*/
-/*.t-per-7{*/
-    /*width:56%;*/
-/*}*/
-/*.t-per-8{*/
-    /*width:64%;*/
-/*}*/
-/*长宽 end*/

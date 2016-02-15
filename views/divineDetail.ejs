@@ -40,7 +40,7 @@
             <div class="t-form-group">
                 <label class="col-sm-3 plr0" for="paiZu">所用牌组:</label>
                 <div class="t-inline-dis col-sm-7">
-                    <select name="paiZu" id="paiZu"  class="" disabled>
+                    <select name="paiZu" id="paiZu"  class="" readonly="readonly">
                         <option value="majorArcana">22张大牌</option>
                         <option value="minorArcana">56张小牌</option>
                         <option value="allCards">全78张牌</option>
@@ -54,7 +54,7 @@
             <div class="t-form-group">
                 <label class="col-sm-3 plr0" for="oneCard">牌形：</label>
                 <div class="t-inline-dis col-sm-7">
-                    <input type="text" value="单牌预测" name="paiXing" disabled/>
+                    <input type="text" value="单牌预测" name="paiXing" readonly="readonly"/>
                 </div>
             </div>
             <div class="t-form-group">
@@ -66,7 +66,7 @@
         </form>
         <% include divine-usage-msg.ejs %>
         <div class="row divine-result-wrap">
-
+           <canvas id="canvas"></canvas>
         </div>
 
     </section>
@@ -74,7 +74,9 @@
 </div>
 <script src="js/jquery-1.11.2-min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/divine.js"></script>
+<script src="js/common.js"></script>
+<script src="js/CardsClass.js"></script>
+<script src="js/divineDetail.js"></script>
 <!--<script src="js/indexJS.js"></script>-->
 
 </body>
