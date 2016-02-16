@@ -32,29 +32,41 @@ function startTakingCars(){
  */
 
 function showCarsForm(datas){
-//    $.ajax({
-//        url:"/showPaixing",
-//        type:"get",
-//        data:datas,
-//        success:function(data){
-//            console.log(data);
-//        }
-//    });
+    var resData;
+    $.ajax({
+        url:"/showPaixing",
+        type:"get",
+        data:datas,
+        success:function(res){
+            /*设置画布的宽高*/
+            getCanvasXYWH("canvasWrap","canvas");
+            c.setAttribute('width',canvasWidth);
+            c.setAttribute('height',canvasHeight);
 
-    /*设置画布的宽高*/
-    getCanvasXYWH("canvasWrap","canvas")
-    c.setAttribute('width',canvasWidth);
-    c.setAttribute('height',canvasHeight);
-//    ctx.clearRect(0,0,1000,600);
+            resData = res;
+            if(data.pxCardSum == 1){/*单牌牌型*/
+                var oneCard = new Image();
+                //oneCard.src = 'http://localhost:88/imgs/moon.jpg';
+
+            }else if(data.pxCardSum > 1){/*多牌牌型*/
+
+            }
+
+        }
+    });
+
 
     var oneCard = new Image(),
         secondCard = new Image();
 
-    oneCard.src = 'http://121.42.187.222/imgs/moon.jpg';
-    console.log(oneCard);
-//      oneCard.src = "http://images.cnblogs.com/cnblogs_com/html5test/359114/r_test.jpg";
-//    secondCard.src = "http://images.cnblogs.com/cnblogs_com/html5test/359114/r_test.jpg";
+    oneCard.src = 'http://localhost:88/imgs/moon.jpg';
+    //oneCard.src = "http://xinmi.oss-cn-shenzhen.aliyuncs.com/banner/2015-11-10/L7Z1Bpe4c3HZQM4a.jpg";
+    //secondCard.src = "http://images.cnblogs.com/cnblogs_com/html5test/359114/r_test.jpg";
 //    if(oneCard.complete){}
-    ctx.drawImage(oneCard,0,0,80,100);
+    oneCard.onload=function(){
+        ctx.drawImage(oneCard,0,0,80,100);
+    };
+
+
 //    ctx.drawImage(secondCard,120,0,50,80);
 }
