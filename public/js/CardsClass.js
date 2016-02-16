@@ -11,8 +11,8 @@
  * @param {Number} height 卡牌高度
  * @param {Number} width 卡牌宽度
  * @param {Boolean} open 默认是false，就是未翻开
- * @param {Number} x 卡牌绝对or相对定位的左
- * @param {Number} y 卡牌绝对or相对定位的上
+ * @param {Number} x 卡牌左边距离
+ * @param {Number} y 卡牌上边距离
  * @author tangyue
  */
 function BaseCard (height,width,open,x,y){
@@ -22,7 +22,7 @@ function BaseCard (height,width,open,x,y){
     this.x = x? x:0;
     this.y = y? y:0;
     this.openCard = function(){
-        console.log("翻牌的动画。他妈的我还没有写逻辑");
+        console.log("翻牌的动画。他妈的我还没有写");
     }
 };
 

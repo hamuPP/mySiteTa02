@@ -32,17 +32,29 @@ function startTakingCars(){
  */
 
 function showCarsForm(datas){
-   // $.ajax();//待日后补充。先画一个图形试试
+//    $.ajax({
+//        url:"/showPaixing",
+//        type:"get",
+//        data:datas,
+//        success:function(data){
+//            console.log(data);
+//        }
+//    });
 
-    /*设置画布的宽高。先定死，日后再改*/
-    c.setAttribute('width',1000);
-    c.setAttribute('height',600);
+    /*设置画布的宽高*/
+    getCanvasXYWH("canvasWrap","canvas")
+    c.setAttribute('width',canvasWidth);
+    c.setAttribute('height',canvasHeight);
 //    ctx.clearRect(0,0,1000,600);
 
-    var oneCard = new Image();
-    oneCard.src = 'images/moon.jpg';
-//      oneCard.src = "http://images.cnblogs.com/cnblogs_com/html5test/359114/r_test.jpg";
-//    if(oneCard.complete){}
+    var oneCard = new Image(),
+        secondCard = new Image();
+
+    oneCard.src = 'http://121.42.187.222/imgs/moon.jpg';
     console.log(oneCard);
-    ctx.drawImage(oneCard,0,0);
+//      oneCard.src = "http://images.cnblogs.com/cnblogs_com/html5test/359114/r_test.jpg";
+//    secondCard.src = "http://images.cnblogs.com/cnblogs_com/html5test/359114/r_test.jpg";
+//    if(oneCard.complete){}
+    ctx.drawImage(oneCard,0,0,80,100);
+//    ctx.drawImage(secondCard,120,0,50,80);
 }

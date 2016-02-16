@@ -13,7 +13,7 @@ var product = require('./routes/product');
 //var webRouter = require('./webRouter');
 
 var index = require('./routes/index');
-
+var divineDetail = require('./routes/divineDetail');
 var app = express();
 
 // all environments
@@ -33,7 +33,6 @@ app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
-//app.use(webRouter);//页面逻辑,express 3.0以前的写法
 
 // development only
 if ('development' == app.get('env')) {
@@ -48,9 +47,15 @@ app.get('/users', user.list);
 app.get('/index',index.index);
 app.get('/divine',index.divine);
 
-/*首页的各种请求*/
+/*首页的各种请求 start*/
 app.get('/', index.index);
 app.get('/divineDetail',index.divineDetail);
+/*首页的各种请求 end*/
+
+/*测算详页 start*/
+
+app.get('/showPaixing', divineDetail.showPaixing);
+/*测算详页 end*/
 
 app.get('/validateUsername',user.validateUsername);
 app.get('/validateEmail',user.validateEmail);
