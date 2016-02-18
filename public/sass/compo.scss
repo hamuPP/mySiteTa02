@@ -164,3 +164,17 @@ $main-font-color-pur:#790d86;
   height: 550px;
   background:url(../imgs/logo-per.png) no-repeat 50% 50%;
 }
+
+/*ul li start*/
+.ul-horiz{
+  list-style: none;
+  li{
+    display:inline-block;
+    margin:0 13px;
+    a{
+
+    }
+  }
+
+}
+/*ul li end*/

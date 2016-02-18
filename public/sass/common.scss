@@ -17,6 +17,15 @@ html{
 body{
   background: #e4e4e4;
 }
+.wrapper{
+  /*background: pink;*/
+  overflow: hidden;
+}
+.logo-img{
+  background: url(../imgs/logo200.png) no-repeat;
+  background-size:100% 100%;
+}
+
 .container{
   max-width:1000px;
 }

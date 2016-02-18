@@ -208,6 +208,16 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   height: 550px;
   background: url(../imgs/logo-per.png) no-repeat 50% 50%; }
 
+/*ul li start*/
+/* line 169, ../sass/compo.scss */
+.ul-horiz {
+  list-style: none; }
+  /* line 171, ../sass/compo.scss */
+  .ul-horiz li {
+    display: inline-block;
+    margin: 0 13px; }
+
+/*ul li end*/
 /*vars start*/
 /*vars end*/
 /* line 14, ../sass/common.scss */
@@ -219,11 +229,21 @@ body {
   background: #e4e4e4; }
 
 /* line 20, ../sass/common.scss */
+.wrapper {
+  /*background: pink;*/
+  overflow: hidden; }
+
+/* line 24, ../sass/common.scss */
+.logo-img {
+  background: url(../imgs/logo200.png) no-repeat;
+  background-size: 100% 100%; }
+
+/* line 29, ../sass/common.scss */
 .container {
   max-width: 1000px; }
 
 /*header start*/
-/* line 24, ../sass/common.scss */
+/* line 33, ../sass/common.scss */
 .header {
   width: 100%;
   height: 50px;
@@ -232,19 +252,19 @@ body {
   position: absolute;
   top: 0;
   left: 0; }
-  /* line 32, ../sass/common.scss */
+  /* line 41, ../sass/common.scss */
   .header a {
     color: #fff; }
-    /* line 34, ../sass/common.scss */
+    /* line 43, ../sass/common.scss */
     .header a:hover {
       background: #e4e4e4 !important;
       color: #790d86;
       font-weight: bolder; }
-    /* line 39, ../sass/common.scss */
+    /* line 48, ../sass/common.scss */
     .header a:focus {
       background: none !important; }
   @media (max-width: 768px) {
-    /* line 44, ../sass/common.scss */
+    /* line 53, ../sass/common.scss */
     .header .navbar-right {
       float: right;
       text-align: right;
@@ -252,7 +272,7 @@ body {
       margin: 0 -15px 0 0;
       background: black; } }
 
-/* line 55, ../sass/common.scss */
+/* line 64, ../sass/common.scss */
 .IE-notice {
   display: none;
   background: #790d86;
@@ -264,14 +284,14 @@ body {
   padding: 5px; }
 
 /*footer start*/
-/* line 66, ../sass/common.scss */
+/* line 75, ../sass/common.scss */
 .footer {
   width: 100%;
   background: black; }
 
 /*footer end*/
 /*main-content start*/
-/* line 75, ../sass/common.scss */
+/* line 84, ../sass/common.scss */
 .main-content {
   margin: 50px auto;
   padding: 0; }
