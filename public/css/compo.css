@@ -159,5 +159,13 @@
   .ul-horiz li {
     display: inline-block;
     margin: 0 13px; }
+    /* line 174, ../sass/compo.scss */
+    .ul-horiz li a {
+      display: block;
+      padding: 6px;
+      text-decoration: none; }
+      /* line 178, ../sass/compo.scss */
+      .ul-horiz li a:visited {
+        color: #fff; }
 
 /*ul li end*/

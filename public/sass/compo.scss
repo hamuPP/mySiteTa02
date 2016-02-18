@@ -172,6 +172,12 @@ $main-font-color-pur:#790d86;
     display:inline-block;
     margin:0 13px;
     a{
+      display: block;
+      padding:6px;
+      text-decoration: none;
+      &:visited{
+        color:#fff;
+      }
 
     }
   }
