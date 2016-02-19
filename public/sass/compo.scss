@@ -75,7 +75,42 @@ $main-font-color-pur:#790d86;
     margin:1%;
   }
 }
-//.tm-popular-item-img { margin-left: 3px; }
+  /*img list ver2.0 start*/
+.img-list-block{
+  padding:10px 0;
+  position: relative;
+  min-height: 500px;
+  ul:after{
+    content:"";
+    display: block;
+    clear:both;
+  }
+  .img-list-li{
+    width:18.75%;
+    padding:20px 20px 0;
+    height:350px;
+    position:relative;
+    float: left;
+    background:no-repeat;
+    background-size:100% 100%;
+    -moz-transition:box-shadow .3s;
+    -webkit-transition:box-shadow .3s;
+    -o-transition:box-shadow .3s;
+    transition:box-shadow .3s;
+
+    &:hover{
+      -webkit-box-shadow:0 4px 8px rgba(0,0,0,.3);
+      box-shadow:0 4px 8px rgba(0,0,0,.3);
+    }
+  }
+}
+@media screen and (max-width: 1240px){
+
+}
+
+  /*img list ver2.0 end*/
+
+
 /*img list end*/
 
 /*form one row start*/
@@ -176,7 +211,7 @@ $main-font-color-pur:#790d86;
       padding:6px;
       text-decoration: none;
       &:visited{
-        color:#fff;
+        color:#000;
       }
 
     }

@@ -69,32 +69,62 @@
     min-width: 48%;
     padding: 0;
     margin: 1%; } }
+/*img list ver2.0 start*/
+/* line 79, ../sass/compo.scss */
+.img-list-block {
+  padding: 10px 0;
+  position: relative;
+  min-height: 500px; }
+  /* line 83, ../sass/compo.scss */
+  .img-list-block ul:after {
+    content: "";
+    display: block;
+    clear: both; }
+  /* line 88, ../sass/compo.scss */
+  .img-list-block .img-list-li {
+    width: 18.75%;
+    padding: 20px 20px 0;
+    height: 350px;
+    position: relative;
+    float: left;
+    background: no-repeat;
+    background-size: 100% 100%;
+    -moz-transition: box-shadow .3s;
+    -webkit-transition: box-shadow .3s;
+    -o-transition: box-shadow .3s;
+    transition: box-shadow .3s; }
+    /* line 101, ../sass/compo.scss */
+    .img-list-block .img-list-li:hover {
+      -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); }
+
+/*img list ver2.0 end*/
 /*img list end*/
 /*form one row start*/
-/* line 84, ../sass/compo.scss */
+/* line 119, ../sass/compo.scss */
 .t-form-inline .t-form-group {
   display: block;
   line-height: 34px;
   white-space: nowrap; }
-  /* line 88, ../sass/compo.scss */
+  /* line 123, ../sass/compo.scss */
   .t-form-inline .t-form-group .t-inline-dis {
     display: inline-block; }
-  /* line 91, ../sass/compo.scss */
+  /* line 126, ../sass/compo.scss */
   .t-form-inline .t-form-group label {
     display: inline-block; }
-  /* line 95, ../sass/compo.scss */
+  /* line 130, ../sass/compo.scss */
   .t-form-inline .t-form-group input {
     height: 22px;
     width: 100%;
     line-height: 22px;
     display: inline-block; }
-  /* line 101, ../sass/compo.scss */
+  /* line 136, ../sass/compo.scss */
   .t-form-inline .t-form-group select {
     width: 95%;
     display: inline-block; }
 
 @media (min-width: 601px) {
-  /* line 109, ../sass/compo.scss */
+  /* line 144, ../sass/compo.scss */
   .t-form-inline {
     display: -webkit-box;
     display: -moz-box;
@@ -102,26 +132,26 @@
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex; }
-    /* line 116, ../sass/compo.scss */
+    /* line 151, ../sass/compo.scss */
     .t-form-inline .t-form-group {
       -webkit-box-flex: 1;
       -moz-box-flex: 1;
       /*box-flex: 1;*/
       flex: 1; } }
 /*form one row start*/
-/* line 126, ../sass/compo.scss */
+/* line 161, ../sass/compo.scss */
 .title-with-line {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   margin: 0 20px; }
-  /* line 132, ../sass/compo.scss */
+  /* line 167, ../sass/compo.scss */
   .title-with-line .inner-title {
     color: #790d86;
     padding: 0 30px 0 10px;
     line-height: 43px; }
-  /* line 137, ../sass/compo.scss */
+  /* line 172, ../sass/compo.scss */
   .title-with-line .inner-line {
     height: 2px;
     padding: 0;
@@ -129,14 +159,14 @@
     background: #790d86; }
 
 @media (max-width: 466px) {
-  /* line 145, ../sass/compo.scss */
+  /* line 180, ../sass/compo.scss */
   .title-with-line {
     display: block; }
 
-  /* line 148, ../sass/compo.scss */
+  /* line 183, ../sass/compo.scss */
   .inner-line {
     margin-top: 0; } }
-/* line 153, ../sass/compo.scss */
+/* line 188, ../sass/compo.scss */
 .divine-usage-msg {
   padding: 10px;
   margin: 20px 0;
@@ -146,26 +176,26 @@
   zoom: 1;
   border: 1px solid #790d86; }
 
-/* line 163, ../sass/compo.scss */
+/* line 198, ../sass/compo.scss */
 .divine-result-wrap {
   height: 550px;
   background: url(../imgs/logo-per.png) no-repeat 50% 50%; }
 
 /*ul li start*/
-/* line 169, ../sass/compo.scss */
+/* line 204, ../sass/compo.scss */
 .ul-horiz {
   list-style: none; }
-  /* line 171, ../sass/compo.scss */
+  /* line 206, ../sass/compo.scss */
   .ul-horiz li {
     display: inline-block;
     margin: 0 13px; }
-    /* line 174, ../sass/compo.scss */
+    /* line 209, ../sass/compo.scss */
     .ul-horiz li a {
       display: block;
       padding: 6px;
       text-decoration: none; }
-      /* line 178, ../sass/compo.scss */
+      /* line 213, ../sass/compo.scss */
       .ul-horiz li a:visited {
-        color: #fff; }
+        color: #000; }
 
 /*ul li end*/
