@@ -45,7 +45,7 @@ app.get('/users', user.list);
 
 /*common-header,common-footer的各种请求*/
 app.get('/index',index.index);
-app.get('/divine',index.divine);
+app.get('/divine',index.divineShowAll);
 
 /*首页的各种请求 start*/
 app.get('/', index.index);

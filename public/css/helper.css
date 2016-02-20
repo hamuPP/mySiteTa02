@@ -17,7 +17,9 @@
 .border-q{
     border:1px solid #eee;
 }
-
+.border-b{
+    border-bottom:1px solid rgba(187, 156, 255, 0.30);
+}
 /*内外补丁*/
 .mt20{
     margin-top: 20px !important;
@@ -48,6 +50,9 @@
 }
 .text-right{
     text-align: right;
+}
+.text-nowrap{
+    white-space: nowrap;
 }
 /*浮动*/
 .fr{

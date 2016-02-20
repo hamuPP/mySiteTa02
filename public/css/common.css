@@ -126,22 +126,24 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     min-width: 48%;
     padding: 0;
     margin: 1%; } }
-/*img list ver2.0 start*/
-/* line 79, ../sass/compo.scss */
+/** img list ver2.0 start
+* expert in (w/h:1/1.6~1.9)list-block in screen which max-width:1000px
+*/
+/* line 81, ../sass/compo.scss */
 .img-list-block {
   padding: 10px 0;
   position: relative;
   min-height: 500px; }
-  /* line 83, ../sass/compo.scss */
+  /* line 85, ../sass/compo.scss */
   .img-list-block ul:after {
     content: "";
     display: block;
     clear: both; }
-  /* line 88, ../sass/compo.scss */
+  /* line 90, ../sass/compo.scss */
   .img-list-block .img-list-li {
     width: 18.75%;
-    padding: 20px 20px 0;
-    height: 350px;
+    margin: 20px 20px 0;
+    height: 340px;
     position: relative;
     float: left;
     background: no-repeat;
@@ -150,38 +152,80 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     -webkit-transition: box-shadow .3s;
     -o-transition: box-shadow .3s;
     transition: box-shadow .3s; }
-    /* line 101, ../sass/compo.scss */
+    /* line 103, ../sass/compo.scss */
     .img-list-block .img-list-li:hover {
       -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); }
+    /* line 107, ../sass/compo.scss */
+    .img-list-block .img-list-li .blur-mask-bottom {
+      background: no-repeat 0% 100%;
+      background-size: 100% auto;
+      height: 50px;
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      -moz-filter: blur(5px);
+      -ms-filter: blur(5px);
+      -webkit-filter: blur(5px);
+      filter: blur(5px); }
 
+@media screen and (max-width: 991px) {
+  /* line 125, ../sass/compo.scss */
+  .img-list-block .img-list-li {
+    width: 20%;
+    height: 255px;
+    margin: 18px 18px 0; } }
+@media screen and (max-width: 741px) {
+  /* line 135, ../sass/compo.scss */
+  .img-list-block .img-list-li {
+    width: 21%;
+    height: 255px;
+    margin: 18px 10px 0; } }
+@media screen and (max-width: 661px) {
+  /* line 144, ../sass/compo.scss */
+  .img-list-block .img-list-li {
+    width: 20%;
+    height: 220px;
+    margin: 18px 10px 0; } }
+@media screen and (max-width: 571px) {
+  /* line 153, ../sass/compo.scss */
+  .img-list-block .img-list-li {
+    width: 24%;
+    height: 200px;
+    margin: 18px 20px 0; } }
+@media screen and (max-width: 435px) {
+  /* line 162, ../sass/compo.scss */
+  .img-list-block .img-list-li {
+    width: 34%;
+    height: 200px;
+    margin: 18px 8% 0; } }
 /*img list ver2.0 end*/
 /*img list end*/
 /*form one row start*/
-/* line 119, ../sass/compo.scss */
+/* line 178, ../sass/compo.scss */
 .t-form-inline .t-form-group {
   display: block;
   line-height: 34px;
   white-space: nowrap; }
-  /* line 123, ../sass/compo.scss */
+  /* line 182, ../sass/compo.scss */
   .t-form-inline .t-form-group .t-inline-dis {
     display: inline-block; }
-  /* line 126, ../sass/compo.scss */
+  /* line 185, ../sass/compo.scss */
   .t-form-inline .t-form-group label {
     display: inline-block; }
-  /* line 130, ../sass/compo.scss */
+  /* line 189, ../sass/compo.scss */
   .t-form-inline .t-form-group input {
     height: 22px;
     width: 100%;
     line-height: 22px;
     display: inline-block; }
-  /* line 136, ../sass/compo.scss */
+  /* line 195, ../sass/compo.scss */
   .t-form-inline .t-form-group select {
     width: 95%;
     display: inline-block; }
 
 @media (min-width: 601px) {
-  /* line 144, ../sass/compo.scss */
+  /* line 203, ../sass/compo.scss */
   .t-form-inline {
     display: -webkit-box;
     display: -moz-box;
@@ -189,26 +233,26 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex; }
-    /* line 151, ../sass/compo.scss */
+    /* line 210, ../sass/compo.scss */
     .t-form-inline .t-form-group {
       -webkit-box-flex: 1;
       -moz-box-flex: 1;
       /*box-flex: 1;*/
       flex: 1; } }
 /*form one row start*/
-/* line 161, ../sass/compo.scss */
+/* line 220, ../sass/compo.scss */
 .title-with-line {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   margin: 0 20px; }
-  /* line 167, ../sass/compo.scss */
+  /* line 226, ../sass/compo.scss */
   .title-with-line .inner-title {
     color: #790d86;
     padding: 0 30px 0 10px;
     line-height: 43px; }
-  /* line 172, ../sass/compo.scss */
+  /* line 231, ../sass/compo.scss */
   .title-with-line .inner-line {
     height: 2px;
     padding: 0;
@@ -216,14 +260,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     background: #790d86; }
 
 @media (max-width: 466px) {
-  /* line 180, ../sass/compo.scss */
+  /* line 239, ../sass/compo.scss */
   .title-with-line {
     display: block; }
 
-  /* line 183, ../sass/compo.scss */
+  /* line 242, ../sass/compo.scss */
   .inner-line {
     margin-top: 0; } }
-/* line 188, ../sass/compo.scss */
+/* line 247, ../sass/compo.scss */
 .divine-usage-msg {
   padding: 10px;
   margin: 20px 0;
@@ -233,55 +277,55 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   zoom: 1;
   border: 1px solid #790d86; }
 
-/* line 198, ../sass/compo.scss */
+/* line 257, ../sass/compo.scss */
 .divine-result-wrap {
   height: 550px;
   background: url(../imgs/logo-per.png) no-repeat 50% 50%; }
 
 /*ul li start*/
-/* line 204, ../sass/compo.scss */
+/* line 263, ../sass/compo.scss */
 .ul-horiz {
   list-style: none; }
-  /* line 206, ../sass/compo.scss */
+  /* line 265, ../sass/compo.scss */
   .ul-horiz li {
     display: inline-block;
     margin: 0 13px; }
-    /* line 209, ../sass/compo.scss */
+    /* line 268, ../sass/compo.scss */
     .ul-horiz li a {
       display: block;
       padding: 6px;
       text-decoration: none; }
-      /* line 213, ../sass/compo.scss */
+      /* line 272, ../sass/compo.scss */
       .ul-horiz li a:visited {
         color: #000; }
 
 /*ul li end*/
 /*vars start*/
 /*vars end*/
-/* line 14, ../sass/common.scss */
+/* line 15, ../sass/common.scss */
 html {
   font-family: "Open Sans","Microsoft YaHei","weiruanyahei",Arial,sans-serif; }
 
-/* line 17, ../sass/common.scss */
+/* line 18, ../sass/common.scss */
 body {
   background: #e4e4e4; }
 
-/* line 20, ../sass/common.scss */
+/* line 21, ../sass/common.scss */
 .wrapper {
   /*background: pink;*/
   overflow: hidden; }
 
-/* line 24, ../sass/common.scss */
+/* line 25, ../sass/common.scss */
 .logo-img {
   background: url(../imgs/logo200.png) no-repeat;
   background-size: 100% 100%; }
 
-/* line 29, ../sass/common.scss */
+/* line 30, ../sass/common.scss */
 .container {
   max-width: 1000px; }
 
 /*header start*/
-/* line 33, ../sass/common.scss */
+/* line 34, ../sass/common.scss */
 .header {
   width: 100%;
   height: 50px;
@@ -290,19 +334,19 @@ body {
   position: absolute;
   top: 0;
   left: 0; }
-  /* line 41, ../sass/common.scss */
+  /* line 42, ../sass/common.scss */
   .header a {
     color: #fff; }
-    /* line 43, ../sass/common.scss */
+    /* line 44, ../sass/common.scss */
     .header a:hover {
       background: #e4e4e4 !important;
       color: #790d86;
       font-weight: bolder; }
-    /* line 48, ../sass/common.scss */
+    /* line 49, ../sass/common.scss */
     .header a:focus {
       background: none !important; }
   @media (max-width: 768px) {
-    /* line 53, ../sass/common.scss */
+    /* line 54, ../sass/common.scss */
     .header .navbar-right {
       float: right;
       text-align: right;
@@ -310,7 +354,7 @@ body {
       margin: 0 -15px 0 0;
       background: black; } }
 
-/* line 64, ../sass/common.scss */
+/* line 65, ../sass/common.scss */
 .IE-notice {
   display: none;
   background: #790d86;
@@ -322,14 +366,14 @@ body {
   padding: 5px; }
 
 /*footer start*/
-/* line 75, ../sass/common.scss */
+/* line 76, ../sass/common.scss */
 .footer {
   width: 100%;
   background: black; }
 
 /*footer end*/
 /*main-content start*/
-/* line 84, ../sass/common.scss */
+/* line 85, ../sass/common.scss */
 .main-content {
   margin: 50px auto;
   padding: 0; }
