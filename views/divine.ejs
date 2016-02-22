@@ -51,14 +51,21 @@
         <div class="img-list-block">
             <ul>
                 <% for(var i =0;i< r.length;i++){ %>
-                <li class="img-list-li" style="background-image:url(../imgs/moon.jpg)">
-                    <div class="blur-mask-bottom" style="background-image:url(../imgs/moon.jpg)">
-
+                <li class="img-list-li" style="background-image:url(<%= r[i].pxBanner %>)">
+                    <div class="blur-mask-bottom" style="background-image:url(<%= r[i].pxBanner %>)"></div>
+                    <div class="tips">
+                        <h5 class="text-center"><%= r[i].pxExpertIn %></h5>
+                        <p class="text-center"><%= r[i].pxSummary %></p>
                     </div>
                 </li>
                 <%}%>
             </ul>
         </div>
+        <ul class="pagination">
+            <li class="disabled"><a href="#">&laquo;</a></li>
+            <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+            <li class=""><a href="#">2 <span class="sr-only">(current)</span></a></li>
+        </ul>
     </section>
     <% include common-footer.ejs%>
 </div>

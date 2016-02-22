@@ -99,6 +99,7 @@ $main-font-color-pur:#790d86;
     -webkit-transition:box-shadow .3s;
     -o-transition:box-shadow .3s;
     transition:box-shadow .3s;
+    cursor: pointer;
 
     &:hover{
       -webkit-box-shadow:0 4px 8px rgba(0,0,0,.3);
@@ -109,14 +110,25 @@ $main-font-color-pur:#790d86;
 //      background:rgba(255,255,255,.8);
       background:no-repeat 0% 100%;
       background-size:100% auto;
-      height: 50px;
+      height: 77px;
       width:100%;
       position:absolute;
       bottom:0;
+      box-shadow: rgba(0,0,0,0.8) 0 -1px 2px;
       -moz-filter:blur(5px);
       -ms-filter:blur(5px);
       -webkit-filter:blur(5px);
       filter:blur(5px);
+    }
+    .tips{
+      position:absolute;
+      bottom:0;
+      z-index:1000;
+      line-height: 1.5;
+      height: 77px;
+      padding:5px 10px;
+      overflow: hidden;
+      box-shadow: rgba(0,0,0,.2) 0 -1px 1px;
     }
   }
 }
