@@ -20,7 +20,7 @@ exports.index = function(req, res){
  */
 exports.divineShowAll = function(req,res){
     var con = db.dbGetCon();
-    con.query("select pxName,pxExpertIn,pxSummary,pxBanner from paixing",function(e,r){
+    con.query("select pxName,pxExpertIn,pxSummary,pxBanner,pxDefaultPaizu from paixing",function(e,r){
         if(e){
             console.log("routes/index 25 Line :"+e);
         }else{
@@ -34,5 +34,11 @@ exports.divineShowAll = function(req,res){
 };
 
 exports.divineDetail = function(req,res){
-    res.render('divineDetail');
+    //console.log("37 line "+req.body.cardsForm+" / "+ req.query.cardsForm+" / "+req.data);
+    var cardsForm = req.query.cardsForm,
+        defaultPaizu = req.query.defaultPaizu;
+    res.render('divineDetail',{
+        "cardsForm":cardsForm,
+        "defaultPaizu":defaultPaizu
+    });
 };

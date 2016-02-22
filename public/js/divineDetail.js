@@ -8,13 +8,25 @@ var c = document.getElementById("canvas"),
 
 /*抽牌*/
 $(function(){
-    $("#take").click(take);
-
+    var pageDatas =
+    $("#take").click(function(){
+        take();
+    });
+    $("#takeDefault").click(function(){
+        take("default");
+    });
 });
 
-function take(){
-    datas = $("form").serialize();
-    initTakingCards(datas);
+function take(def){
+    if(!def){
+        datas = $("form").serialize();
+    }else{
+        var extrasData = $("#takeDefault").attr("data-extras");
+        console.log(extrasData);
+        datas="paiZu=majorArcana&paiXing=form-oneCard";
+    }
+    console.log(datas);
+//    initTakingCards(datas);
 
 }
 //初始化抽卡界面

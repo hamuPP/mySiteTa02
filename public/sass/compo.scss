@@ -105,12 +105,21 @@ $main-font-color-pur:#790d86;
       -webkit-box-shadow:0 4px 8px rgba(0,0,0,.3);
       box-shadow:0 4px 8px rgba(0,0,0,.3);
     }
+    a{
+      display:block;
+      width: 100%;
+      height: 100%;
+      color:#000;
+      &:visited{
+        color:#000;
+      }
+    }
     .blur-mask-bottom{
 //      position:
 //      background:rgba(255,255,255,.8);
       background:no-repeat 0% 100%;
       background-size:100% auto;
-      height: 77px;
+      height: 87px;
       width:100%;
       position:absolute;
       bottom:0;
@@ -125,10 +134,13 @@ $main-font-color-pur:#790d86;
       bottom:0;
       z-index:1000;
       line-height: 1.5;
-      height: 77px;
+      height: 87px;
       padding:5px 10px;
       overflow: hidden;
       box-shadow: rgba(0,0,0,.2) 0 -1px 1px;
+      h5{
+        font-weight: bold;
+      }
     }
   }
 }
