@@ -3,8 +3,8 @@
  */
 var db = require("./db");
 exports.showPaixing = function(req,res){
-    var pxName = req.query.paiXing;
-    var con = db.dbGetCon();
+    var pxName = req.query.paiXing,
+        con = db.dbGetCon();
     con.query("select * from paixing where pxName=?",[pxName],function(e,row){
         if(e){
             console.log("routes/divineDetail.js 10line : "+e);
