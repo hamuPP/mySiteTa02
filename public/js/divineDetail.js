@@ -21,12 +21,12 @@ function take(def){
     if(!def){
         datas = $("form").serialize();
     }else{
-        var extrasData = $("#takeDefault").attr("data-extras");
-        console.log(extrasData);
-        datas="paiZu=majorArcana&paiXing=form-oneCard";
+        datas = $("#takeDefault").data("extras");
+//        console.log(extrasData);
+//        datas="paiZu=majorArcana&paiXing=form-oneCard";
     }
-    console.log(datas);
-//    initTakingCards(datas);
+    console.log("datas: "+datas);
+    initTakingCards(datas);
 
 }
 //初始化抽卡界面
@@ -35,14 +35,12 @@ function initTakingCards(datas){
 }
 
 function startTakingCars(){
-
 }
 
 /**
  * 根据所选的牌形和牌组，显示结果
  * @param {JSON} datas 里面放paiZu和paiXing
  */
-
 function showCarsForm(datas){
     var resData;
     $.ajax({
@@ -54,16 +52,20 @@ function showCarsForm(datas){
             getCanvasXYWH("canvasWrap","canvas");
             c.setAttribute('width',canvasWidth);
             c.setAttribute('height',canvasHeight);
+            console.log("divineDetail.js 55 line:"+canvasWidth+"  "+canvasHeight);
 
             resData = res;
-            if(data.pxCardSum == 1){/*单牌牌型*/
-                var oneCard = new Image();
-                //oneCard.src = 'http://localhost:88/imgs/moon.jpg';
+//            if(data.pxCardSum == 1){/*单牌牌型*/
+//                var oneCard = new Image();
+//                //oneCard.src = 'http://localhost:88/imgs/moon.jpg';
+//
+//            }else if(data.pxCardSum > 1){/*多牌牌型*/
+//
+//            }
 
-            }else if(data.pxCardSum > 1){/*多牌牌型*/
-
-            }
-
+        },
+        error:function(e){
+            console.log("eee");
         }
     });
 

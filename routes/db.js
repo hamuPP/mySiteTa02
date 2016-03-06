@@ -19,25 +19,21 @@ function dbGetCon(){
 
 //分页查询
 function queryByPage(con,curpage,eachpage,sql,param,func){
-//    console.log("curpage是："+ curpage+"，!curpage是"+!curpage);
-//    console.log("con是："+con+",curpage是"+curpage+",eachpage是"+eachpage+",sql是："+sql+"param是"+param+"func是"+func);
     if(!curpage|| curpage <= 0){
         curpage = 1;
-//        console.log("db中第一个if判断");
-    }else{
-//        console.log("else,curpage是："+ curpage+"，!curpage是"+!curpage);
     }
-//    console.log("db中第一个if判断完毕");
-//    console.log("curpage是："+ curpage);
     if(!func){
         func = param;
         param = [];
-//        console.log("db中第二个if判断");
     }
-//    console.log("db中第二个if判断完");
+    //console.log("db.js 32 line:"+sql+",param: "+param);
+//    con.query(sql,function(e,r,f){
+//        console.log(r);
+//    });
+
     con.query("select count(*) cnt from ("+sql+") t",param,function(e,r,f){
+        console.log("db.js 38line: "+r[0]);
         //获取总数量
-//        console.log("db中con.query");
         var count = r[0].cnt;
         //获取总页码
         var maxpage = Math.ceil(count/eachpage);
@@ -49,6 +45,7 @@ function queryByPage(con,curpage,eachpage,sql,param,func){
         });
         inner_con.end();
     });
+    con.end();
 }
 
 exports.dbGetCon = dbGetCon;

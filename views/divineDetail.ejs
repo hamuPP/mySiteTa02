@@ -40,7 +40,7 @@
             <div class="t-form-group">
                 <label class="col-sm-3 plr0" for="paiZu">所用牌组:</label>
                 <div class="t-inline-dis col-sm-7">
-                    <select name="pai-zu" id="paiZu"  class="">
+                    <select name="paiZu" id="paiZu"  class="">
                         <option value="majorArcana">22张大牌</option>
                         <option value="minorArcana">56张小牌</option>
                         <option value="allCards">全78张牌</option>
@@ -54,14 +54,14 @@
             <div class="t-form-group">
                 <label class="col-sm-3 plr0" for="oneCard">牌形：</label>
                 <div class="t-inline-dis col-sm-7">
-                    <select name="card-form" id="cardForm"  class="">
-                        <option value="form-oneCard">单牌预测</option>
+                    <select name="cardForm" id="cardForm"  class="">
+                        <option value="<%= cardsForm%>"><%= cardsForm%></option>
                     </select>
                 </div>
             </div>
             <div class="t-form-group">
                 <button type="button" id="take" class="btn btn-default">抽牌</button>
-                <button type="button" id="takeDefault" class="btn btn-info" data-extras="{'cardForm':'<%= cardsForm %>','defaultPaizu':'<%= defaultPaizu %>'}">默认</button>
+                <button type="button" id="takeDefault" class="btn btn-info" data-extras="cardForm=<%= cardsForm %>&paiZu=<%= defaultPaizu %>">默认</button>
             </div>
 
 
@@ -79,9 +79,5 @@
 <script src="js/common.js"></script>
 <script src="js/CardsClass.js"></script>
 <script src="js/divineDetail.js"></script>
-<!--<script src="js/indexJS.js"></script>-->
-<script>
-    console.log(<%= cardsForm %>);
-</script>
 </body>
 </html>

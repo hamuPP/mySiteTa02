@@ -16,21 +16,23 @@ exports.index = function(req, res){
     //res.send("hello");
 };
 /**
- * 测算页面的显示全部数据
+ * 测算页面的显示全部数据、分页
  */
 exports.divineShowAll = function(req,res){
-    var con = db.dbGetCon();
-    con.query("select pxName,pxExpertIn,pxSummary,pxBanner,pxDefaultPaizu from paixing",function(e,r){
+    var con = db.dbGetCon(),
+        curpage = req.query.curpage,
+        sql = "select pxName,pxExpertIn,pxSummary,pxBanner,pxDefaultPaizu from paixing";
+    db.queryByPage(con,curpage,8,sql,function(e,r,f,page){
         if(e){
-            console.log("routes/index 25 Line :"+e);
+            console.log("有错误"+e);
         }else{
-            var rows={};
-            rows.r=r;
-            res.render('divine',rows);
-        }
-    });
-    con.end();
 
+            page.r = r;
+            console.log("index.js 29LINE: "+JSON.stringify(page));
+            res.render("divine",page);
+        }
+
+    });
 };
 
 exports.divineDetail = function(req,res){

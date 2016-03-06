@@ -65,9 +65,29 @@
             </ul>
         </div>
         <ul class="pagination">
-            <li class="disabled"><a href="#">&laquo;</a></li>
-            <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-            <li class=""><a href="#">2 <span class="sr-only">(current)</span></a></li>
+            <% if(curpage==1){ %>
+                <li class="disabled"><a href="javascript:;">首页</a></li>
+                <li class="disabled"><a href="javascript:;">上一页</a></li>
+            <% }else{ %>
+                <li class=""><a href="/divine">首页</a></li>
+                <li class=""><a href="/divine?curpage=<%=curpage-1%>">上一页</a></li>
+            <% } %>
+
+            <% for(var i = 0;i<maxpage;i++){ %>
+                <%if(i+1 == curpage){%>
+                    <li class="active"><a href="#"><%=i+1%></a></li>
+                <%}else{ %>
+                    <li class=""><a href="/divine?curpage=<%=i+1%>"><%=i+1%></a></li>
+                <%}%>
+            <% } %>
+
+            <% if(curpage==maxpage){ %>
+                <li class="disabled"><a href="javascript:;">下一页</a></li>
+                <li class="disabled"><a href="javascript:;">尾页</a></li>
+            <% }else{ %>
+                <li class=""><a href="/divine?curpage=<%=curpage+1%>">下一页</a></li>
+                <li class=""><a href="/divine?curpage=<%=maxpage%>">尾页</a></li>
+            <% } %>
         </ul>
     </section>
     <% include common-footer.ejs%>

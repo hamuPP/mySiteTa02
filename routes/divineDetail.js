@@ -3,8 +3,10 @@
  */
 var db = require("./db");
 exports.showPaixing = function(req,res){
-    var pxName = req.query.paiXing,
+    var pxName = req.query.cardForm,
+        paiZu = req.query.paiZu,
         con = db.dbGetCon();
+    console.log("9 line: "+JSON.stringify(req.query)+" , ,"+pxName+"  ,  "+paiZu);
     con.query("select * from paixing where pxName=?",[pxName],function(e,row){
         if(e){
             console.log("routes/divineDetail.js 10line : "+e);

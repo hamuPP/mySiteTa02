@@ -23,8 +23,8 @@ var clientWidth = document.documentElement.clientWidth,
 function getCanvasXYWH(wrapid,canvasid){
     var wrapW = document.getElementById(wrapid).offsetWidth,
         wrapH = document.getElementById(wrapid).offsetHeight;
-        canvasWidth = wrapW;
-        canvasHeight = wrapH;
+    canvasWidth = wrapW;
+    canvasHeight = wrapH;
 };
 
 /**
