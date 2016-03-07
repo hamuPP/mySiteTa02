@@ -2,8 +2,11 @@
  * Created by ty on 2016/2/14.
  */
 
-var c = document.getElementById("canvas"),
+var cAll = document.getElementsByTagName("canvas"),
+    c = document.getElementById("canvas"),
+    c2 = document.getElementById("canvas2"),
     ctx = c.getContext("2d"),
+    ctx2 = c2.getContext("2d"),
     datas = null;
 
 /*抽牌*/
@@ -42,57 +45,47 @@ function startTakingCars(){
  * @param {JSON} datas 里面放paiZu和paiXing
  */
 function showCarsForm(datas){
-    var resData;
     $.ajax({
         url:"/showPaixing",
         type:"get",
         data:datas,
         success:function(res){
+//            console.log("54 line: "+JSON.stringify(res));
+            console.log("55 line: "+(res.cardInfo));
             /*设置画布的宽高*/
             getCanvasXYWH("canvasWrap","canvas");
+            document.getElementById("canvasWrap").style.height=canvasHeight+"px";
             c.setAttribute('width',canvasWidth);
             c.setAttribute('height',canvasHeight);
-            //console.log("divineDetail.js 55 line:"+canvasWidth+"  "+canvasHeight);
-            //console.log("divineDetail.js 56 Line:"+JSON.stringify(res));
-            resData = res;
+            c2.setAttribute('width',canvasWidth);
+            c2.setAttribute('height',canvasHeight);
             var h = res.pxEachCardH,
                 w = res.pxEachCardW,
                 x = res.pxEachCardX.split(","),
                 y = res.pxEachCardY.split(",");
             /*显示的牌形的摆放位置*/
-           // console.log(res.pxCardSum);
             for(var i =0;i< res.pxCardSum;i++){
-               // console.log(h,w,x[i],y[i],canvasWidth,canvasHeight,ctx);
-                var singleCard = new BaseCard(h,w,x[i],y[i],canvasWidth,canvasHeight,ctx);
+                var singleCard = new BaseCard(h,w,x[i],y[i],canvasWidth,canvasHeight,ctx,"../imgs/card-back-side.jpg"),
+                    singleCard2 = new BaseCard(h,w,x[i],y[i],canvasWidth,canvasHeight,ctx2,res.cardInfo[i].cardSrc);
                 singleCard.put();
+                singleCard2.put();
             }
+            c2.style.transition = "all .1s ease-in-out 0s";
+            c2.style.transform = "scale(-1,1)";
+            var openCardBtn = document.getElementById("openCardBtn");
 
-//            if(data.pxCardSum == 1){/*单牌牌型*/
-//                var oneCard = new Image();
-//                //oneCard.src = 'http://localhost:88/imgs/moon.jpg';
-//
-//            }else if(data.pxCardSum > 1){/*多牌牌型*/
-//
-//            }
-
+            openCardBtn.style.display="block";
+            openCardBtn.addEventListener("click",function(){
+                c.style.transform = "scale(-1,1)";
+                c.style.opacity = "0";
+                c2.style.transition = "all .3s ease-in-out 0s";
+                c2.style.transform = "scale(1,1)";
+                c2.style.opacity = "1";
+            },false);
         },
         error:function(e){
             console.log("error");
         }
     });
 
-
-//    var oneCard = new Image(),
-//        secondCard = new Image();
-//
-//    oneCard.src = 'http://localhost:88/imgs/moon.jpg';
-//    //oneCard.src = "http://xinmi.oss-cn-shenzhen.aliyuncs.com/banner/2015-11-10/L7Z1Bpe4c3HZQM4a.jpg";
-//    //secondCard.src = "http://images.cnblogs.com/cnblogs_com/html5test/359114/r_test.jpg";
-////    if(oneCard.complete){}
-//    oneCard.onload=function(){
-//        ctx.drawImage(oneCard,0,0,80,100);
-//    };
-
-
-//    ctx.drawImage(secondCard,120,0,50,80);
 }

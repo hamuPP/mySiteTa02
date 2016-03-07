@@ -4,8 +4,6 @@
  * 抽牌的相关CANVAS的自定义对象
  */
 
-//var bgCtx = document.getElementById("bg").getContext("2d");
-
 /**
  *卡牌的父类
  * @param {Number} height 卡牌高度
@@ -13,28 +11,28 @@
  * @param {Boolean} open 默认是false，就是未翻开
  * @param {Number} x 卡牌左边距离
  * @param {Number} y 卡牌上边距离
- * @param ctx 画笔 默认是JS获得的画笔，而不是jQ的
+ * @param  canvasWidth 画布宽
+ * @param canvasHeight 画布高
+ * @param ctx 画笔 需传入JS获得的画笔，而不是jQ的
+ * @param src 图片路径
  * @author tangyue
  */
-function BaseCard (height,width,x,y,canvasWidth,canvasHeight,ctx,open){
+function BaseCard (height,width,x,y,canvasWidth,canvasHeight,ctx,src,open){
     this.height = height;
     this.width = width;
     this.x = x? x:0;
     this.y = y? y:0;
+    this.src = src;
     this.open = open?open:false;//卡牌默认未翻开
     /*根据每张牌的宽高 xy坐标将其画出来*/
     this.put=function(){
-        //console.log("cardClass.js 26 Line:"+this.height+"/"+this.width+"/"+this.x+"/"+this.y+"/"+this.open);
         var img = new Image();
-        img.src="../imgs/card-back-side.jpg";
-//        img.onload = function() {
-            console.log("x:"+canvasWidth*this.x+",y:"+this.y+"/"+canvasHeight*this.y+" , w:"+canvasWidth * this.width+" ,h: "+canvasHeight * this.height);
-            ctx.drawImage(img, canvasWidth*this.x, canvasWidth*this.y, canvasWidth * this.width, canvasHeight * this.height);
-//        }
+        img.src = this.src;
+        img.onload = function() {
+            ctx.drawImage(img, canvasWidth*(x?x:0), canvasWidth*(y? y:0), canvasWidth*width, canvasHeight*height);
+        };
     };
-    this.openCard = function(){
-        console.log("翻牌的动画。他妈的我还没有写");
-    }
+
 };
 
 /**

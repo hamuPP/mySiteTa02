@@ -22,7 +22,7 @@ var clientWidth = document.documentElement.clientWidth,
     canvasHeight;
 function getCanvasXYWH(wrapid,canvasid){
     var wrapW = document.getElementById(wrapid).offsetWidth,
-        wrapH = document.getElementById(wrapid).offsetHeight;
+        wrapH = wrapW*0.6;/*考虑到画布的宽高是定比例的*/
     canvasWidth = wrapW;
     canvasHeight = wrapH;
 };

@@ -246,23 +246,23 @@
 
 /* line 281, ../sass/compo.scss */
 .divine-result-wrap {
-  height: 550px;
+  position: relative;
   background: url(../imgs/logo-per.png) no-repeat 50% 50%; }
 
 /*ul li start*/
-/* line 287, ../sass/compo.scss */
+/* line 288, ../sass/compo.scss */
 .ul-horiz {
   list-style: none; }
-  /* line 289, ../sass/compo.scss */
+  /* line 290, ../sass/compo.scss */
   .ul-horiz li {
     display: inline-block;
     margin: 0 13px; }
-    /* line 292, ../sass/compo.scss */
+    /* line 293, ../sass/compo.scss */
     .ul-horiz li a {
       display: block;
       padding: 6px;
       text-decoration: none; }
-      /* line 296, ../sass/compo.scss */
+      /* line 297, ../sass/compo.scss */
       .ul-horiz li a:visited {
         color: #000; }
 

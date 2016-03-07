@@ -14,15 +14,21 @@
     <link rel="stylesheet" href="css/common.css"/>
     <title>预测</title>
     <style>
-        /*.wrapper {*/
-            /*background: pink;*/
-            /*overflow: hidden;*/
-        /*}*/
-
-        /*.logo-img {*/
-            /*background: url(imgs/logo200.png) no-repeat;*/
-            /*background-size: 100% 100%;*/
-        /*}*/
+        canvas{
+            -webkit-transition:.3s;
+            -moz-transition:.3s;
+            transition:all .3s ease-in-out 0s;
+            position: absolute;
+            left:0;
+            topo:0;
+        }
+        #canvas{
+            z-index:9;
+        }
+        #canvas2{
+            z-index:10;
+            opacity: 0;
+        }
     </style>
 </head>
 <body>
@@ -68,8 +74,10 @@
         </form>
         <% include divine-usage-msg.ejs %>
         <div class="row divine-result-wrap" id="canvasWrap">
-           <canvas id="canvas"></canvas>
+           <canvas id="canvas" ></canvas>
+           <canvas id="canvas2"></canvas>
         </div>
+        <button class="btn btn-info " id="openCardBtn" style="margin:10px auto;padding:10px 60px;display: none;">翻开</button>
 
     </section>
     <% include common-footer.ejs %>
