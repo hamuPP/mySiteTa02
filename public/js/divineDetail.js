@@ -25,7 +25,7 @@ function take(def){
 //        console.log(extrasData);
 //        datas="paiZu=majorArcana&paiXing=form-oneCard";
     }
-    console.log("datas: "+datas);
+    //console.log("divineDetail.js 28 Line: datas: "+datas);
     initTakingCards(datas);
 
 }
@@ -52,9 +52,21 @@ function showCarsForm(datas){
             getCanvasXYWH("canvasWrap","canvas");
             c.setAttribute('width',canvasWidth);
             c.setAttribute('height',canvasHeight);
-            console.log("divineDetail.js 55 line:"+canvasWidth+"  "+canvasHeight);
-
+            //console.log("divineDetail.js 55 line:"+canvasWidth+"  "+canvasHeight);
+            //console.log("divineDetail.js 56 Line:"+JSON.stringify(res));
             resData = res;
+            var h = res.pxEachCardH,
+                w = res.pxEachCardW,
+                x = res.pxEachCardX.split(","),
+                y = res.pxEachCardY.split(",");
+            /*显示的牌形的摆放位置*/
+           // console.log(res.pxCardSum);
+            for(var i =0;i< res.pxCardSum;i++){
+               // console.log(h,w,x[i],y[i],canvasWidth,canvasHeight,ctx);
+                var singleCard = new BaseCard(h,w,x[i],y[i],canvasWidth,canvasHeight,ctx);
+                singleCard.put();
+            }
+
 //            if(data.pxCardSum == 1){/*单牌牌型*/
 //                var oneCard = new Image();
 //                //oneCard.src = 'http://localhost:88/imgs/moon.jpg';
@@ -65,21 +77,21 @@ function showCarsForm(datas){
 
         },
         error:function(e){
-            console.log("eee");
+            console.log("error");
         }
     });
 
 
-    var oneCard = new Image(),
-        secondCard = new Image();
-
-    oneCard.src = 'http://localhost:88/imgs/moon.jpg';
-    //oneCard.src = "http://xinmi.oss-cn-shenzhen.aliyuncs.com/banner/2015-11-10/L7Z1Bpe4c3HZQM4a.jpg";
-    //secondCard.src = "http://images.cnblogs.com/cnblogs_com/html5test/359114/r_test.jpg";
-//    if(oneCard.complete){}
-    oneCard.onload=function(){
-        ctx.drawImage(oneCard,0,0,80,100);
-    };
+//    var oneCard = new Image(),
+//        secondCard = new Image();
+//
+//    oneCard.src = 'http://localhost:88/imgs/moon.jpg';
+//    //oneCard.src = "http://xinmi.oss-cn-shenzhen.aliyuncs.com/banner/2015-11-10/L7Z1Bpe4c3HZQM4a.jpg";
+//    //secondCard.src = "http://images.cnblogs.com/cnblogs_com/html5test/359114/r_test.jpg";
+////    if(oneCard.complete){}
+//    oneCard.onload=function(){
+//        ctx.drawImage(oneCard,0,0,80,100);
+//    };
 
 
 //    ctx.drawImage(secondCard,120,0,50,80);
