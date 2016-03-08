@@ -27,7 +27,7 @@ function BaseCard (height,width,x,y,canvasWidth,canvasHeight,ctx,src,open){
     /*根据每张牌的宽高 xy坐标将其画出来*/
     this.put=function(){
         var img = new Image();
-        img.src = this.src;
+        img.src = src;
         img.onload = function() {
             ctx.drawImage(img, canvasWidth*(x?x:0), canvasWidth*(y? y:0), canvasWidth*width, canvasHeight*height);
         };

@@ -9,6 +9,8 @@ var cAll = document.getElementsByTagName("canvas"),
     ctx2 = c2.getContext("2d"),
     datas = null;
 
+var openCardBtn = document.getElementById("openCardBtn");
+
 /*抽牌*/
 $(function(){
     /*设置画布的宽高*/
@@ -35,7 +37,7 @@ function take(def){
 //初始化抽卡界面
 function initTakingCards(datas){
    // console.log("37 line");
-    //resetCanvas(c,c2,ctx,ctx2);
+    resetCanvas(c,c2,ctx,ctx2);
     showCarsForm(datas);//初始化后就可以执行具体的抽卡行为了
 }
 
@@ -59,14 +61,14 @@ function showCarsForm(datas){
                 y = res.pxEachCardY.split(",");
             /*显示的牌形的摆放位置*/
             for(var i =0;i< res.pxCardSum;i++){
-                var singleCard = new BaseCard(h,w,x[i],y[i],wrapW,wrapH,ctx,"../imgs/card-back-side.jpg"),
+                var singleCard = new BaseCard(h,w,x[i],y[i],wrapW,wrapH,ctx,"http://localhost:88/imgs/card-back-side.jpg"),
                     singleCard2 = new BaseCard(h,w,x[i],y[i],wrapW,wrapH,ctx2,res.cardInfo[i].cardSrc);
                 singleCard.put();
                 singleCard2.put();
             }
             c2.style.transition = "all .1s ease-in-out 0s";
             c2.style.transform = "scale(-1,1)";
-            var openCardBtn = document.getElementById("openCardBtn");
+
             openCardBtn.style.display="block";
             openCardBtn.addEventListener("click",function(){
                 c.style.transform = "scale(-1,1)";
@@ -74,7 +76,7 @@ function showCarsForm(datas){
                 c2.style.transition = "all .3s ease-in-out 0s";
                 c2.style.transform = "scale(1,1)";
                 c2.style.opacity = "1";
-               // showResultTable(datas,res);
+                showResultTable(datas,res);
             },false);
 
 
@@ -108,7 +110,6 @@ if(getCookie("divineUsageMsgNoNotify")){
  * @param {JSON} res 是ajax返回信息，用于填充表格内容
  */
 function showResultTable(data,res){
-    console.log(data);
     var table = document.getElementById("resultExplainTable"),
         selectedPaiZu=document.getElementById("selectedPaiZu"),
         selectedCardForm=document.getElementById("selectedCardForm"),
@@ -127,7 +128,7 @@ function showResultTable(data,res){
             "<tr>";
     }
     tbody.innerHTML = str;
-//cardForm Paizu
     table.style.display="block";
 
 }
+
