@@ -78,7 +78,22 @@
            <canvas id="canvas2"></canvas>
         </div>
         <button class="btn btn-info " id="openCardBtn" style="margin:10px auto;padding:10px 60px;display: none;">翻开</button>
-
+        <div class="panel panel-info" id="resultExplain">
+            <div class="panel-heading">
+                <h3 class="panel-title">测算释义：</h3>
+            </div>
+            <div>
+                <table id="resultExplainTable" class="table table-bordered">
+                    <tr>
+                        <th>所选牌组：</th>
+                        <th id="selectedPaiZu"></th>
+                        <th>所选牌形：</th>
+                        <th id="selectedCardForm"></th>
+                    </tr>
+                    <tbody id="tbody"></tbody>
+                </table>
+            </div>
+        </div>
     </section>
     <% include common-footer.ejs %>
 </div>

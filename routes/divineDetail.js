@@ -12,7 +12,7 @@ exports.showPaixing = function(req,res){
             console.log("routes/divineDetail.js 10line : "+e);
         }else{
             var innerCon = db.dbGetCon();
-            console.log("15 line:"+row[0].pxCardSum);
+//            console.log("15 line:"+row[0].pxCardSum);
             innerCon.query("SELECT * FROM card WHERE id >= ((SELECT MAX(id) FROM card)-(SELECT MIN(id) FROM card)) * RAND() + (SELECT MIN(id) FROM card)  LIMIT ?",row[0].pxCardSum,function(e,innerRow){
                 if(e){
                     console.log("18 Line: "+e);
