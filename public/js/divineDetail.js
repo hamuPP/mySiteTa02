@@ -8,6 +8,7 @@ var cAll = document.getElementsByTagName("canvas"),
     ctx = c.getContext("2d"),
     ctx2 = c2.getContext("2d"),
     datas = null;
+var clickedDefaultBtn = false;
 
 var openCardBtn = document.getElementById("openCardBtn");
 
@@ -16,10 +17,16 @@ $(function(){
     /*设置画布的宽高*/
     getCanvasXYWH("canvasWrap",["canvas","canvas2"]);
     $("#take").click(function(){
-        take();
+        if(!clickedDefaultBtn){
+            take();
+        }else{
+            alert(123);
+        }
+
     });
     $("#takeDefault").click(function(){
         take("default");
+        clickedDefaultBtn = true;
     });
 });
 
@@ -58,11 +65,13 @@ function showCarsForm(datas){
             var h = res.pxEachCardH,
                 w = res.pxEachCardW,
                 x = res.pxEachCardX.split(","),
-                y = res.pxEachCardY.split(",");
+                y = res.pxEachCardY.split(","),
+                text = res.pxPositionMeaning.split(/#/g);
+
             /*显示的牌形的摆放位置*/
             for(var i =0;i< res.pxCardSum;i++){
-                var singleCard = new BaseCard(h,w,x[i],y[i],wrapW,wrapH,ctx,"http://localhost:88/imgs/card-back-side.jpg"),
-                    singleCard2 = new BaseCard(h,w,x[i],y[i],wrapW,wrapH,ctx2,res.cardInfo[i].cardSrc);
+                var singleCard = new BaseCard(h,w,x[i],y[i],wrapW,wrapH,ctx,"http://localhost:88/imgs/card-back-side.jpg",(i+1)+"."+text[i]),
+                    singleCard2 = new BaseCard(h,w,x[i],y[i],wrapW,wrapH,ctx2,res.cardInfo[i].cardSrc,(i+1)+".");
                 singleCard.put();
                 singleCard2.put();
             }
@@ -71,6 +80,7 @@ function showCarsForm(datas){
 
             openCardBtn.style.display="block";
             openCardBtn.addEventListener("click",function(){
+                clickedDefaultBtn = false;
                 c.style.transform = "scale(-1,1)";
                 c.style.opacity = "0";
                 c2.style.transition = "all .3s ease-in-out 0s";
@@ -115,7 +125,7 @@ function showResultTable(data,res){
         selectedCardForm=document.getElementById("selectedCardForm"),
         tbody = document.getElementById("tbody"),
         str = "",
-        pxPositionMeaningArr = res.pxPositionMeaning.split(",");
+        pxPositionMeaningArr = res.pxPositionMeaning.split(/#/);
 
     selectedPaiZu.innerHTML = getUrlParam("paiZu",data);
     selectedCardForm.innerHTML = getUrlParam("cardForm",data);
@@ -124,7 +134,8 @@ function showResultTable(data,res){
         str += "<tr>"+
                 "<td>第"+(i+1)+"张牌:</td>"+
                 "<td>"+pxPositionMeaningArr[i]+"</td>"+
-                "<td>"+res.cardInfo[i].cardName+"</td>"+
+                "<td>"+res.cardInfo[i].cardName+"：</td>"+
+                "<td>"+res.cardInfo[i].cardSummary+"</td>"+
             "<tr>";
     }
     tbody.innerHTML = str;

@@ -15,22 +15,34 @@
  * @param canvasHeight 画布高
  * @param ctx 画笔 需传入JS获得的画笔，而不是jQ的
  * @param src 图片路径
+ * @param {String}text 显示在每张图下方的文字
  * @author tangyue
  */
-function BaseCard (height,width,x,y,canvasWidth,canvasHeight,ctx,src,open){
+function BaseCard (height,width,x,y,canvasWidth,canvasHeight,ctx,src,text,open){
     this.height = height;
     this.width = width;
     this.x = x? x:0;
     this.y = y? y:0;
     this.src = src;
+    this.text = text;
     this.open = open?open:false;//卡牌默认未翻开
     /*根据每张牌的宽高 xy坐标将其画出来*/
     this.put=function(){
         var img = new Image();
         img.src = src;
         img.onload = function() {
-            ctx.drawImage(img, canvasWidth*(x?x:0), canvasWidth*(y? y:0), canvasWidth*width, canvasHeight*height);
+            ctx.drawImage(img, canvasWidth*x, canvasHeight*y, canvasWidth*width, canvasHeight*height);
+            ctx.font = "1.2rem Open Sans,Microsoft YaHei,weiruanyahei,Arial,sans-serif";
+            /*描边*/
+            ctx.lineWidth = 3;
+            ctx.textBaseline = "top";
+            ctx.strokeStyle ="#fff";
+            ctx.strokeText(text, canvasWidth*x, canvasHeight*y+canvasHeight*height);
+            ctx.fillStyle = "#790d86";
+            ctx.fillText(text, canvasWidth*x, canvasHeight*y+canvasHeight*height);
+
         };
+
     };
 
 };
