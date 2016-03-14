@@ -21,17 +21,18 @@ exports.index = function(req, res){
 exports.divineShowAll = function(req,res){
     var con = db.dbGetCon(),
         curpage = req.query.curpage,
-        sql = "select pxName,pxExpertIn,pxSummary,pxBanner,pxDefaultPaizu from paixing";
+        cardSum = req.query.cardSum,
+        sql = "select pxName,pxCardSum,pxExpertIn,pxSummary,pxBanner,pxDefaultPaizu from paixing";
     db.queryByPage(con,curpage,8,sql,function(e,r,f,page){
         if(e){
             console.log("有错误"+e);
         }else{
 
             page.r = r;
+            page.cardSum = cardSum;
             console.log("index.js 29LINE: "+JSON.stringify(page));
             res.render("divine",page);
         }
-
     });
 };
 

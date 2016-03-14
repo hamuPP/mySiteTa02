@@ -1,40 +1,31 @@
-/**
- * Created by ty on 2016/2/19.
- */
-function showAll(){
+/*根据后台返回的cardSum值，给第一个ul的li添加active样式*/
+var cardSumUl = document.getElementById("cardSumUl"),
+    cardSumLis = cardSumUl.getElementsByTagName("li"),
+    cardSum = cardSumUl.dataset.cardsum ||cardSumUl.dataset.cardSum,
+    activeCardSumLi=null;
+switch (cardSum){
+    case 'all':
+        activeCardSumLi=cardSumLis[0];
+        break;
+    case '1':
+        activeCardSumLi=cardSumLis[1];
+        break;
+    case '2':
+        activeCardSumLi=cardSumLis[2];
+        break;
+    case '3':
+        activeCardSumLi=cardSumLis[3];
+        break;
+    case '4~10':
+        activeCardSumLi=cardSumLis[4];
+        break;
+    case '11~':
+        activeCardSumLi=cardSumLis[5];
+        break;
+    default:
+        activeCardSumLi=cardSumLis[0];
+};
+activeCardSumLi.className="active";
 
-}
+/*根据选择张数不同，重新给类别指定递交地址*/
 
-var c =[ { pxName: '圣三角', pxExpertIn: '通用', pxSummary: '适用于各类问题' },
-    { pxName: '心里自测', pxExpertIn: '通用', pxSummary: '适用于各类问题' },
-    { pxName: '吉凶判断',
-        pxExpertIn: '通用',
-        pxSummary: '洗牌、切牌后，冥想1个问题，然后抽牌，根据牌意解读需推测事物的好坏' },
-    { pxName: '每日动向',
-        pxExpertIn: '通用',
-        pxSummary: '洗牌、切牌后，冥想1个问题，然后抽牌，根据牌意解读需推测事物的好坏' },
-    { pxName: '是否判断',
-        pxExpertIn: '通用',
-        pxSummary: '洗牌、切牌后，冥想1个问题，然后抽牌，根据牌意解读需推测事物的好坏' },
-    { pxName: '吉凶判断',
-        pxExpertIn: '通用',
-        pxSummary: '洗牌、切牌后，冥想1个问题，然后抽牌，根据牌意解读需推测事物的好坏' },
-    { pxName: '吉凶判断',
-        pxExpertIn: '通用',
-        pxSummary: '洗牌、切牌后，冥想1个问题，然后抽牌，根据牌意解读需推测事物的好坏' },
-    { pxName: '吉凶判断',
-        pxExpertIn: '通用',
-        pxSummary: '洗牌、切牌后，冥想1个问题，然后抽牌，根据牌意解读需推测事物的好坏' },
-    { pxName: '吉凶判断',
-        pxExpertIn: '通用',
-        pxSummary: '洗牌、切牌后，冥想1个问题，然后抽牌，根据牌意解读需推测事物的好坏' },
-    { pxName: '吉凶判断',
-        pxExpertIn: '通用',
-        pxSummary: '洗牌、切牌后，冥想1个问题，然后抽牌，根据牌意解读需推测事物的好坏' },
-    { pxName: '吉凶判断',
-        pxExpertIn: '通用',
-        pxSummary: '洗牌、切牌后，冥想1个问题，然后抽牌，根据牌意解读需推测事物的好坏' },
-    { pxName: '吉凶判断',
-        pxExpertIn: '通用',
-        pxSummary: '洗牌、切牌后，冥想1个问题，然后抽牌，根据牌意解读需推测事物的好坏' },
-    _locals: [Function: locals] ]

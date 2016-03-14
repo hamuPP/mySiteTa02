@@ -26,24 +26,25 @@
         <div>
             <div class="row mtb15 border-b">
                 <span class="col-xs-2 text-nowrap ">张数 ：</span>
-                <ul class="col-xs-10 ul-horiz">
-                    <li class="active"><a href="">全部</a></li>
-                    <li><a href="">1张</a></li>
-                    <li><a href="">2张</a></li>
-                    <li><a href="">3张</a></li>
-                    <li><a href="">4张~10张</a></li>
-                    <li><a href="">11张以上</a></li>
+                <ul class="col-xs-10 ul-horiz" id="cardSumUl" data-cardSum="<%= cardSum%>">
+                    <li class=""><a href="/divine?cardSum=all">全部</a></li>
+                    <li><a href="/divine?cardSum=1" data-ct="1">1张</a></li>
+                    <li><a href="/divine?cardSum=2" data-ct="2">2张</a></li>
+                    <li><a href="/divine?cardSum=3" data-ct="3">3张</a></li>
+                    <li><a href="/divine?cardSum=4~10" data-ct="4~10">4张~10张</a></li>
+                    <li><a href="/divine?cardSum=11~" data-ct="11~">11张以上</a></li>
                 </ul>
             </div>
             <div class="row mtb15 border-b">
                 <span class="col-xs-2 text-nowrap">类别 ：</span>
                 <ul class="col-xs-10 ul-horiz">
-                    <li class="active"><a href="">通用</a></li>
-                    <li><a href="">爱情</a></li>
-                    <li><a href="">学业</a></li>
-                    <li><a href="">友谊</a></li>
-                    <li><a href="">事业</a></li>
-                    <li><a href="">财运</a></li>
+                    <li class="active"><a href="/divine?cardSum=all&category=">全部</a></li>
+                    <li><a href="/divine?cardSum=all&category=common">通用</a></li>
+                    <li><a href="/divine?cardSum=all&category=love">爱情</a></li>
+                    <li><a href="/divine?cardSum=all&category=study">学业</a></li>
+                    <li><a href="/divine?cardSum=all&category=friendship">友谊</a></li>
+                    <li><a href="/divine?cardSum=all&category=undertaking">事业</a></li>
+                    <li><a href="/divine?cardSum=all&category=money">财运</a></li>
                 </ul>
             </div>
 
