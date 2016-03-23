@@ -26,7 +26,7 @@
         <div>
             <div class="row mtb15 border-b">
                 <span class="col-xs-2 text-nowrap ">张数 ：</span>
-                <ul class="col-xs-10 ul-horiz" id="cardSumUl" data-cardSum="<%= cardSum%>">
+                <ul class="col-xs-10 ul-horiz" id="cardSumUl" data-cardsum="<%= cardSum%>">
                     <li class=""><a href="/divine?cardSum=all">全部</a></li>
                     <li><a href="/divine?cardSum=1" data-ct="1">1张</a></li>
                     <li><a href="/divine?cardSum=2" data-ct="2">2张</a></li>
@@ -37,23 +37,22 @@
             </div>
             <div class="row mtb15 border-b">
                 <span class="col-xs-2 text-nowrap">擅长 ：</span>
-                <ul class="col-xs-10 ul-horiz">
-                    <li class="active"><a href="/divine?cardSum=all&expertIn=通用">全部</a></li>
-                    <li><a href="/divine?cardSum=all&expertIn=通用">通用</a></li>
-                    <li><a href="/divine?cardSum=all&expertIn=爱情">爱情</a></li>
-                    <li><a href="/divine?cardSum=all&expertIn=学业">学业</a></li>
-                    <li><a href="/divine?cardSum=all&expertIn=友谊">友谊</a></li>
-                    <li><a href="/divine?cardSum=all&expertIn=事业">事业</a></li>
-                    <li><a href="/divine?cardSum=all&expertIn=财运">财运</a></li>
+                <ul class="col-xs-10 ul-horiz" id="expertInUl" data-expertin="<%= expertIn%>">
+                    <li ><a href="/divine?cardSum=<%= cardSum%>&expertIn=all">全部</a></li>
+                    <li><a href="/divine?cardSum=<%= cardSum%>&expertIn=通用">通用</a></li>
+                    <li><a href="/divine?cardSum=<%= cardSum%>&expertIn=爱情">爱情</a></li>
+                    <li><a href="/divine?cardSum=<%= cardSum%>&expertIn=学业">学业</a></li>
+                    <li><a href="/divine?cardSum=<%= cardSum%>&expertIn=友谊">友谊</a></li>
+                    <li><a href="/divine?cardSum=<%= cardSum%>&expertIn=事业">事业</a></li>
+                    <li><a href="/divine?cardSum=<%= cardSum%>&expertIn=财运">财运</a></li>
                 </ul>
             </div>
 
         </div>
-
-        <div class="img-list-block">
-            <% if(r.length ==0){%>
+        <% if(r.length ==0){%>
             <% include common-no-data.ejs%>
-            <%}else{%>
+        <%}else{%>
+        <div class="img-list-block">
             <ul>
                 <% for(var i =0;i< r.length;i++){ %>
                 <li class="img-list-li" style="background-image:url(<%= r[i].pxBanner %>)">
@@ -68,33 +67,34 @@
                 </li>
                 <%}%>
             </ul>
-            <%}%>
+
         </div>
-        <ul class="pagination">
-            <% if(curpage==1){ %>
-                <li class="disabled"><a href="javascript:;">首页</a></li>
-                <li class="disabled"><a href="javascript:;">上一页</a></li>
-            <% }else{ %>
-                <li class=""><a href="/divine">首页</a></li>
-                <li class=""><a href="/divine?curpage=<%=curpage-1%>">上一页</a></li>
-            <% } %>
+            <ul class="pagination">
+                <% if(curpage==1){ %>
+                    <li class="disabled"><a href="javascript:;">首页</a></li>
+                    <li class="disabled"><a href="javascript:;">上一页</a></li>
+                <% }else{ %>
+                    <li class=""><a href="/divine">首页</a></li>
+                    <li class=""><a href="/divine?curpage=<%=curpage-1%>">上一页</a></li>
+                <% } %>
 
-            <% for(var i = 0;i<maxpage;i++){ %>
-                <%if(i+1 == curpage){%>
-                    <li class="active"><a href="#"><%=i+1%></a></li>
-                <%}else{ %>
-                    <li class=""><a href="/divine?curpage=<%=i+1%>"><%=i+1%></a></li>
-                <%}%>
-            <% } %>
+                <% for(var i = 0;i<maxpage;i++){ %>
+                    <%if(i+1 == curpage){%>
+                        <li class="active"><a href="#"><%=i+1%></a></li>
+                    <%}else{ %>
+                        <li class=""><a href="/divine?curpage=<%=i+1%>"><%=i+1%></a></li>
+                    <%}%>
+                <% } %>
 
-            <% if(curpage==maxpage){ %>
-                <li class="disabled"><a href="javascript:;">下一页</a></li>
-                <li class="disabled"><a href="javascript:;">尾页</a></li>
-            <% }else{ %>
-                <li class=""><a href="/divine?curpage=<%=curpage+1%>">下一页</a></li>
-                <li class=""><a href="/divine?curpage=<%=maxpage%>">尾页</a></li>
-            <% } %>
-        </ul>
+                <% if(curpage==maxpage){ %>
+                    <li class="disabled"><a href="javascript:;">下一页</a></li>
+                    <li class="disabled"><a href="javascript:;">尾页</a></li>
+                <% }else{ %>
+                    <li class=""><a href="/divine?curpage=<%=curpage+1%>">下一页</a></li>
+                    <li class=""><a href="/divine?curpage=<%=maxpage%>">尾页</a></li>
+                <% } %>
+            </ul>
+        <%}%>
     </section>
     <% include common-footer.ejs%>
 </div>
