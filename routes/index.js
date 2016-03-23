@@ -21,9 +21,18 @@ exports.index = function(req, res){
 exports.divineShowAll = function(req,res){
     var con = db.dbGetCon(),
         curpage = req.query.curpage,
-        cardSum = req.query.cardSum,
-        sql = "select pxName,pxCardSum,pxExpertIn,pxSummary,pxBanner,pxDefaultPaizu from paixing";
-    db.queryByPage(con,curpage,8,sql,function(e,r,f,page){
+        cardSum = req.query.cardSum || 'all',
+        expertIn = req.query.expertIn || '通用',
+        sql,
+        condition=[];
+    if(cardSum == 'all'){
+        sql = "select pxName,pxCardSum,pxExpertIn,pxSummary,pxBanner,pxDefaultPaizu from paixing where pxExpertIn = ?";
+        condition = [expertIn];
+    }else{
+        sql = "select pxName,pxCardSum,pxExpertIn,pxSummary,pxBanner,pxDefaultPaizu from paixing where pxCardSum = ? and pxExpertIn = ?";
+        condition = [cardSum,expertIn];
+    }
+    db.queryByPage(con,curpage,8,sql,condition,function(e,r,f,page){
         if(e){
             console.log("有错误"+e);
         }else{
