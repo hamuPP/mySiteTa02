@@ -88,3 +88,27 @@ body{
   padding:0;
 }
 /*main-content end*/
+
+/*index.ejs start*/
+.background-img-wrap-full{
+  margin:0 auto;
+  background:#eee 0 0 no-repeat;
+  background-size:cover;
+  h1{
+    background:rgba(0,0,0,.9);
+//    padding:5px;
+    margin:50px 20px;
+    font-size:22px;
+    color:#d9d9d9;
+    line-height: 1.4;
+  }
+}
+
+.login-and-reg a{
+  margin:10px 5px;
+  /*background:rgba(44,44,44,.5);*/
+  font-size:20px;
+  //color:#fff;
+  display: block;
+}
+/*index.ejs end*/

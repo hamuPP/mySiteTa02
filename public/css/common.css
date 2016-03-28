@@ -405,3 +405,25 @@ body {
   padding: 0; }
 
 /*main-content end*/
+/*index.ejs start*/
+/* line 93, ../sass/common.scss */
+.background-img-wrap-full {
+  margin: 0 auto;
+  background: #eee 0 0 no-repeat;
+  background-size: cover; }
+  /* line 97, ../sass/common.scss */
+  .background-img-wrap-full h1 {
+    background: rgba(0, 0, 0, 0.9);
+    margin: 50px 20px;
+    font-size: 22px;
+    color: #d9d9d9;
+    line-height: 1.4; }
+
+/* line 107, ../sass/common.scss */
+.login-and-reg a {
+  margin: 10px 5px;
+  /*background:rgba(44,44,44,.5);*/
+  font-size: 20px;
+  display: block; }
+
+/*index.ejs end*/

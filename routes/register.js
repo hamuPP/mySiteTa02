@@ -4,7 +4,7 @@
  */
 var db = require("./db");
 
-exports.index = function(req, res){
+exports.navToRegisterPage = function(req, res){
   //res.sendfile("./public/htmls/index.html");
 
     //res.sendfile("./public/htmls/testEJS.html");
@@ -12,7 +12,7 @@ exports.index = function(req, res){
 //    res.render("test",{
 //        s:"测试文字"
 //    });
-    res.render('index');
+    res.render('register');
     //res.send("hello");
 };
 /**
