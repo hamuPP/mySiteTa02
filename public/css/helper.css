@@ -65,3 +65,25 @@
     color:#fff;
 }
 
+/*BUTTON*/
+.btn-main-pur {
+    color: #fff;
+    background-color: #a95ee1;
+    border-color: #9d4ae1
+}
+
+.btn-main-pur:hover, .btn-main-pur:focus, .btn-main-pur:active, .btn-main-pur.active, .open .dropdown-toggle.btn-main-pur {
+    color: #fff;
+    background-color: #a34ae1;
+    border-color: #9f30e1
+}
+
+.btn-main-pur:active, .btn-main-pur.active, .open .dropdown-toggle.btn-main-pur {
+    background-image: none
+}
+
+.btn-main-pur.disabled, .btn-main-pur[disabled], fieldset[disabled] .btn-main-pur, .btn-main-pur.disabled:hover, .btn-main-pur[disabled]:hover, fieldset[disabled] .btn-main-pur:hover, .btn-main-pur.disabled:focus, .btn-main-pur[disabled]:focus, fieldset[disabled] .btn-main-pur:focus, .btn-main-pur.disabled:active, .btn-main-pur[disabled]:active, fieldset[disabled] .btn-main-pur:active, .btn-main-pur.disabled.active, .btn-main-pur[disabled].active, fieldset[disabled] .btn-main-pur.active {
+    background-color: #a95ee1;
+    border-color: #9d4ae1
+}
+
