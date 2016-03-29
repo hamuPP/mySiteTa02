@@ -64,7 +64,7 @@ msgCloseAlink.onclick = function(){
         }
     }, 30);
 
-    addCookie("divineUsageMsgNoNotify","true",24);
+    addCookie("divineUsageMsgNoNotify","true",24);//24小时内不显示
 
 };
 /**
@@ -96,4 +96,17 @@ function addCookie(objName, objValue, objHours) {//添加cookie
         str += ";expires=" + date.toGMTString();
     }
     document.cookie = str;
+}
+/**
+ * 判断浏览器内核
+ */
+function checkUserAgent(){
+    var agent = window.navigator.userAgent;
+    if(agent.indexOf("MSIE") > -1){
+        var ieVersion = agent.substr(agent.indexOf("MSIE")+5,1);
+        if(ieVersion < 9 ){
+            $("#IENotice").show();
+        }
+    }
+
 }

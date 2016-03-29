@@ -5,7 +5,6 @@
 
 var express = require('express');
 var routes = require('./routes');
-var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
 var product = require('./routes/product');
@@ -16,6 +15,7 @@ var index = require('./routes/index');
 var divineDetail = require('./routes/divineDetail');
 var login = require('./routes/login');
 var register = require('./routes/register');
+var user = require('./routes/user');
 var app = express();
 
 // all environments

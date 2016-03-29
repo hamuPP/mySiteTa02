@@ -28,13 +28,4 @@
     bgImgWraper.style.height=currentWidth*0.75+'px';
 });
 
-function checkUserAgent(){
-    var agent = window.navigator.userAgent;
-    if(agent.indexOf("MSIE") > -1){
-        var ieVersion = agent.substr(agent.indexOf("MSIE")+5,1);
-        if(ieVersion < 9 ){
-            $("#IENotice").show();
-        }
-    }
 
-}

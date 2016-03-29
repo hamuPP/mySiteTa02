@@ -3,7 +3,7 @@
     color: #a95ee1;
 }
 .color-red{
-    color: #d95450;
+    color: #d95450 !important;
 }
 /*背景颜色*/
 .bg-purp-main{
@@ -40,12 +40,17 @@
     padding-left:0;
     padding-right:0;
 }
+.ptbSmall{
+    padding-top:5px !important;
+    padding-bottom:5px !important;
+}
 
 /*字体对齐*/
 
 .text-nowrap{
     white-space: nowrap;
 }
+
 /*浮动*/
 .fr{
     float:right;
