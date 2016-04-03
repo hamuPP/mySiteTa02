@@ -54,19 +54,22 @@ function splitByComma(string){
 
 /*下次不再提示本消息*/
 var msgCloseAlink = document.getElementById("msgClose");
-msgCloseAlink.onclick = function(){
-    var parent = msgCloseAlink.parentNode.parentNode,
-        h = parent.offsetHeight;
-    t = setInterval(function () {
-        if(h>0){
-            h -= 15;
-            parent.style.height = h + "px";
-        }
-    }, 30);
+if(msgCloseAlink){
+    msgCloseAlink.onclick = function(){
+        var parent = msgCloseAlink.parentNode.parentNode,
+            h = parent.offsetHeight;
+        t = setInterval(function () {
+            if(h>0){
+                h -= 15;
+                parent.style.height = h + "px";
+            }
+        }, 30);
 
-    addCookie("divineUsageMsgNoNotify","true",24);//24小时内不显示
+        addCookie("divineUsageMsgNoNotify","true",24);//24小时内不显示
 
-};
+    };
+}
+
 /**
  * 获取指定名称的cookie
  * @param {String} name
