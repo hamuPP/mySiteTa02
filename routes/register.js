@@ -1,9 +1,7 @@
 
-/*
- * GET home page.
- */
 var db = require("./db");
 
+/*点击登录按钮后，跳转到登录页面*/
 exports.navToRegisterPage = function(req, res){
   //res.sendfile("./public/htmls/index.html");
 
@@ -59,5 +57,29 @@ exports.divineDetail = function(req,res){
     res.render('divineDetail',{
         "cardsForm":cardsForm,
         "defaultPaizu":defaultPaizu
+    });
+};
+
+/*注册一个账户到数据库*/
+exports.registerAtDb = function(req,res){
+    console.log("已进入register的register方法");
+    var username = req.body.username;
+    var pwd = req.body.pwd;
+    var email = req.body.emailForValidate;
+    var validateCode = req.body.validateCode;
+    var registerTime = new Date().getTime();
+    var con = db.dbGetCon();
+//    var sql = "select * from t_users where u_name=? and u_pwd=?";
+    var sql = "insert into t_user(u_name,u_pwd,u_email,u_registertime) value(?,?,?,?)";
+//    if(validateCode !== ){
+//
+//    }
+    con.query(sql,[username,pwd,email,registerTime],function(err,rows,fields){
+        if(err){
+            console.log("有错误"+err);
+        }else{
+            res.json({msg:"注册成功"});
+        }
+        con.end();
     });
 };

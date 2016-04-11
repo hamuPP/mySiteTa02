@@ -12,6 +12,7 @@ var nodemailer = require("nodemailer");
 
 // create reusable transporter object using the default SMTP transport
 var transporter = nodemailer.createTransport({
+    pool:true,
     service:'QQ',
     auth:{
         user:"734877275@qq.com",
@@ -31,8 +32,11 @@ exports.sendmail = function(req,res){
     // send mail with defined transport object
     transporter.sendMail(mailOptions, function(error, info){
         if(error){
-            return console.log(error);
+            res.json({msg:error,code:-1});
+        }else{
+            console.log('邮件已发送: ' + info.response);
+            res.json({msg:info.response,code:0});
         }
-        console.log('Message sent: ' + info.response);
+
     });
-}
+};

@@ -62,13 +62,14 @@ app.get('/divineDetail',index.divineDetail);
 app.get('/showPaixing', divineDetail.showPaixing);
 /*测算详页 end*/
 
+/*注册账户到数据库*/
+app.post('/registerAtDb',register.registerAtDb);
+
 //发邮件
 app.get('/sendMail',mail.sendmail);
 
 app.get('/validateUsername',user.validateUsername);
 app.get('/validateEmail',user.validateEmail);
-app.post('/reg', user.reg);
-app.post('/login',user.login);
 app.get('/logout',user.logout);
 
 /*关于产品的查询和显示*/
