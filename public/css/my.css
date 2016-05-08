@@ -1,0 +1,50 @@
+/*history list start*/
+/* line 2, ../sass/my.scss */
+.history-list {
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+/* line 7, ../sass/my.scss */
+.history-list-item:hover {
+  background: #eee;
+  cursor: pointer;
+}
+
+/* line 12, ../sass/my.scss */
+.left-info {
+  width: 105px;
+  height: 120px;
+  display: inline-block;
+  border-right: 1px solid rgba(187, 156, 255, 0.3);
+  position: relative;
+  vertical-align: top;
+  margin-top: 10px;
+}
+
+/* line 21, ../sass/my.scss */
+.history-small-point {
+  position: absolute;
+  top: 0;
+  right: -4px;
+  width: 8px;
+  height: 8px;
+  background: #790d86;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+
+/* line 32, ../sass/my.scss */
+.right-info {
+  margin-left: 20px;
+  display: inline-block;
+}
+
+/* line 36, ../sass/my.scss */
+.media-object {
+  width: 120px;
+  height: 100px;
+}
+
+/*history list end*/

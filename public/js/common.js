@@ -111,5 +111,61 @@ function checkUserAgent(){
             $("#IENotice").show();
         }
     }
-
 }
+checkUserAgent();
+
+/*加载页面时，主动调用getSession*/
+
+$(document).ready(function(){
+    $.ajax({
+        type:"get",
+        url:("/getSession"),
+        success:function(param){
+            if(param.u_name){
+                $("#userName").attr("class","show");
+                $("#logout").attr("class","show");
+                $("#login").attr("class","hide");
+                $("#register").attr("class","hide");
+                $("#userNameText").html(param.u_name);
+            }
+        }
+    });
+
+    //根据浏览器搜索框显示的当前页面的path改变通用头部导航的active状态
+    var currentPath = window.location.pathname.substring(1);
+    switch (currentPath){
+        case "index":
+            $("#headerNavIndex").attr("class","active");
+            break;
+        case "divine":
+            $("#headerNavDivine").attr("class","active");
+            break;
+        case "search":
+            $("#headerNavSearch").attr("class","active");
+            break;
+        case "login":
+            $("#login").attr("class","active");
+            break;
+        case "register":
+            $("#register").attr("class","active");
+            break;
+        default :
+            break;
+
+    }
+
+});
+
+/*退出登录*/
+function logout(){
+    $.ajax({
+        type:"get",
+        url:"/logout",
+        success:function(param){
+                location.reload();
+        },
+        error:function(xhr,type,err){
+            location.reload();
+        }
+    });
+};

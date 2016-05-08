@@ -1,0 +1,56 @@
+{
+  "id": 1,
+  "pxName": "圣三角",
+  "pxCardSum": 3,
+  "pxEachCardX": "0.417,0.2,0.66",
+  "pxEachCardY": "0.01,0.318,0.318",
+  "pxEachCardH": "0.458",
+  "pxEachCardW": "0.165",
+  "pxExpertIn": "通用",
+  "pxSummary": "最适合是非两难选择问题，给出的答案清晰明确。抽出三张牌，依次放在1、2、3的位置上",
+  "pxDetail": null,
+  "pxBanner": "../imgs/justice.png",
+  "pxDefaultPaizu": "全78张牌",
+  "pxPositionMeaning": "代表过去的经验#代表问题的现状#代表对问题将来的预测结果",
+  "cardInfo": [
+    {
+      "id": 10,
+      "cardName": "隐士",
+      "cardNum": 9,
+      "cardSummary": "隐士牌暗示着：省思的一段时间。",
+      "cardCategory": "2",
+      "cardSrc": "http://localhost:1888/imgs/moon.jpg",
+      "cardSrcReverse": "http://localhost:1888/imgs/moonReverse.jpg",
+      "cardRightPosCommon": "隐士牌暗示一段反省的时间。它代表着一段想要让你的过去、现在，以及未来成为有意义的时间。\r\n这张牌代表去看咨商辅导员、持续一段梦想之旅，或为了开发你自己的沉思。它也代表成熟，以及你已\r\n经知道生命中真正重要的是什么。\r\n它可能意味着得到身体或心灵上的协助及智因；或是你帮助其他人发现人生理解及事件的导因。它\r\n也代表一段时间内，你会问自己如下的问题：我从何处来？我现在位于何处？又将往何处去？",
+      "cardRightPosSex": "隐士可能象征着向内心探索的需求，暂时自一个两性关系中退出，以决定你想要什么、要往哪里去 。\r\n或许你正用了比平常更多的时间来疏远两性关系，而将思想更集中于自己身上。\r\n可能你正在协助伴侣，让他（她）对他（她）自己，和他（她）的人生有跟深刻体会。它也可能单\r\n纯智某个处女座的人。当隐士牌出现在两性关系的分析中，代表你更加清楚在某段两性关系中你的独立\r\n性，或是注意到你需要独处，以面对你的内在需求。",
+      "cardReversePos": "倒立的隐士牌有两种可能性。第一，你可能是故意让自己忙的团团转，以免面对改变的要求，或面\r\n对你确实是很寂寞这个事实。因此这里暗示着过长的工作时间，或违反朝九晚五的工作时间。为了避免\r\n和别人有真正的社交接触，你可能会在晚上或周末工作，以填满你的社交时间。例如，萝蓓卡白天在一\r\n家广告代理商担任接待的工作，而为了要填补夜晚寂寥的时光，她每周有四个晚上在一家旅馆的大厅酒\r\n吧工作。这让他不会感到寂寥，但也组织了她向内心的探求，以找出她真正的目的。\r\n可能你需要再回到力量牌，再你愿意让别人亲近你之前，你要先找出你的内在力量。\r\n现在已经到了要停下脚步，并思索你要走向何处，以及为什么要走那条路的时候了。或许你为了要\r\n避免孤独，正要向平凡屈服；或者因为害怕孤单，或害怕你可能要放弃某些东西，所以宁愿选择安逸而\r\n不愿成长。",
+      "isRightPos": false
+    },
+    {
+      "id": 16,
+      "cardName": "魔鬼",
+      "cardNum": 15,
+      "cardSummary": "魔鬼牌代表错以为别无选择",
+      "cardCategory": "2",
+      "cardSrc": "http://localhost:1888/imgs/moon.jpg",
+      "cardSrcReverse": "http://localhost:1888/imgs/moonReverse.jpg",
+      "cardRightPosCommon": "在一般性的占卜中，魔鬼代表一种控制生命的需求。你对与自己的可能性缺乏完整的关照。这张牌\r\n表示在你对生命充满窒碍或无力感，因而渴望对自己及周遭的人有更严密的控制。\r\n魔鬼牌描述的是一种对生命物质化的观点，或像王尔德（Oscar Wilde）所说的：“知道所有东西的\r\n价格，却不知道任何东西的价值。”它可能暗示在某种状况内受到限制，却不愿意去改变。它是一种“\r\n偷鸡摸狗胜过杀人放火”的态度。\r\n在健康的分析上，魔鬼代表膝盖、牙齿方面的问题，或指皮肤过敏。\r\n在事业的分析上，魔鬼可能象征着控制，或并吞的野心。它是一张代表事业成功的牌，因为他将大\r\n多数的注意力都放在最后的结果——金钱。",
+      "cardRightPosSex": null,
+      "cardReversePos": null,
+      "isRightPos": false
+    },
+    {
+      "id": 21,
+      "cardName": "审判",
+      "cardNum": 20,
+      "cardSummary": "审判象征清晰的判断力。",
+      "cardCategory": "2",
+      "cardSrc": "http://localhost:1888/imgs/moon.jpg",
+      "cardSrcReverse": "http://localhost:1888/imgs/moonReverse.jpg",
+      "cardRightPosCommon": null,
+      "cardRightPosSex": null,
+      "cardReversePos": null,
+      "isRightPos": false
+    }
+  ]
+}

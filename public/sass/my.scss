@@ -1,0 +1,40 @@
+/*history list start*/
+.history-list{
+  margin-top:20px;
+  overflow: hidden;
+}
+.history-list-item{
+  &:hover{
+    background:#eee;
+    cursor: pointer;
+  }
+}
+.left-info{
+  width: 105px;
+  height: 120px;
+  display: inline-block;
+  border-right: 1px solid rgba(187,156,255,.3);
+  position: relative;
+  vertical-align: top;
+  margin-top:10px;
+}
+.history-small-point{
+  position: absolute;
+  top:0;
+  right:-4px;
+  width: 8px;
+  height: 8px;
+  background:#790d86;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+.right-info{
+  margin-left:20px;
+  display: inline-block;
+}
+.media-object{
+  width: 120px;
+  height: 100px;
+}
+/*history list end*/

@@ -4,11 +4,7 @@
 ;$(function(){
     var bgImgWraper = document.getElementById("background-img-wrap-full");
 
-    /**
-    * 判断浏览器内核
-    */
 
-    checkUserAgent();
     $("#IENotice a").click(function(e){
         e = e || window.event;
         if(e.stopPropagation){

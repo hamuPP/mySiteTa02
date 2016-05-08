@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.min.js"></script>
+        <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/my.css"/>
+    <title id="title">个人空间</title>
+    <style>
+        .avatar-wrap{
+            border:1px solid green;
+            width:auto;
+        }
+        .avatar{
+            height: 100px;
+            width: 100px;
+            margin:20px auto 5px;
+            display:block;
+            border:2px solid white;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+        }
+        .avatar-name{
+            color:#fff;
+            font-weight: 600;
+            margin:10px 10px 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+
+    <% include common-header.ejs %>
+
+    <div id="IENotice" class="IE-notice" >
+        看到此消息，说明你的浏览器是IE9以下。本站不支持IE9以下，为达到更好浏览效果，请换其他浏览器
+        <a href="javascript:;">关闭提示</a>
+    </div>
+
+    <section class="container main-content ">
+        <div class="row" style="background:#790d86" >
+            <div class="avatar-wrap">
+                <img src="../../imgs/moon.jpg" alt="头像" class="avatar"/>
+                <p id="avatarName" class="avatar-name">头像头像头像头像头像头像</p>
+            </div>
+        </div>
+        <div class="row mtb15">
+            <h3 class="h3"><span class="glyphicon glyphicon-time" style="color:#790d86;"></span> 历史测算记录</h3>
+        </div>
+        <div class="row">
+            <ul class="history-list" id="historyList">
+                <li class="history-list-item" >
+                    <div class="left-info">
+                        <span class="history-small-point"></span>
+                        <span class="history-time">今天 20：31</span>
+                    </div>
+                    <div class="media right-info" >
+                        <a class="pull-left" href="#">
+                            <img src="../imgs/moon.jpg" alt="logo" class="media-object"/>
+                        </a>
+                        <div class="media-body">
+                            <h4 class="media-heading" >生三角 全78张牌</h4>
+                            <p>愚人 魔术师 世界</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="history-list-item" >
+                    <div class="left-info">
+                        <span class="history-small-point"></span>
+                        <span class="history-time">今天 20：31</span>
+                    </div>
+                    <div class="media right-info" >
+                        <a class="pull-left" href="javascript:;">
+                            <img src="../imgs/moon.jpg" alt="logo" class="media-object"/>
+                        </a>
+                        <div class="media-body">
+                            <h4 class="media-heading" >凯尔特狮子 全78张牌</h4>
+                            <p>愚人 魔术师 世界 吊人 战车 战车 权杖ACE 审判</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="history-list-item" >
+                    <div class="left-info">
+                        <span class="history-small-point"></span>
+                        <span class="history-time">今天 20：31</span>
+                    </div>
+                    <div class="media right-info" >
+                        <a class="pull-left" href="javascript:;">
+                            <img src="../imgs/moon.jpg" alt="logo" class="media-object"/>
+                        </a>
+                        <div class="media-body">
+                            <h4 class="media-heading" >生三角 全78张牌</h4>
+                            <p>愚人 魔术师 世界</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </section>
+    <% include common-footer.ejs%>
+    </div>
+    <script src="js/jquery-1.11.2-min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/common.js"></script>
+
+</body>
+</html>

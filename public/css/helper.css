@@ -5,6 +5,9 @@
 .color-red{
     color: #d95450 !important;
 }
+.color-green{
+    color: #008f00 !important;
+}
 /*背景颜色*/
 .bg-purp-main{
     background-color: #a95ee1;
@@ -28,7 +31,8 @@
     margin-top:50px !important;
 }
 .mtb15{
-    margin:15px 0;
+    margin-top:15px;
+    margin-bottom:15px;
 }
 .mtb30{
     margin:30px 0;
@@ -45,10 +49,16 @@
     padding-bottom:5px !important;
 }
 
-/*字体对齐*/
+/*字体*/
 
 .text-nowrap{
     white-space: nowrap;
+}
+.text-nonselect{
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;  
 }
 
 /*浮动*/
@@ -56,17 +66,12 @@
     float:right;
 }
 
-.hide{
-    display:none;
-}
-
-.show{
-    display:block;
-}
-
 /*active  */
 .active{
     background: #a95ee1;
+}
+
+.active a{
     color:#fff;
 }
 

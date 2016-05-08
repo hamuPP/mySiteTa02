@@ -1,7 +1,7 @@
 
 var db = require("./db");
 
-/*点击登录按钮后，跳转到登录页面*/
+/*点击注册按钮后，跳转到注册页面*/
 exports.navToRegisterPage = function(req, res){
   //res.sendfile("./public/htmls/index.html");
 
@@ -13,52 +13,6 @@ exports.navToRegisterPage = function(req, res){
     res.render('register');
     //res.send("hello");
 };
-/**
- * 测算页面的显示全部数据、分页
- */
-exports.divineShowAll = function(req,res){
-    var con = db.dbGetCon(),
-        curpage = req.query.curpage,
-        cardSum = req.query.cardSum || 'all',
-        expertIn = req.query.expertIn || 'all',
-        sql,
-        condition=[];
-    if(cardSum == 'all' && expertIn == 'all'){
-        sql = "select pxName,pxCardSum,pxExpertIn,pxSummary,pxBanner,pxDefaultPaizu from paixing";
-//        condition = [expertIn];
-    }else if(cardSum == 'all'){
-        sql = "select pxName,pxCardSum,pxExpertIn,pxSummary,pxBanner,pxDefaultPaizu from paixing where pxExpertIn = ?";
-        condition = [expertIn];
-    }else if(cardSum != 'all' && expertIn == 'all'){
-        sql = "select pxName,pxCardSum,pxExpertIn,pxSummary,pxBanner,pxDefaultPaizu from paixing where pxCardSum = ? ";
-        condition = [cardSum];
-    }else{
-        sql = "select pxName,pxCardSum,pxExpertIn,pxSummary,pxBanner,pxDefaultPaizu from paixing where pxCardSum = ? and pxExpertIn = ?";
-        condition = [cardSum,expertIn];
-    }
-
-    db.queryByPage(con,curpage,8,sql,condition,function(e,r,f,page){
-        if(e){
-            console.log("有错误"+e);
-        }else{
-            page.r = r;
-            page.cardSum = cardSum;
-            page.expertIn = expertIn;
-            console.log("index.js 29LINE: "+JSON.stringify(page));
-            res.render("divine",page);
-        }
-    });
-};
-
-exports.divineDetail = function(req,res){
-    //console.log("37 line "+req.body.cardsForm+" / "+ req.query.cardsForm+" / "+req.data);
-    var cardsForm = req.query.cardsForm,
-        defaultPaizu = req.query.defaultPaizu;
-    res.render('divineDetail',{
-        "cardsForm":cardsForm,
-        "defaultPaizu":defaultPaizu
-    });
-};
 
 /*注册一个账户到数据库*/
 exports.registerAtDb = function(req,res){
@@ -69,17 +23,72 @@ exports.registerAtDb = function(req,res){
     var validateCode = req.body.validateCode;
     var registerTime = new Date().getTime();
     var con = db.dbGetCon();
-//    var sql = "select * from t_users where u_name=? and u_pwd=?";
-    var sql = "insert into t_user(u_name,u_pwd,u_email,u_registertime) value(?,?,?,?)";
-//    if(validateCode !== ){
-//
-//    }
-    con.query(sql,[username,pwd,email,registerTime],function(err,rows,fields){
+    var searchSql = "select * from t_registerEmailAndTime_test where r_email = ?";
+    var insertSql = "insert into t_user(u_name,u_pwd,u_email,u_registertime) value(?,?,?,?)";
+    var validationCodeErrMSG = "";
+
+    //先检查邮箱与验证码是否与数据库中的匹配，以及是否超过验证码有效时间
+    con.query(searchSql,[email],function(err,rows){
         if(err){
-            console.log("有错误"+err);
+            console.log("routes/register.js 33 Line : "+err);
         }else{
-            res.json({msg:"注册成功"});
+            //有相应邮箱的发送验证码信息
+            if(rows.length > 0){
+                //用户输入验证码与数据库保存的验证码相同，且未超过有效时间
+                if(rows[0]['r_validationCode'] == validateCode &&
+                    (registerTime - rows[0]['r_time']) < 30*60*1000 &&
+                    (registerTime - rows[0]['r_time']) > 0
+                ){
+                    //注册用户信息到数据库
+                    var inner_con = db.dbGetCon();
+                    inner_con.query(insertSql,[username,pwd,email,registerTime],function(err,rows,fields){
+                        if(err){
+                            console.log("routes/register.js 47 Line:注册失败"+ err);
+                        }else{
+                            console.log("routes/register.js 49 Line:注册成功");
+                            //保存session
+                            req.session.user = {
+                                "u_name":username,
+                                "u_pwd":pwd,
+                                "u_email":email
+                            };
+
+                            res.json({msg:"注册成功",code:0});
+                        }
+                    });
+                    inner_con.end();
+
+                }else{
+                    res.json({msg:"验证码错误",code:-1});
+                }
+            }else{//没有向该邮箱发送过验证码
+                res.json({msg:"邮箱与验证码不匹配",code:-1});
+            }
         }
-        con.end();
     });
+    con.end();
+
+};
+
+exports.getSession = function(req,res){
+    var user = req.session.user;
+    if(user){
+        res.json(user);
+    }else{
+        res.json({});
+    }
+};
+
+exports.validateUserName = function(req,res){
+    var user = req.query.username,
+        con = db.dbGetCon(),
+        sql = "select * from t_user where u_name = ?";
+    con.query(sql,[user],function(e,r){
+        if(e){
+            console.log("routes/register.js 88 Line: 验证用户名合法性出错"+ e);
+        }else{
+            res.json(r);
+        }
+    });
+    con.end();
 };

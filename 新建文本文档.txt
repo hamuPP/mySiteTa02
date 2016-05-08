@@ -1,6 +1,10 @@
-�� major arcana
-С�� minor arcaca
+�� major arcana
+С�� minor arcaca
 	suit of CUPS
 		SWORDS
 		PENTACLES
 		WANDS
+
+/*一些通用设定*/
+	后台返回code:
+	-1:错误，0：成功

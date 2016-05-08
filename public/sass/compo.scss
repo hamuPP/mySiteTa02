@@ -296,12 +296,17 @@ $main-font-color-pur:#790d86;
       display: block;
       padding:6px;
       text-decoration: none;
-      &:visited{
-        color:#000;
-      }
+
 
     }
   }
 
 }
 /*ul li end*/
+
+/*text align about label of form */
+form{
+  .control-label{
+    text-align:left !important;
+  }
+}

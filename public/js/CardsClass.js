@@ -27,7 +27,7 @@ function BaseCard (height,width,x,y,canvasWidth,canvasHeight,ctx,src,text,open){
     this.text = text;
     this.open = open?open:false;//卡牌默认未翻开
     /*根据每张牌的宽高 xy坐标将其画出来*/
-    this.put=function(){
+    this.put = function(){
         var img = new Image();
         img.src = src;
         img.onload = function() {

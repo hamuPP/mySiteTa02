@@ -4,6 +4,7 @@
  */
 var db = require("./db");
 
+/*跳转到登录页面*/
 exports.navToLoginPage = function(req, res){
   //res.sendfile("./public/htmls/index.html");
 
@@ -15,49 +16,40 @@ exports.navToLoginPage = function(req, res){
     res.render('login');
     //res.send("hello");
 };
-/**
- * 测算页面的显示全部数据、分页
- */
-exports.divineShowAll = function(req,res){
-    var con = db.dbGetCon(),
-        curpage = req.query.curpage,
-        cardSum = req.query.cardSum || 'all',
-        expertIn = req.query.expertIn || 'all',
-        sql,
-        condition=[];
-    if(cardSum == 'all' && expertIn == 'all'){
-        sql = "select pxName,pxCardSum,pxExpertIn,pxSummary,pxBanner,pxDefaultPaizu from paixing";
-//        condition = [expertIn];
-    }else if(cardSum == 'all'){
-        sql = "select pxName,pxCardSum,pxExpertIn,pxSummary,pxBanner,pxDefaultPaizu from paixing where pxExpertIn = ?";
-        condition = [expertIn];
-    }else if(cardSum != 'all' && expertIn == 'all'){
-        sql = "select pxName,pxCardSum,pxExpertIn,pxSummary,pxBanner,pxDefaultPaizu from paixing where pxCardSum = ? ";
-        condition = [cardSum];
-    }else{
-        sql = "select pxName,pxCardSum,pxExpertIn,pxSummary,pxBanner,pxDefaultPaizu from paixing where pxCardSum = ? and pxExpertIn = ?";
-        condition = [cardSum,expertIn];
-    }
 
-    db.queryByPage(con,curpage,8,sql,condition,function(e,r,f,page){
-        if(e){
-            console.log("有错误"+e);
+/*用户登录*/
+exports.userLogin = function(req,res){
+    var user= req.body.username,
+        pwd = req.body.password,
+        sql = "select * from t_user where u_name = ? and u_pwd = ?",
+        con = db.dbGetCon();
+    con.query(sql,[user,pwd],function(error,rows){
+        if(error){
+            console.log("登录出错+"+error);
         }else{
-            page.r = r;
-            page.cardSum = cardSum;
-            page.expertIn = expertIn;
-            console.log("index.js 29LINE: "+JSON.stringify(page));
-            res.render("divine",page);
+            if(rows.length>0){
+                //注册信息到session
+                req.session.user=rows[0];
+            }
+            res.json(rows);
         }
     });
+    con.end();
+
 };
 
-exports.divineDetail = function(req,res){
-    //console.log("37 line "+req.body.cardsForm+" / "+ req.query.cardsForm+" / "+req.data);
-    var cardsForm = req.query.cardsForm,
-        defaultPaizu = req.query.defaultPaizu;
-    res.render('divineDetail',{
-        "cardsForm":cardsForm,
-        "defaultPaizu":defaultPaizu
-    });
+/*判断是否已经登录*/
+exports.getSession =function(req,res){
+    var user = req.session.user;
+    if(user){
+        res.json(user);
+    }else{
+        res.json({});
+    }
+};
+
+/*退出登录,并刷新当前页面*/
+exports.logout = function(req,res){
+    req.session.user=null;
+    res.json({"code":0});
 };

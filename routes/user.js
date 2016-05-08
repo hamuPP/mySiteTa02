@@ -52,7 +52,7 @@ exports.validateEmail = function(req,res){
 
     });
     con.end();
-}
+};
 
 
 /**注册函数**/
@@ -73,7 +73,7 @@ exports.reg = function(req,res){
         }
         con.end();
     });
-}
+};
 
 /*登录函数*/
 exports.login = function(req,res){
@@ -93,7 +93,7 @@ exports.login = function(req,res){
         }
     });
     con.end()
-}
+};
 
 
 exports.getSession = function(req,res){
@@ -103,9 +103,9 @@ exports.getSession = function(req,res){
     }else{
         res.json({});
     }
-}
+};
 
 exports.logout = function(req,res){
     req.session.user=null;
     res.json({});
-}
+};

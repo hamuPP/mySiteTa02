@@ -10,13 +10,15 @@
             <a class="navbar-brand logo-img" href="#" ></a>
         </div>
         <div class="collapse navbar-collapse no-border" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="/index">首页</a></li>
-                <li><a href="/divine">测算</a></li>
-                <li><a href="#">查询</a></li>
-                <li><a href="/login">登录</a></li>
-                <li><a href="/register">注册</a></li>
-                <li><a href="#">联系作者</a></li>
+            <ul class="nav navbar-nav navbar-right text-nonselect" id="headerNavUl">
+                <li id="headerNavIndex"><a href="/index">首页</a></li>
+                <li id="headerNavDivine"><a href="/divine">测算</a></li>
+                <li id="headerNavSearch"><a href="/search">查询</a></li>
+                <li id="login"><a href="/login">登录</a></li>
+                <li id="register"><a href="/register">注册</a></li>
+
+                <li id="userName" class="hide"><a href="/my" id="userNameText"></a></li>
+                <li id="logout" class="hide"><a href="javascript:logout()">退出</a></li>
             </ul>
 
         </div>
