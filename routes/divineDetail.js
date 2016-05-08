@@ -105,6 +105,27 @@ function halfProbability(arr){
 function _saveUserDivineHistory(sUserName,JSONInfo){
     //不需要查询是否有用户名，直接一条一条往里插就是了
     var con = db.dbGetCon(),
-        sql = "insert t_user  WHERE u_name = "+sUserName,
+        sql = "insert into t_userdivinehistory(udhUserName, udhPxName, udhPxBanner, udhPxEachCardName, udhGenerateTime) value(?,?,?,?,?)",
+        sGenerateTime = new Date().getTime(),
+        aCardInfo =JSONInfo.cardInfo,
+        len = aCardInfo.length,
+        cardName = "",
+        sPxEachCardName = "";
 
+    for(var i = 0; i < len; i++ ){
+        cardName = aCardInfo[i].isRightPos ? aCardInfo[i].cardName : aCardInfo[i].cardName+"(逆位)";
+        sPxEachCardName += cardName+",";
+    }
+
+  //  console.log(pxName);
+    con.query(sql,[sUserName, JSONInfo.pxName, JSONInfo.pxBanner, sPxEachCardName, sGenerateTime],
+        function(err){
+            if(err){
+                console.log("routes/divineDetail.js 124 Line:保存用户测算记录到数据库失败"+ err);
+            }else{
+                console.log("routes/divineDetail.js 126 Line:保存用户测算记录到数据库成功");
+            }
+        }
+    );
+    con.end();
 };

@@ -82,17 +82,15 @@
             <div class="panel-heading">
                 <h3 class="panel-title">本次测算释义：</h3>
             </div>
-            <div>
-                <table id="resultExplainTable" class="table table-bordered">
-                    <tr>
-                        <th>所选牌组：</th>
-                        <th id="selectedPaiZu"></th>
-                        <th>所选牌形：</th>
-                        <th id="selectedCardForm"></th>
-                    </tr>
-                    <tbody id="tbody"></tbody>
-                </table>
-            </div>
+            <table id="resultExplainTable" class="table table-bordered">
+                <tr class="text-nowrap">
+                    <th>所选牌组：</th>
+                    <th id="selectedPaiZu"></th>
+                    <th>所选牌形：</th>
+                    <th id="selectedCardForm"></th>
+                </tr>
+                <tbody id="tbody" style="width:100%;"></tbody>
+            </table>
         </div>
     </section>
     <% include common-footer.ejs %>

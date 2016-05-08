@@ -23,8 +23,8 @@ body{
   overflow: hidden;
 }
 .logo-img{
-  background: url(../imgs/logo200.png) no-repeat;
-  background-size:100% 100%;
+  display: inline-block;
+  height:100%;
 }
 
 .container{
@@ -39,6 +39,12 @@ body{
   position: absolute;
   top:0;
   left:0;
+  & > div{
+    height:100%;
+  }
+  .navbar-header{
+    height:100%;
+  }
   a{
     color:#fff;
     &:hover{
