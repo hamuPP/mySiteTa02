@@ -64,7 +64,7 @@ app.get('/divineDetail',index.divineDetail);
 /*测算详页 start*/
 
 app.get('/showPaixing', divineDetail.showPaixing);
-app.post('/saveUserDivineResult', divineDetail.saveUserDivineResult);
+//app.post('/saveUserDivineResult', divineDetail.saveUserDivineResult);待删
 /*测算详页 end*/
 
 /*注册账户到数据库*/
@@ -86,6 +86,28 @@ app.get("/search",product.search);
 /*详情界面的添加到购物车*/
 
 app.get("/getSession",login.getSession);
+
+/*辅助方法，ejs用的*/
+/*转换毫秒时间到当地时间*/
+app.locals.showYear = function(sDate) {
+  var dDate = new Date(parseInt(sDate));
+
+  return dDate.getFullYear() + "年";
+};
+
+app.locals.showMonthDate = function(sDate) {
+  var dDate = new Date(parseInt(sDate));
+
+  return (dDate.getMonth() < 9 ? "0" : "") + (dDate.getMonth() + 1) + "月" +
+      (dDate.getDate() < 10 ? "0" : "") + dDate.getDate() + "日";
+};
+
+app.locals.showHoursMinutes = function(sDate) {
+  var dDate = new Date(parseInt(sDate));
+
+  return (dDate.getHours() < 10 ? "0" : "") + dDate.getHours() + ":" +
+      (dDate.getMinutes() < 10 ? "0" : "") + dDate.getMinutes();
+};
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

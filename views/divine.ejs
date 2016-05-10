@@ -55,23 +55,22 @@
         <% if(r.length ==0){%>
             <% include common-no-data.ejs%>
         <%}else{%>
-        <div class="img-list-block">
-            <ul>
-                <% for(var i =0;i< r.length;i++){ %>
-                <li class="img-list-li" style="background-image:url(<%= r[i].pxBanner %>)">
-                    <a href="/divineDetail?cardsForm=<%= r[i].pxName %>&defaultPaizu=<%= r[i].pxDefaultPaizu%>" target="_self">
-                        <div class="blur-mask-bottom" style="background-image:url(<%= r[i].pxBanner %>)"></div>
-                        <div class="tips">
-                            <h5 class="text-center"><%= r[i].pxName %></h5>
-                            <p class="text-center"><%= r[i].pxExpertIn %></p>
-                            <p class="text-center"><%= r[i].pxSummary %></p>
-                        </div>
-                    </a>
-                </li>
-                <%}%>
-            </ul>
-
-        </div>
+            <div class="img-list-block">
+                <ul>
+                    <% for(var i =0;i< r.length;i++){ %>
+                    <li class="img-list-li" style="background-image:url(<%= r[i].pxBanner %>)">
+                        <a href="/divineDetail?cardsForm=<%= r[i].pxName %>&defaultPaizu=<%= r[i].pxDefaultPaizu%>" target="_self">
+                            <div class="blur-mask-bottom" style="background-image:url(<%= r[i].pxBanner %>)"></div>
+                            <div class="tips">
+                                <h5 class="text-center"><%= r[i].pxName %></h5>
+                                <p class="text-center"><%= r[i].pxExpertIn %></p>
+                                <p class="text-center"><%= r[i].pxSummary %></p>
+                            </div>
+                        </a>
+                    </li>
+                    <%}%>
+                </ul>
+            </div>
             <ul class="pagination">
                 <% if(curpage==1){ %>
                     <li class="disabled"><a href="javascript:;">首页</a></li>

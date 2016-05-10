@@ -2,15 +2,15 @@
  * Created by ty on 2016/2/14.
  */
 
-var cAll = document.getElementsByTagName("canvas"),
-    c = document.getElementById("canvas"),
+var cAll = document.getElementsByTagName("canvas");/*待删*/
+
+var c = document.getElementById("canvas"),
     c2 = document.getElementById("canvas2"),
     ctx = c.getContext("2d"),
     ctx2 = c2.getContext("2d"),
     datas = null;
-var clickedDefaultBtn = false;
-
-var openCardBtn = document.getElementById("openCardBtn");
+    clickedDefaultBtn = false,
+    openCardBtn = document.getElementById("openCardBtn");
 
 /*抽牌*/
 $(function(){
@@ -31,12 +31,11 @@ $(function(){
 });
 
 function take(def){
-    console.log("25 Line");
     if(!def){
         datas = $("form").serialize();
     }else{
         datas = $("#takeDefault").data("extras");
-        console.log(datas);
+        //console.log(datas);
     }
     initTakingCards(datas);
 };

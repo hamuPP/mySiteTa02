@@ -3,10 +3,29 @@
  * GET home page.
  */
 var db = require("./db");
+var ejs = require('ejs');
 
+/*显示我的页面的用户信息：用户名与测算记录*/
 exports.myPage = function(req, res){
-    res.render('my');
+    var user = req.session.user;
+
+    //若未登陆，跳到登陆页面
+    if(!user){
+        res.render('login');
+        return ;
+    }
+    //若已经登陆，查询用户历史测算记录
+    var userName = user.u_name,
+        con = db.dbGetCon(),
+        curpage = req.query.curpage,
+        sql = "select * from t_userdivinehistory where udhUserName = ? order by udhId desc";
+
+    db.queryByPage(con,curpage,10,sql,[userName],function(e,r,f,page){
+        if(e){
+            console.log("有错误"+e);
+        }else{
+            page.aInfo = r;
+            res.render('my',page);
+        }
+    });
 };
-/**
- * 测算页面的显示全部数据、分页
- */

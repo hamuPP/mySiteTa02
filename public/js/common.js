@@ -122,11 +122,28 @@ $(document).ready(function(){
         url:("/getSession"),
         success:function(param){
             if(param.u_name){
+                var u_name = param.u_name,
+                    u_avararImg = param.u_avatar;
+
                 $("#userName").attr("class","show");
                 $("#logout").attr("class","show");
                 $("#login").attr("class","hide");
                 $("#register").attr("class","hide");
-                $("#userNameText").html(param.u_name);
+                $("#userNameText").html(u_name);
+
+                //若是个人页面，显示名字和头像--放在路由里做，用渲染模板的方式显示
+                //if(window.location.pathname == "/my"){
+                //    var  avatarImg = $("#avatarImg"),
+                //        avatarText = $("#avatarName");
+                //
+                //    avatarText.html(u_name);
+                //
+                //    //若用户未设置头像，则使用默认头像图片
+                //    if(!u_avararImg || u_avararImg == ""){
+                //        u_avararImg = "../../imgs/moon.jpg";
+                //    }
+                //    avatarImg.attr("src",u_avararImg);
+                //}
             }
         }
     });
