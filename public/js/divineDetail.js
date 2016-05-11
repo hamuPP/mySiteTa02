@@ -90,7 +90,7 @@ function showCarsForm(datas){
 
             /*显示的牌形的摆放位置*/
             for(var i = 0, len = res.pxCardSum; i< len; i++){
-                var singleCard = new BaseCard(h,w,x[i],y[i],wrapW,wrapH,ctx,"http://localhost:1888/imgs/card-back-side.jpg",(i+1)+"."+text[i]),
+                var singleCard = new BaseCard(h,w,x[i],y[i],wrapW,wrapH,ctx,"http://www.jusctice.cn/imgs/card-back-side.jpg",(i+1)+"."+text[i]),
                     singleCard2 = null;
 
                 //如果是逆位,则修改cardSrc为逆位的src
