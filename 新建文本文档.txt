@@ -30,3 +30,6 @@ app.js中监听端口号
 /*git忽略上传的内容*/
 app.js----逻辑基本不改了，只有端口号在改，所以不传
 routes/divineDetail.js----逻辑基本不改了，只有数据表在改（本地测试表和真实表），所以不传
+
+
+https://threehundredandsixtysix.wordpress.com/?s=the+star
