@@ -8,7 +8,7 @@ var c = document.getElementById("canvas"),
     c2 = document.getElementById("canvas2"),
     ctx = c.getContext("2d"),
     ctx2 = c2.getContext("2d"),
-    datas = null;
+    datas = null,
     clickedDefaultBtn = false,
     openCardBtn = document.getElementById("openCardBtn");
 
@@ -16,10 +16,13 @@ var c = document.getElementById("canvas"),
 $(function(){
     /*设置画布的宽高*/
     getCanvasXYWH("canvasWrap",["canvas","canvas2"]);
+    //点击“抽牌”按钮，
     $("#take").click(function(){
         if(!clickedDefaultBtn){
+            //未点击“默认”
             take();
         }else{
+            //点击了“默认”，告诉用户先翻开此次结果看看
             alert(123);
         }
 
@@ -77,8 +80,11 @@ function showCarsForm(datas){
             console.log("divineDetail.js 77 line: "+JSON.stringify(res));
 
             if(res.code == -1 ){
-                var table = document.getElementById("resultExplainTable");
-                table.innerHTML = "没有相关信息，请检查输入信息";
+                var canvasWrap = document.getElementById("canvasWrap"),
+                    alertMsg = "<div class='col-xs-12'>" +
+                                "<div class='alert alert-info'>" + res.msg +
+                                "</div></div>";
+                canvasWrap.innerHTML = alertMsg;
                 return ;
             }
 
@@ -90,7 +96,7 @@ function showCarsForm(datas){
 
             /*显示的牌形的摆放位置*/
             for(var i = 0, len = res.pxCardSum; i< len; i++){
-                var singleCard = new BaseCard(h,w,x[i],y[i],wrapW,wrapH,ctx,"http://www.jusctice.cn/imgs/card-back-side.jpg",(i+1)+"."+text[i]),
+                var singleCard = new BaseCard(h,w,x[i],y[i],wrapW,wrapH,ctx,"../imgs/card-back-side.jpg",(i+1)+"."+text[i]),
                     singleCard2 = null;
 
                 //如果是逆位,则修改cardSrc为逆位的src

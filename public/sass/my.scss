@@ -4,6 +4,12 @@
   overflow: hidden;
 }
 .history-list-item{
+  display:-webkit-box;
+  display:-moz-box;
+  display:-webkit-flex;
+  display:-moz-flex;
+  display:-ms-flexbox;
+  display:flex;
   &:hover{
     background:#eee;
     cursor: pointer;
@@ -12,7 +18,7 @@
 .left-info{
   width: 105px;
   height: 120px;
-  display: inline-block;
+  //display: inline-block;
   border-right: 1px solid rgba(187,156,255,.3);
   position: relative;
   vertical-align: top;
@@ -30,8 +36,12 @@
   border-radius: 50%;
 }
 .right-info{
-  margin-left:20px;
-  display: inline-block;
+  padding-left:20px;
+  //display: inline-block;
+  -webkit-box-flex: 1;
+  -moz-box-flex:1;
+  /*box-flex: 1;*/
+  flex:1;
 }
 .media-object{
   width: 120px;

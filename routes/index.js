@@ -52,8 +52,9 @@ exports.divineShowAll = function(req,res){
     });
 };
 
+//显示测算详页面、
 exports.divineDetail = function(req,res){
-    //console.log("37 line "+req.body.cardsForm+" / "+ req.query.cardsForm+" / "+req.data);
+    console.log("57 line "+req.body.cardsForm+" / "+ req.query.cardsForm+" / "+req.data);
     var cardsForm = req.query.cardsForm,
         defaultPaizu = req.query.defaultPaizu;
     res.render('divineDetail',{

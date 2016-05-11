@@ -25,72 +25,74 @@
     </div>
 
     <section class="container main-content">
-
-        <div class="panel panel-default col-xs-8 col-xs-push-2 col-md-6 col-md-push-3 mt50">
-            <div class="panel-heading text-center"><h1 class="h1">注&nbsp;&nbsp;册</h1></div>
-            <div class="panel-body">
-                <form class="form-horizontal" role="form" id="registerForm" onsubmit="return false;">
-                    <div class="form-group">
-                        <label for="username" class="col-sm-2 text-nowrap control-label ptbSmall">用户名</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="username" maxlength="11"
-                                   placeholder="用户名" name="username">
-                            <p id="usernameValidationMSG"></p>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="password" class="col-sm-2 control-label ptbSmall">密码</label>
-                        <div class="col-sm-10">
-                            <input type="password" class="form-control" id="password"  maxlength="11"
-                                   placeholder="密码" name="pwd">
-                            <p ></p>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="passwordAgain" class="col-sm-2 text-nowrap control-label ptbSmall">确认密码</label>
-                        <div class="col-sm-10">
-                            <input type="password" class="form-control" id="passwordAgain"  maxlength="11"
-                                   placeholder="密码" name="pwdAgain">
-                            <p id="pwdAgainMSG"></p>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputEmail" class="col-sm-2 control-label ptbSmall">邮箱</label>
-                        <div class="col-sm-7">
-                            <input type="email" class="form-control" id="inputEmail" placeholder="接收验证码的邮箱" name="emailForValidate">
-                            <p id="emailMSG"></p>
-                        </div>
-                        <div class="col-sm-3">
-                            <button class="btn btn-main-pur" id="sendValidateToEmail">发送验证码</button>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="validateCode" class="col-sm-2 text-nowrap control-label ptbSmall">验证码</label>
-                        <div class="col-sm-10">
-                            <input type="number" class="form-control" id="validateCode" placeholder="验证码"
-                                   name="validateCode" maxlength="6">
-                            <p id="validateCodeMSG"></p>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox"> 记住我
-                                </label>
+        <div class="row">
+            <div class="col-xs-12 col-md-6 col-md-push-3 mt50">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center"><h1 class="h1">注&nbsp;&nbsp;册</h1></div>
+                    <div class="panel-body">
+                        <form class="form-horizontal" role="form" id="registerForm" onsubmit="return false;">
+                            <div class="form-group">
+                                <label for="username" class="col-sm-2 text-nowrap control-label ptbSmall">用户名</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="username" maxlength="11"
+                                           placeholder="用户名" name="username">
+                                    <p id="usernameValidationMSG"></p>
+                                </div>
                             </div>
-                        </div>
+                            <div class="form-group">
+                                <label for="password" class="col-sm-2 control-label ptbSmall">密码</label>
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control" id="password"  maxlength="11"
+                                           placeholder="密码" name="pwd">
+                                    <p ></p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="passwordAgain" class="col-sm-2 text-nowrap control-label ptbSmall">确认密码</label>
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control" id="passwordAgain"  maxlength="11"
+                                           placeholder="密码" name="pwdAgain">
+                                    <p id="pwdAgainMSG"></p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail" class="col-sm-2 control-label ptbSmall">邮箱</label>
+                                <div class="col-sm-7">
+                                    <input type="email" class="form-control" id="inputEmail" placeholder="接收验证码的邮箱" name="emailForValidate">
+                                    <p id="emailMSG"></p>
+                                </div>
+                                <div class="col-sm-3">
+                                    <button class="btn btn-main-pur btn-sm" id="sendValidateToEmail">发送验证码</button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="validateCode" class="col-sm-2 text-nowrap control-label ptbSmall">验证码</label>
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control" id="validateCode" placeholder="验证码"
+                                           name="validateCode" maxlength="6">
+                                    <p id="validateCodeMSG"></p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox"> 记住我
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="button" class="btn btn-default" id="registerBtn">注册</button>
+                                    <p id="registerResultMSG"></p>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="button" class="btn btn-default" id="registerBtn">注册</button>
-                            <p id="registerResultMSG"></p>
-                        </div>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
-
     </section>
     <% include common-footer.ejs%>
     </div>

@@ -5,7 +5,7 @@
 var db = require("./db");
 var ejs = require('ejs');
 
-/*显示我的页面的用户信息：用户名与测算记录*/
+/*显示我的页面的用户信息：用户名、用户头像与测算记录*/
 exports.myPage = function(req, res){
     var user = req.session.user;
 
@@ -24,6 +24,7 @@ exports.myPage = function(req, res){
         if(e){
             console.log("有错误"+e);
         }else{
+            page.user = user;
             page.aInfo = r;
             res.render('my',page);
         }

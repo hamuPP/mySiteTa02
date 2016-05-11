@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/common.css"/>
     <title>登录</title>
-
 </head>
 <body>
     <div class="wrapper">
@@ -25,43 +24,46 @@
     </div>
 
     <section class="container main-content">
-        <div class="panel panel-default col-xs-8 col-xs-push-2 col-md-6 col-md-push-3 mt50">
-            <div class="panel-heading text-center"><h1 class="h1">登&nbsp;&nbsp;录</h1></div>
-            <div class="panel-body">
-                <form class="form-horizontal" role="form" id="loginForm">
-                    <div class="form-group">
-                        <label for="username" class="col-sm-2 text-nowrap control-label ptbSmall">用户名</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="username" maxlength="11" placeholder="用户名" name="username">
-                            <p class="help-block small color-red hide">提示信息 默认隐藏</p>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="password" class="col-sm-2 control-label ptbSmall">密码</label>
-                        <div class="col-sm-10">
-                            <input type="password" class="form-control" id="password"  maxlength="11" placeholder="密码" name="password">
-                            <p class="help-block small color-red hide">提示信息 默认隐藏</p>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox"> 记住我
-                                </label>
+        <div class="row">
+            <div class="col-xs-12 col-md-6 col-md-push-3 mt50">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center"><h1 class="h1">登&nbsp;&nbsp;录</h1></div>
+                    <div class="panel-body">
+                        <form class="form-horizontal" role="form" id="loginForm">
+                            <div class="form-group">
+                                <label for="username" class="col-sm-2 text-nowrap control-label ptbSmall">用户名</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="username" maxlength="11" placeholder="用户名" name="username">
+                                    <p class="help-block small color-red hide">提示信息 默认隐藏</p>
+                                </div>
                             </div>
-                        </div>
+                            <div class="form-group">
+                                <label for="password" class="col-sm-2 control-label ptbSmall">密码</label>
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control" id="password"  maxlength="11" placeholder="密码" name="password">
+                                    <p class="help-block small color-red hide">提示信息 默认隐藏</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox"> 记住我
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="button" class="btn btn-default" id="loginBtn">登录</button>
+                                    <p class="help-block small color-red" id="loginResultMSG"></p>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="button" class="btn btn-default" id="loginBtn">登录</button>
-                            <p class="help-block small color-red" id="loginResultMSG"></p>
-                        </div>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
-
     </section>
     <% include common-footer.ejs%>
     </div>
