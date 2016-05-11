@@ -18,9 +18,13 @@
 	public/js/divineDetail.js
 
 	1.2 数据库中的图片路径:
-	开发机测试数据库：card-localhost 服务器数据库card;
+	开发机测试数据库：cardLocalhost 服务器数据库card;
 
 	routes/divineDetail.js替换
-	 FROM card<-->FROM card-localhost
+	 FROM card<-->FROM cardLocalhost
 2。
 app.js中监听端口号
+
+/*git忽略上传的内容*/
+app.js----逻辑基本不改了，只有端口号在改，所以不传
+routes/divineDetail.js----逻辑基本不改了，只有数据表在改（本地测试表和真实表），所以不传
