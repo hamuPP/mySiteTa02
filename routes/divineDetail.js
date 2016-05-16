@@ -7,7 +7,7 @@ exports.showPaixing = function(req,res){
         paiZu = req.query.paiZu,
         userName = req.query.userName,
         con = db.dbGetCon(),
-        innerSql = "SELECT * FROM card WHERE id >= ((SELECT MAX(id) FROM card)-(SELECT MIN(id) FROM card)) * RAND() + (SELECT MIN(id) FROM card)  and cardCategory = ? LIMIT ?",
+        innerSql = "SELECT * FROM cardLocalhost WHERE id >= ((SELECT MAX(id) FROM cardLocalhost)-(SELECT MIN(id) FROM cardLocalhost)) * RAND() + (SELECT MIN(id) FROM cardLocalhost)  and cardCategory = ? LIMIT ?",
         paizu = "",
         innerCondition = [];
     console.log(req.query);
@@ -30,7 +30,7 @@ exports.showPaixing = function(req,res){
         case "全78张牌":
             paizu = "全78张牌";
             innerCondition = [];
-            innerSql = "SELECT * FROM card WHERE id >= ((SELECT MAX(id) FROM card)-(SELECT MIN(id) FROM card)) * RAND() + (SELECT MIN(id) FROM card)  LIMIT ?";
+            innerSql = "SELECT * FROM cardLocalhost WHERE id >= ((SELECT MAX(id) FROM cardLocalhost)-(SELECT MIN(id) FROM cardLocalhost)) * RAND() + (SELECT MIN(id) FROM cardLocalhost)  LIMIT ?";
             break;
         case "权杖":
             paizu = "权杖";
@@ -56,30 +56,37 @@ exports.showPaixing = function(req,res){
         if(e){
             console.log("routes/divineDetail.js 10line : "+e);
         }else{
-            var innerCon = db.dbGetCon();
 
-            innerCondition.push(row[0].pxCardSum);
+            if(row && row.length > 0){
+                var innerCon = db.dbGetCon();
 
-            innerCon.query(innerSql, innerCondition, function(e,innerRow){
-                if(e){
-                    console.log("routes/divineDetail.js: 57 Line: "+e);
-                }else{
-                    //对每张牌随机正逆位置，true-正位，false-逆位
-                    for(var i = 0, len = innerRow.length; i < len; i++){
-                        innerRow[i].isRightPos = halfProbability([true,false]);
+                innerCondition.push(row[0].pxCardSum);
+
+                innerCon.query(innerSql, innerCondition, function(e,innerRow){
+                    if(e){
+                        console.log("routes/divineDetail.js: 57 Line: "+e);
+                    }else{
+                        //对每张牌随机正逆位置，true-正位，false-逆位
+                        for(var i = 0, len = innerRow.length; i < len; i++){
+                            innerRow[i].isRightPos = halfProbability([true,false]);
+                        }
+
+                        row[0].cardInfo =innerRow;
+                        row[0].code = 0;
+                        res.json(row[0]);
+
+                        //若用户登录了，把本次测算信息存入数据库
+                        if(userName){
+                            console.log("routes/divineDetail.js 69 LINE:用户为："+userName+"本次测算信息："+JSON.stringify(row[0]));
+                            _saveUserDivineHistory(userName,paizu,row[0]);
+                        }
                     }
+                });
+                innerCon.end();
+            }else{
+                res.json({code:-1,msg:"没有查到相关信息，去逛逛别的吧！"});
+            }
 
-                    row[0].cardInfo =innerRow;
-                    res.json(row[0]);
-
-                    //若用户登录了，把本次测算信息存入数据库
-                    if(userName){
-                        console.log("routes/divineDetail.js 69 LINE:用户为："+userName+"本次测算信息："+JSON.stringify(row[0]));
-                        _saveUserDivineHistory(userName,paizu,row[0]);
-                    }
-                }
-            });
-            innerCon.end();
         }
     });
     con.end();

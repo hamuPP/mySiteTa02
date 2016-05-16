@@ -100,27 +100,40 @@
         <div class="col-xs-12">
             <ul class="pagination">
                 <% if(curpage == 1){ %>
-                <li class="disabled"><a href="javascript:;">首页</a></li>
-                <li class="disabled"><a href="javascript:;">上一页</a></li>
+                    <li class="disabled"><a href="javascript:;">首页<%= curpage %></a></li>
                 <% }else{ %>
-                <li class=""><a href="/my">首页</a></li>
-                <li class=""><a href="/my?curpage=<%= curpage - 1 %>">上一页</a></li>
+                    <li class=""><a href="/my">首页</a></li>
                 <% } %>
 
-                <% for(var i = 0;i < maxpage;i++){ %>
-                <% if(i + 1 == curpage){ %>
-                <li class="active"><a href="#"><%= i+1 %></a></li>
+                <% if(curpage <= 4){ %>
+                    <% for(var j = 1; j <= maxpage;j++ ){ %>
+                        <% if(j  == curpage){ %>
+                            <li class="active"><a href="#"><%= j %></a></li>
+                        <% }else if(j <= 5){ %>
+                            <li class=""><a href="/my?curpage=<%= j %>"><%= j%></a></li>
+                        <% }else{ %>
+                            <li class=""><a href="javascript:;">···</a></li>
+                            <% break;%>
+                        <% } %>
+                    <% } %>
                 <% }else{ %>
-                <li class=""><a href="/my?curpage=<%= i+1 %>"><%= i+1 %></a></li>
+                    <% for(var i = curpage-1; i < 3+parseInt(curpage) && i <= maxpage; i++){ %>
+                        <% if(i  == curpage){ %>
+                          <li class="active"><a href="#"><%= i %></a></li>
+                        <% }else if( i < 3+parseInt(curpage)){ %>
+                          <li class=""><a href="/my?curpage=<%= i %>"><%= i%></a></li>
+                        <% }else{ %>
+                            <li class=""><a href="javascript:;">···</a></li>
+                            <% break;%>
+                        <% } %>
+                    <% } %>
                 <% } %>
-                <% } %>
+
 
                 <% if(curpage == maxpage){ %>
-                <li class="disabled"><a href="javascript:;">下一页</a></li>
-                <li class="disabled"><a href="javascript:;">尾页</a></li>
+                    <li class="disabled"><a href="javascript:;">尾页(<%= maxpage %>)</a></li>
                 <% }else{ %>
-                <li class=""><a href="/my?curpage=<%= curpage+1 %>">下一页</a></li>
-                <li class=""><a href="/my?curpage=<%= maxpage %>">尾页</a></li>
+                    <li class=""><a href="/my?curpage=<%= maxpage %>">尾页(<%= maxpage %>)</a></li>
                 <% } %>
             </ul>
         </div>

@@ -26,9 +26,8 @@ var mailOptions = {};
 exports.sendmail = function(req,res){
     var email = req.query.email;
     var nowTime = new Date().getTime();
-    var interval = 30*60*1000;//验证码有效时间为30分钟
 
-    console.log("routes/mail.js 31 Line : "+email+" / "+nowTime);
+    console.log("routes/mail.js 30 Line : "+email+" / "+nowTime);
     var con = db.dbGetCon();
     var searchSql = "select * from t_registerEmailAndTime_test where r_email=?";
     var insertNewItemSql = "insert into t_registerEmailAndTime_test(r_email,r_time,r_validationCode) value(?,?,?)";
@@ -54,13 +53,14 @@ exports.sendmail = function(req,res){
                         //send validate code to user's email
                         mailOptions = {
                             from: '734877275@qq.com', // sender address
-                            to: 'oppaikyouma@163.com', // list of receivers
+                            to: email, // list of receivers
                             subject: '验证码', // Subject line
                             html: '验证码为<br/>'+validationCode+'<br/>验证码有效时间为半小时，请尽快使用。'
                         };
 
                         transporter.sendMail(mailOptions, function(error, info){
                             if(error){
+                                console.log('routes/mail.js 64 Line:邮件发送出错: ' + JSON.stringify(error));
                                 res.json({msg:error,code:-1});
                             }else{
                                 console.log('routes/mail.js 70 Line:邮件已发送: ' + info.response);
@@ -81,7 +81,7 @@ exports.sendmail = function(req,res){
                         //send validate code to user's email
                         mailOptions = {
                             from: '734877275@qq.com', // sender address
-                            to: 'oppaikyouma@163.com', // list of receivers
+                            to: email, // list of receivers
                             subject: '验证码', // Subject line
                             html: '验证码为<br/>'+validationCode+'<br/>验证码有效时间为半小时，请尽快使用。'
                         };

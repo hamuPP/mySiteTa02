@@ -67,7 +67,7 @@ $(function(){
                         emailMSG.html("验证码已发送至邮箱");
                         emailMSG.attr("class","help-block small color-green");
                     }else{
-                        emailMSG.html("发送失败，请再次点击发送");
+                        emailMSG.html("发送失败，请再次点击发送"+param);
                         emailMSG.attr("class","help-block small color-red");
                     }
                 },
