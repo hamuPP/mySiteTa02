@@ -58,12 +58,12 @@ $(function(){
         if(!emailRe.test(email)){
             alert("邮箱格式有误！");
         }else {
+            _turnGray();//让按钮不可点
             $.ajax({
                 url: "/sendMail?email=" + email,
                 type: "get",
                 success: function (param) {
                     if(param.code === 0){
-                        _turnGray();//让按钮不可点
                         emailMSG.html("验证码已发送至邮箱");
                         emailMSG.attr("class","help-block small color-green");
                     }else{

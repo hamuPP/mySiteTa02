@@ -30,7 +30,7 @@ CREATE TABLE `t_user` (
   `u_registertime` varchar(13) DEFAULT NULL,
   `u_avatar` varchar(80) DEFAULT '../imgs/justice.jpg',
   PRIMARY KEY (`uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `t_user` (
 
 LOCK TABLES `t_user` WRITE;
 /*!40000 ALTER TABLE `t_user` DISABLE KEYS */;
-INSERT INTO `t_user` VALUES (1,'test002','123456','oppaikyouma@163.com','1461259240350',NULL),(2,'test003','12345','oppaikyouma@163.com','1461259764343',NULL),(3,'test004','123456','oppaikyouma@163.com','1461260032306',NULL),(4,'test002','222','oppaikyouma@163.com','1461260136155',NULL),(5,'test005','222','oppaikyouma@163.com','1461260591523',NULL),(6,'test005','222','oppaikyouma@163.com','1461260684808',NULL),(7,'sdfsdf','sdfs','oppaikyouma@163.com','1461260721519',NULL),(8,'test006','222','oppaikyouma@163.com','1461342803821',NULL),(9,'test006','123','oppaikyouma@163.com','1461560669185',NULL),(12,'test007','222','oppaikyouma@163.com','1461563205585',NULL),(13,'test008','222','oppaikyouma@163.com','1462184022157',NULL),(14,'test009','222','oppaikyouma@163.com','1462189043610',NULL),(15,'test010','222',NULL,NULL,'http://www.jusctice.cn/imgs/moon.jpg');
+INSERT INTO `t_user` VALUES (1,'test002','123456','oppaikyouma@163.com','1461259240350',NULL),(2,'test003','12345','oppaikyouma@163.com','1461259764343',NULL),(3,'test004','123456','oppaikyouma@163.com','1461260032306',NULL),(4,'test002','222','oppaikyouma@163.com','1461260136155',NULL),(5,'test005','222','oppaikyouma@163.com','1461260591523',NULL),(6,'test005','222','oppaikyouma@163.com','1461260684808',NULL),(7,'sdfsdf','sdfs','oppaikyouma@163.com','1461260721519',NULL),(8,'test006','222','oppaikyouma@163.com','1461342803821',NULL),(9,'test006','123','oppaikyouma@163.com','1461560669185',NULL),(12,'test007','222','oppaikyouma@163.com','1461563205585',NULL),(13,'test008','222','oppaikyouma@163.com','1462184022157',NULL),(14,'test009','222','oppaikyouma@163.com','1462189043610',NULL),(15,'test010','222',NULL,NULL,'http://www.jusctice.cn/imgs/moon.jpg'),(16,'test011','222','879372858@qq.com','1463330044362','../imgs/justice.jpg');
 /*!40000 ALTER TABLE `t_user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-05-11 21:25:47
+-- Dump completed on 2016-05-16 21:36:22
