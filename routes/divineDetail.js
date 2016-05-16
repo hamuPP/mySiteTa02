@@ -7,14 +7,14 @@ exports.showPaixing = function(req,res){
         paiZu = req.query.paiZu,
         userName = req.query.userName,
         con = db.dbGetCon(),
-        innerSql = "SELECT * FROM cardLocalhost WHERE id >= ((SELECT MAX(id) FROM cardLocalhost)-(SELECT MIN(id) FROM cardLocalhost)) * RAND() + (SELECT MIN(id) FROM cardLocalhost)  and cardCategory = ? LIMIT ?",
+        innerSql = "SELECT * FROM cardLocalhost WHERE cardCategory = ?",
         paizu = "",
         innerCondition = [];
     console.log(req.query);
     console.log(pxName+" / " +paiZu+" / "+userName);
 
     if(!paiZu || !pxName){
-        res.json({code:-1});
+        res.json({code:-1,msg:"没有查到相关信息，去逛逛别的吧！"});
         return;
     }
 
@@ -25,12 +25,13 @@ exports.showPaixing = function(req,res){
             break;
         case "56张小牌":
             paizu = "56张小牌";
-            innerCondition = [3];
+            innerSql = "SELECT * FROM cardLocalhost WHERE cardCategory != 2";
+            innerCondition = [];
             break;
         case "全78张牌":
             paizu = "全78张牌";
             innerCondition = [];
-            innerSql = "SELECT * FROM cardLocalhost WHERE id >= ((SELECT MAX(id) FROM cardLocalhost)-(SELECT MIN(id) FROM cardLocalhost)) * RAND() + (SELECT MIN(id) FROM cardLocalhost)  LIMIT ?";
+            innerSql = "SELECT * FROM cardLocalhost";
             break;
         case "权杖":
             paizu = "权杖";
@@ -56,22 +57,24 @@ exports.showPaixing = function(req,res){
         if(e){
             console.log("routes/divineDetail.js 10line : "+e);
         }else{
-
             if(row && row.length > 0){
-                var innerCon = db.dbGetCon();
+                var innerCon = db.dbGetCon(),
+                    cardsArr = [];
 
-                innerCondition.push(row[0].pxCardSum);
-
+             //   innerCondition.push(row[0].pxCardSum);待删，这个数组不需要这个数值了
+                console.log("innerSql:"+innerSql+"innerCondition:"+innerCondition);
                 innerCon.query(innerSql, innerCondition, function(e,innerRow){
                     if(e){
-                        console.log("routes/divineDetail.js: 57 Line: "+e);
+                        console.log("routes/divineDetail.js: 67 Line: "+e);
                     }else{
+                        console.log("routes/divineDetail.js: 69 Line: 本次测算抽出的牌为"+innerRow);
+                        //根据牌形的张数，获得相当数量的卡牌
+                        cardsArr = _getArrayItems(innerRow, row[0].pxCardSum);
                         //对每张牌随机正逆位置，true-正位，false-逆位
                         for(var i = 0, len = innerRow.length; i < len; i++){
                             innerRow[i].isRightPos = halfProbability([true,false]);
                         }
-
-                        row[0].cardInfo =innerRow;
+                        row[0].cardInfo = cardsArr;
                         row[0].code = 0;
                         res.json(row[0]);
 
@@ -86,19 +89,11 @@ exports.showPaixing = function(req,res){
             }else{
                 res.json({code:-1,msg:"没有查到相关信息，去逛逛别的吧！"});
             }
-
         }
     });
     con.end();
 
 };
-
-//待删
-//exports.saveUserDivineResult = function(req,res){
-//    //var userName = req.body.userName;
-//    console.log(req.body);
-//};
-
 
 /**
  * 50%概率从2个元素中取出1个元素
@@ -150,3 +145,22 @@ function _saveUserDivineHistory(sUserName,sPaizu,JSONInfo){
     );
     con.end();
 };
+
+function _getArrayItems(arr, num) {
+    var temp_array = arr,
+        return_array = [];
+    for (var i = 0; i < num; i++) {
+        //判断如果数组还有可以取出的元素,以防下标越界
+        if (temp_array.length > 0) {
+            //在数组中产生一个随机索引
+            var arrIndex = Math.floor(Math.random() * temp_array.length);
+
+            return_array[i] = temp_array[arrIndex];
+            temp_array.splice(arrIndex, 1);
+        } else {
+            //数组中数据项取完后,退出循环,比如数组本来只有10项,但要求取出20项.
+            break;
+        }
+    }
+    return return_array;
+}

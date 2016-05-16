@@ -74,6 +74,9 @@
         </form>
         <% include divine-usage-msg.ejs %>
         <div class="row divine-result-wrap" id="canvasWrap">
+            <div class="col-xs-12 hide errorMsgBlock" id="errorMsgBlock">
+                <div class="alert alert-info" id="errorMsg"></div>
+            </div>
            <canvas id="canvas" ></canvas>
            <canvas id="canvas2"></canvas>
         </div>

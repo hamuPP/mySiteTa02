@@ -281,9 +281,13 @@ $main-font-color-pur:#790d86;
 }
 
 .divine-result-wrap{
-//  height: 550px;
+  overflow: hidden;
   position: relative;
   background:url(../imgs/logo-per.png) no-repeat 50% 50%;
+  .errorMsgBlock{
+    position: absolute;
+    z-index: 15;
+  }
 }
 
 /*ul li start*/

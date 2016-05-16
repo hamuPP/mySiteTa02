@@ -23,7 +23,11 @@ $(function(){
             take();
         }else{
             //点击了“默认”，告诉用户先翻开此次结果看看
-            alert(123);
+            var errorMsgBlock = document.getElementById("errorMsgBlock"),
+                errorMsgText = document.getElementById("errorMsg");
+
+            errorMsgBlock.className = "col-xs-12 show";
+            errorMsgText.innerHTML = "你已经抽了一次默认的卡牌，先“翻开”看看吧！";
         }
 
     });
@@ -38,7 +42,21 @@ function take(def){
         datas = $("form").serialize();
     }else{
         datas = $("#takeDefault").data("extras");
-        //console.log(datas);
+        //修改前面下拉框中的选中内容
+        var sDefaultPaiZu = datas.substr(datas.lastIndexOf('=')+1),
+            aOpts = $("#paiZu option"),
+            aOptsVal = [];
+
+        aOpts.each(function(i,v){
+            aOptsVal.push(v.value);
+        });
+
+        for(var i = 0, len = aOptsVal.length; i < len; i++){
+            if(aOptsVal[i] == sDefaultPaiZu){
+                aOpts[i].selected = "selected";
+                break;
+            }
+        }
     }
     initTakingCards(datas);
 };
@@ -77,14 +95,12 @@ function showCarsForm(datas){
         type:"get",
         data:datas,
         success:function(res){
-            console.log("divineDetail.js 77 line: "+JSON.stringify(res));
-
             if(res.code == -1 ){
-                var canvasWrap = document.getElementById("canvasWrap"),
-                    alertMsg = "<div class='col-xs-12'>" +
-                                "<div class='alert alert-info'>" + res.msg +
-                                "</div></div>";
-                canvasWrap.innerHTML = alertMsg;
+                var errorMsgBlock = document.getElementById("errorMsgBlock"),
+                    errorMsgText = document.getElementById("errorMsg");
+
+                errorMsgBlock.className = "col-xs-12 show";
+                errorMsgText.innerHTML = res.msg;
                 return ;
             }
 
@@ -120,6 +136,9 @@ function showCarsForm(datas){
                 c2.style.transition = "all .3s ease-in-out 0s";
                 c2.style.transform = "scale(1,1)";
                 c2.style.opacity = "1";
+
+                //隐藏错误提示
+                document.getElementById("errorMsgBlock").className = "hide";
 
                 showResultTable(datas,res);
             },false);
