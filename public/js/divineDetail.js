@@ -108,7 +108,7 @@ function showCarsForm(datas){
                 w = res.pxEachCardW,
                 x = res.pxEachCardX.split(","),
                 y = res.pxEachCardY.split(","),
-                text = res.pxPositionMeaning.split(/#/g);
+                text = res.pxPositionMeaning ? res.pxPositionMeaning.split(/#/g) : "空";
 
             /*显示的牌形的摆放位置*/
             for(var i = 0, len = res.pxCardSum; i< len; i++){
