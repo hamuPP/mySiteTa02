@@ -108,11 +108,12 @@ function showCarsForm(datas){
                 w = res.pxEachCardW,
                 x = res.pxEachCardX.split(","),
                 y = res.pxEachCardY.split(","),
-                text = res.pxPositionMeaning ? res.pxPositionMeaning.split(/#/g) : "空";
+                text = res.pxPositionMeaning ? res.pxPositionMeaning.split(/#/g) : null;
 
             /*显示的牌形的摆放位置*/
             for(var i = 0, len = res.pxCardSum; i< len; i++){
-                var singleCard = new BaseCard(h,w,x[i],y[i],wrapW,wrapH,ctx,"../imgs/card-back-side.jpg",(i+1)+"."+text[i]),
+                var textEach = text ? text[i] : "暂未收录";
+                var singleCard = new BaseCard(h,w,x[i],y[i],wrapW,wrapH,ctx,"../imgs/card-back-side.jpg",(i+1)+"."+textEach),
                     singleCard2 = null;
 
                 //如果是逆位,则修改cardSrc为逆位的src
@@ -149,7 +150,6 @@ function showCarsForm(datas){
             console.log("error");
         }
     });
-
 }
 
 /*清除画布内容以及清除元素style*/
@@ -179,7 +179,7 @@ function showResultTable(data,res){
         selectedCardForm=document.getElementById("selectedCardForm"),
         tbody = document.getElementById("tbody"),
         str = "",
-        pxPositionMeaningArr = res.pxPositionMeaning.split(/#/),
+        pxPositionMeaningArr = res.pxPositionMeaning ? res.pxPositionMeaning.split(/#/) : null,
         cardInfo = res.cardInfo;
 
     selectedPaiZu.innerHTML = getUrlParam("paiZu",data);
@@ -187,11 +187,12 @@ function showResultTable(data,res){
 
     for(var i = 0, pxCardSum = res.pxCardSum; i < pxCardSum; i++){
         var cardName = cardInfo[i].isRightPos ? cardInfo[i].cardName :cardInfo[i].cardName +"(逆位)",
-            cardSummary = cardInfo[i].isRightPos ? cardInfo[i].cardSummary :cardInfo[i].cardReversePos;
+            cardSummary = cardInfo[i].isRightPos ? cardInfo[i].cardSummary :cardInfo[i].cardReversePos,
+            pxEachPositionMeaning = pxPositionMeaningArr ? pxPositionMeaningArr[i] : "未收录相关信息";
 
         str += "<tr>"+
                 "<td>第"+(i+1)+"张牌:</td>"+
-                "<td>"+pxPositionMeaningArr[i]+"</td>"+
+                "<td>"+pxEachPositionMeaning + "</td>"+
                 "<td>"+cardName+"</td>"+
                 "<td>"+cardSummary+"</td>"+
             "<tr>";
