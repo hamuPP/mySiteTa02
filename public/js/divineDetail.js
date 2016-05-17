@@ -14,6 +14,18 @@ var c = document.getElementById("canvas"),
 
 /*抽牌*/
 $(function(){
+
+    $(document).ajaxSend(function(e,xhr,opts){
+        if(opts.url.substring(0,12) == "/showPaixing"){
+            $("#loading").css("display","block");
+        }
+    });
+    $(document).ajaxComplete(function(e,xhr,opts){
+        if(opts.url.substring(0,12) == "/showPaixing"){
+            $("#loading").css("display","none");
+        }
+    });
+
     /*设置画布的宽高*/
     getCanvasXYWH("canvasWrap",["canvas","canvas2"]);
     //点击“抽牌”按钮，

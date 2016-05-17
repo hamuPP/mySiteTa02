@@ -20,7 +20,7 @@
             transition:all .3s ease-in-out 0s;
             position: absolute;
             left:0;
-            topo:0;
+            top:0;
         }
         #canvas{
             z-index:9;
@@ -76,6 +76,9 @@
         <div class="row divine-result-wrap" id="canvasWrap">
             <div class="col-xs-12 hide errorMsgBlock" id="errorMsgBlock">
                 <div class="alert alert-info" id="errorMsg"></div>
+            </div>
+            <div id="loading" style="display:none;width:100%;padding:1em;position:absolute;z-index:20;">
+                <img src="imgs/icons/loading.gif" style="display:block;margin:auto;"/>
             </div>
            <canvas id="canvas" ></canvas>
            <canvas id="canvas2"></canvas>
