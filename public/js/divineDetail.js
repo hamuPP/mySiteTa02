@@ -138,7 +138,7 @@ function showCarsForm(datas){
                 singleCard.put();
                 singleCard2.put();
             }
-            c2.style.transition = "all .1s ease-in-out 0s";
+            c2.style.transition = "all 500ms ease-in-out 0s";
             c2.style.transform = "scale(-1,1)";
 
             openCardBtn.style.display="block";
@@ -146,7 +146,7 @@ function showCarsForm(datas){
                 clickedDefaultBtn = false;
                 c.style.transform = "scale(-1,1)";
                 c.style.opacity = "0";
-                c2.style.transition = "all .3s ease-in-out 0s";
+                c2.style.transition = "all 500ms ease-in-out 0s";
                 c2.style.transform = "scale(1,1)";
                 c2.style.opacity = "1";
 
