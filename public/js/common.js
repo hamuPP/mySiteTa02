@@ -106,11 +106,10 @@ function addCookie(objName, objValue, objHours) {//添加cookie
 function checkUserAgent(){
     var agent = window.navigator.userAgent,
         nMSIEIndex = agent.indexOf("MSIE"),/*ie10以及以下都有这个*/
-        nTridentIndex = agent.indexOf("Trident"),/*ie11为7.0*/
+        nTridentIndex = agent.indexOf("Trident"),/*ie11为7.0,+8后可得到版本号*/
         nWeixinIndex = agent.indexOf("MicroMessenger");/*微信端*/
-    document.write(agent+" / "+nTridentIndex+" / "+parseInt(agent.substr(nTridentIndex+8)));
     /*ie11的毛玻璃兼容没有写，干脆IE都提示错误信息吧*/
-    if(nMSIEIndex > -1 || nTridentIndex > -1){
+    if(nMSIEIndex > -1 || parseInt(agent.substr(nTridentIndex+8)) < 8 ){
         $("#IENotice").show();
 //        var ieVersion = parseInt(agent.substr(nMSIEIndex+5));
 //        if(ieVersion < 9 ){
