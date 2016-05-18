@@ -49,11 +49,11 @@ function BaseCard (height,width,x,y,canvasWidth,canvasHeight,ctx,src,text,open){
 
 /**
  * 单张牌
- * 不需要了（暂时，可能）
+ * 不需要了（暂时，可能）待删
  */
-function SingleCard(height,width,open,x,y){
-    this.drawCard = function () {
-    };
-    this.constructor(height,width,open,x,y);
-};
-SingleCard.prototype = new BaseCard();
+//function SingleCard(height,width,open,x,y){
+//    this.drawCard = function () {
+//    };
+//    this.constructor(height,width,open,x,y);
+//};
+//SingleCard.prototype = new BaseCard();

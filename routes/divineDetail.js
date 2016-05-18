@@ -57,6 +57,7 @@ exports.showPaixing = function(req,res){
         if(e){
             console.log("routes/divineDetail.js 10line : "+e);
         }else{
+            console.log(row);
             if(row && row.length > 0){
                 var innerCon = db.dbGetCon(),
                     cardsArr = [];
@@ -71,8 +72,8 @@ exports.showPaixing = function(req,res){
                         //根据牌形的张数，获得相当数量的卡牌
                         cardsArr = _getArrayItems(innerRow, row[0].pxCardSum);
                         //对每张牌随机正逆位置，true-正位，false-逆位
-                        for(var i = 0, len = innerRow.length; i < len; i++){
-                            innerRow[i].isRightPos = halfProbability([true,false]);
+                        for(var i = 0, len = cardsArr.length; i < len; i++){
+                            cardsArr[i].isRightPos = halfProbability([true,false]);
                         }
                         row[0].cardInfo = cardsArr;
                         row[0].code = 0;
