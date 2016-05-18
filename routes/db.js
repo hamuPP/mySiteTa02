@@ -6,7 +6,7 @@ var mysql = require("mysql");
 /**连接数据库d_tarotall**/
 function dbGetCon(){
     var con = mysql.createConnection({
-        host:"localhost",
+        host:"127.0.0.1",
         database:"d_tarotall",
         port:3306,
         user:"root",

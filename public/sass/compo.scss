@@ -17,6 +17,7 @@ $main-font-color-pur:#790d86;
   -ms-flex-pack: justify;
   justify-content: space-between;
   margin-bottom: 40px;
+  padding:0 8px;
 }
 .img-list-item {
   display: block;
@@ -135,6 +136,7 @@ $main-font-color-pur:#790d86;
       z-index:1000;
       line-height: 1.5;
       height: 87px;
+      width:100%;
       padding:5px 10px;
       overflow: hidden;
       box-shadow: rgba(0,0,0,.2) 0 -1px 1px;

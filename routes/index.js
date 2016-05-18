@@ -15,6 +15,10 @@ exports.index = function(req, res){
     res.render('index');
     //res.send("hello");
 };
+
+exports.indexv2 = function(req,res){
+    res.render('indexv2');
+};
 /**
  * 测算页面的显示全部数据、分页
  */
