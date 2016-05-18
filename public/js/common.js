@@ -104,12 +104,25 @@ function addCookie(objName, objValue, objHours) {//添加cookie
  * 判断浏览器内核
  */
 function checkUserAgent(){
-    var agent = window.navigator.userAgent;
-    if(agent.indexOf("MSIE") > -1){
-        var ieVersion = agent.substr(agent.indexOf("MSIE")+5,1);
-        if(ieVersion < 9 ){
-            $("#IENotice").show();
-        }
+    var agent = window.navigator.userAgent,
+        nMSIEIndex = agent.indexOf("MSIE"),/*ie10以及以下都有这个*/
+        nTridentIndex = agent.indexOf("Trident"),/*ie11为7.0*/
+        nWeixinIndex = agent.indexOf("MicroMessenger");/*微信端*/
+    document.write(agent+" / "+nTridentIndex+" / "+parseInt(agent.substr(nTridentIndex+8)));
+    /*ie11的毛玻璃兼容没有写，干脆IE都提示错误信息吧*/
+    if(nMSIEIndex > -1 || nTridentIndex > -1){
+        $("#IENotice").show();
+//        var ieVersion = parseInt(agent.substr(nMSIEIndex+5));
+//        if(ieVersion < 9 ){
+//            $("#IENotice").show();
+//        }
+    }else{
+        $("#IENotice").hide();
+    }
+    if(nWeixinIndex > -1 ) {
+        $("#WeixinNotice").show();
+    }else{
+        $("#WeixinNotice").hide();
     }
 }
 checkUserAgent();
