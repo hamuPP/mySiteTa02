@@ -8,7 +8,9 @@
 
 /*vars start*/
 $hover-bgcolor-grey: #e4e4e4;
+$hover-bgcolor-lightpur: #47233e;
 $main-font-color-pur:#790d86;
+$main-font-color-lightpur:#bac2f5;
 $main-border-color-lightpur: rgba(187,156,255,.3);
 $header-height:50px;
 /*vars end*/
@@ -44,10 +46,10 @@ html{
   font-family:"Open Sans","Microsoft YaHei","weiruanyahei",Arial,sans-serif !important;
 }
 body{
-  background: #e4e4e4;
+  background: #330f10;
+  color:$main-font-color-lightpur;
 }
 .wrapper{
-  /*background: pink;*/
   overflow: hidden;
 }
 .logo-img{
@@ -62,8 +64,7 @@ body{
 .header{
    width:100%;
   height: $header-height;
-  color:#fff;
-  background:black;
+  background:#1B0B18;
   position: absolute;
   top:0;
   left:0;
@@ -73,11 +74,19 @@ body{
   .navbar-header{
     height:100%;
   }
+  .navbar-toggle{
+    outline: none;
+    &:focus{
+      background:$hover-bgcolor-lightpur !important;
+    }
+    .icon-bar{
+      background:$main-font-color-lightpur;
+    }
+  }
   a{
-    color:#fff;
+    color:$main-font-color-lightpur;
     &:hover{
-      background:$hover-bgcolor-grey !important;
-      color:$main-font-color-pur;
+      background:$hover-bgcolor-lightpur !important;
       font-weight: bolder;
     };
     &:focus{
@@ -110,7 +119,10 @@ body{
 /*footer start*/
 .footer{
   width:100%;
-  background:black;
+  background:#1B0B18;
+  a{
+    color: $main-font-color-lightpur;
+  }
 }
 
 
