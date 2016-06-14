@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <style>
+        .search-field {
+            border: none;
+            cursor: pointer;
+            height: 37px;
+            margin: 3px 0;
+            padding: 0 0 0 34px;
+            position: relative;
+            transition: width 400ms ease, background 400ms ease;
+            width: 0;
+        }
+
+        .search-field:focus {
+            background-color: #fff;
+            border: 2px solid #c3c0ab;
+            cursor: text;
+            outline: 0;
+            width: 230px;
+        }
+
+        
+        .search-box{
+            position: relative;
+            width:200px;
+            overflow: hidden;
+        }
+        .search-input{
+            line-height: 38px;
+            border:1px solid grey;
+            padding-right:50px;
+            width: 0;
+            float: right;
+            transition: width 400ms ease, background 400ms ease;
+        }
+        .search-input:focus{
+            background: purple;
+            width: 100%;
+        }
+        .input-box{
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            opacity: 1;
+        }
+        .button-box{
+            position: absolute;
+            bottom:0;
+            right:0;
+            width: 50px;
+            height: 42px;
+            line-height: 38px;
+            text-align: center;
+            background:red;
+        }
+    </style>
+</head>
+<body>
+<div class="search-box">
+    <div class="input-box">
+        <input type="search" placeholder="搜索" class="search-input" />
+    </div>
+    <div class="button-box">
+        <i class="glyphicon glyphicon-search"></i>
+    </div>
+</div>
+
+
+<input type="search" class="search-field"/>
+</body>
+</html>

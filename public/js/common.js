@@ -31,7 +31,7 @@ var clientWidth = document.documentElement.clientWidth,
 function getCanvasXYWH(wrapid,canvasIdArr){
     var wrap = document.getElementById(wrapid);
         wrapW = wrap.offsetWidth;
-        wrapH = wrapW*0.6;/*考虑到画布的宽高是定比例的*/
+        wrapH = wrapW*0.44;/*考虑到画布的宽高是定比例的*/
     wrap.style.height=wrapH+"px";
     for(var i =0;i<canvasIdArr.length;i++){
         var canvas = document.getElementById(canvasIdArr[i]);
@@ -163,7 +163,7 @@ $(document).ready(function(){
     //根据浏览器搜索框显示的当前页面的path改变通用头部导航的active状态
     var currentPath = window.location.pathname.substring(1);
     switch (currentPath){
-        case "index":
+        case "indexv2":
             $("#headerNavIndex").attr("class","active");
             break;
         case "divine":
@@ -179,6 +179,7 @@ $(document).ready(function(){
             $("#register").attr("class","active");
             break;
         default :
+            $("#headerNavIndex").attr("class","active");
             break;
 
     }
@@ -198,3 +199,19 @@ function logout(){
         }
     });
 };
+
+/*通用头部的搜索框*/
+var headerSearchFormMobile = $("#headerSearchFormMobile"),
+    headerSearchForm = $("#headerSearchForm");
+
+headerSearchFormMobile.submit(function(){
+    var searchValue = $("#headerSearchInputMobile").val();
+    window.location = "/search?userinput="+searchValue;
+    return false;
+});
+
+headerSearchForm.submit(function(){
+    var searchValue = $("#headerSearchInput").val();
+    window.location = "/search?userinput="+searchValue;
+    return false;
+});

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <title></title>
+</head>
+<body>
+<h3>获得轮播中的索引号</h3>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="item active" id="t1">
+                        <img src="../imgs/0fool.jpg" alt="...">
+                        <div class="carousel-caption">
+                            <h3>标题1</h3>
+                            <p>para1</p>
+                        </div>
+                    </div>
+                    <div class="item" id="t2">
+                        <img src="../imgs/1magician.jpg" alt="...">
+                        <div class="carousel-caption">
+                            <h3>标题2</h3>
+                            <p>para2</p>
+                        </div>
+                    </div>
+                    <div class="item" id="t3">
+                        <img src="../imgs/2high-priestess.jpg" alt="...">
+                        <div class="carousel-caption">
+                            <h3>标题3</h3>
+                            <p>para3</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <button onclick="to0()">to 0</button>
+            <button onclick="to1()">to 1</button>
+            <button onclick="to1()">to 2</button>
+        </div>
+    </div>
+</div>
+
+<script src="../js/jquery-1.11.2-min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script>
+    $('#carousel-example-generic').on('slide.bs.carousel', function () {
+        var carouselData = $(this).data('bs.carousel');
+        var currentIndex = carouselData.getActiveIndex();//当前图片的索引，注意：这并不是下一张图的索引号
+        var items = carouselData.$items;
+        var total = carouselData.$items.length;
+
+
+        console.log(items);
+        console.log(currentIndex);
+
+
+    });
+
+    function to0(){
+       $('#carousel-example-generic').carousel(0);
+    }
+</script>
+
+</body>
+</html>

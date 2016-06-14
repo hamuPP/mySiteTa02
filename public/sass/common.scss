@@ -9,6 +9,7 @@
 /*vars start*/
 $hover-bgcolor-grey: #e4e4e4;
 $hover-bgcolor-lightpur: #47233e;
+$bgcolor-mauve: #330f10;
 $main-font-color-pur:#790d86;
 $main-font-color-lightpur:#bac2f5;
 $main-border-color-lightpur: rgba(187,156,255,.3);
@@ -49,12 +50,31 @@ body{
   background: #330f10;
   color:$main-font-color-lightpur;
 }
+a{
+  color:$main-font-color-lightpur;
+  &:hover{
+    font-weight: bolder;
+    color:$main-font-color-lightpur;
+  }
+}
 .wrapper{
   overflow: hidden;
 }
 .logo-img{
   display: inline-block;
   height:100%;
+}
+
+.divine-nav-block{
+  display: inline-block;
+}
+.divine-nav-block a{
+  color:$main-font-color-lightpur;
+  &:hover,&:focus{
+    background:$hover-bgcolor-lightpur !important;
+    font-weight: bolder;
+
+  }
 }
 
 .container{
@@ -73,6 +93,9 @@ body{
   }
   .navbar-header{
     height:100%;
+    .header-search-input{
+      font-size: 1.6rem;
+    }
   }
   .navbar-toggle{
     outline: none;
@@ -106,6 +129,66 @@ body{
     }
   }
 }
+
+.header-container{
+  //position: relative;
+}
+
+.header-search-box{
+  padding-top:10px;
+  padding-bottom: 10px;
+  width: 200px;
+  height:$header-height;
+  float:right;
+}
+
+.header-search-box-mobile{
+  padding-top:10px;
+  padding-bottom: 10px;
+  width: 200px;
+  height:$header-height;
+  float:right;
+}
+
+@media (min-width: 768px) {
+  .header-search-box-mobile {
+    display: none
+  }
+}
+
+@media (max-width: 767.9999px) {
+  .header-search-box {
+    display: none
+  }
+}
+
+.header-search-form{
+  float: right;
+  padding-right:5px;
+}
+
+.header-search-input{
+  background: url(../imgs/icons/search.png) no-repeat right;
+  border:none;
+  padding:5px 25px 5px 0;
+  width: 0;
+  color: #fff;
+  /*设置动画样式*/
+  -webkit-transition: width 400ms ease;
+  -moz-transition: width 400ms ease ;
+  -ms-transition: width 400ms ease ;
+  -o-transition: width 400ms ease ;
+  transition: width 400ms ease ;
+}
+
+.header-search-input:focus{
+  width: 200px;
+}
+
+.header-search-input::-webkit-search-cancel-button {
+  display: none;
+}
+
 .IE-notice{
   display: none;
   background: #790d86;
@@ -119,7 +202,9 @@ body{
 /*footer start*/
 .footer{
   width:100%;
-  background:#1B0B18;
+  background:$bgcolor-mauve;
+  margin-top:3rem;
+  border-top:1px solid rgba(187, 156, 255, .3);
   a{
     color: $main-font-color-lightpur;
   }
@@ -158,3 +243,23 @@ body{
   display: block;
 }
 /*index.ejs end*/
+
+/*pagination*/
+.pagination > .active-red > a, .pagination > .active-red > span, .pagination > .active-red > a:hover, .pagination > .active-red > span:hover, .pagination > .active-red > a:focus, .pagination > .active-red > span:focus {
+  background-color:#bf383c;
+}
+.pagination > li > a {
+  background-color: transparent;
+  border-radius: 0;
+  border:1px solid #5C3957;
+}
+.pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus {
+  background-color: $hover-bgcolor-lightpur;
+}
+//.pagination > li > a:hover{
+//  background:$hover-bgcolor-lightpur;
+//}
+.pagination > .disabled > span, .pagination > .disabled > span:hover, .pagination > .disabled > span:focus, .pagination > .disabled > a, .pagination > .disabled > a:hover, .pagination > .disabled > a:focus {
+  background-color: transparent;
+  border:1px solid #5C3957;
+}

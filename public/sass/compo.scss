@@ -297,10 +297,10 @@ $main-font-color-pur:#790d86;
   list-style: none;
   li{
     display:inline-block;
-    margin:0 13px;
+    margin:0 .5rem;
     a{
       display: block;
-      padding:6px;
+      padding:.6rem;
       text-decoration: none;
 
 
@@ -314,5 +314,58 @@ $main-font-color-pur:#790d86;
 form{
   .control-label{
     text-align:left !important;
+  }
+}
+
+.blur-mask-full{
+  background:no-repeat 0 100%;
+  background-size:100% auto;
+  height: 100%;
+  width:100%;
+  position:absolute;
+  top:0;
+  left:0;
+  box-shadow: rgba(0,0,0,0.8) 0 -1px 2px;
+  -moz-filter:blur(5px);
+  -ms-filter:blur(5px);
+  -webkit-filter:blur(5px);
+  filter:blur(5px);
+}
+
+.cards-gallery-with-img{
+  position:relative;
+  overflow: hidden;
+  .img-wrap{
+    display: inline-block;
+    width:50%;
+  }
+  .text-wrap{
+    display: inline-block;
+    position:absolute;
+    width:50%;
+    height: 100%;
+    padding-left: .5rem;
+    padding-right: 15px;
+  }
+}
+
+.flex-vertical-wrapper{
+  display: -webkit-flex;
+  display: -moz-flex;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  height:100%;
+  .flex-item-title{
+  }
+  .flex-item-1{
+    -webkit-box-flex:1;
+    -webkit-flex:1;
+    -moz-box-flex:1;
+    flex:1;
+    padding-top:5px;
+    font-size: 1.1rem;
+    line-height: 1.3;
   }
 }

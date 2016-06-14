@@ -15,7 +15,7 @@ $(function(){
                     loginResultMSG.attr("class","help-block small color-green");
                     loginResultMSG.html("登录成功，即将跳转到首页");
                     setTimeout(function(){
-                        window.location = "index";
+                        window.location = "indexv2";
                     },400);
                 }else{
                     loginResultMSG.html("用户名或密码错误");

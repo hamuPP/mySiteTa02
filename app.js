@@ -22,7 +22,7 @@ var my = require('./routes/my');
 var app = express();
 
 // all environments
-app.set('port', process.env.PORT || 80);
+app.set('port', process.env.PORT || 1888);
 app.set('views', path.join(__dirname, 'views'));// 设置模板相对路径(相对当前目录)
 //app.set('view engine', 'jade');//设置模板引擎为jade
 app.set('view engine', 'ejs');//设置模板引擎为jade
@@ -67,6 +67,9 @@ app.get('/showPaixing', divineDetail.showPaixing);
 //app.post('/saveUserDivineResult', divineDetail.saveUserDivineResult);待删
 /*测算详页 end*/
 
+/*显示卡牌详细*/
+app.get('/cardsDetail',index.showCardWhole);
+
 /*注册账户到数据库*/
 app.post('/registerAtDb',register.registerAtDb);
 
@@ -79,9 +82,6 @@ app.get('/sendMail',mail.sendmail);
 app.get('/validateUserName',register.validateUserName);
 
 app.get('/logout',login.logout);
-
-/*搜索框的搜索*/
-app.get("/search",product.search);
 
 /*详情界面的添加到购物车*/
 

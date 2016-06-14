@@ -24,8 +24,26 @@
         <a href="javascript:;">关闭提示</a>
     </div>
 
-    <section class="container main-content">
-        功能尚未开放
+    <section class="container main-content ptb15">
+        <div class="list-group">
+            <% if(cardRows.length == 0 && paixingRows.length == 0){%>
+                <p>没有相关数据，也许你想换个关键词搜搜？</p>
+            <%}else{%>
+                <% for(var i = 0, len = cardRows.length; i < len; i++){%>
+                    <a href="#" class="list-group-item">
+                        <h4 class="list-group-item-heading">[卡牌] <%= cardRows[i].cardName%></h4>
+                        <p class="list-group-item-text"><%= cardRows[i].cardSummary%></p>
+                    </a>
+                <% } %>
+
+            <% for(var j = 0, paixingLen = paixingRows.length; j < paixingLen; j++){%>
+                <a href="#" class="list-group-item">
+                    <h4 class="list-group-item-heading">[牌型] <%= paixingRows[j].pxName%></h4>
+                    <p class="list-group-item-text"><%= paixingRows[j].pxSummary %></p>
+                </a>
+            <% } %>
+            <% } %>
+        </div>
     </section>
     <% include common-footer.ejs%>
     </div>

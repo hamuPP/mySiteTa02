@@ -5,6 +5,9 @@
 .color-red{
     color: #d95450 !important;
 }
+.color-red2{
+    color: #bf383c;
+}
 .color-green{
     color: #008f00 !important;
 }
@@ -16,12 +19,18 @@
 .border-q{
     border:1px solid #eee;
 }
+.border-t{
+    border-top:1px solid rgba(187, 156, 255, .3);
+}
 .border-b{
-    border-bottom:1px solid rgba(187, 156, 255, 0.30);
+    border-bottom:1px solid rgba(187, 156, 255, .3);
 }
 /*内外补丁*/
+.mt10{
+    margin-top: 1rem !important;
+}
 .mt20{
-    margin-top: 20px !important;
+    margin-top: 2rem !important;
 }
 .mt50{
     margin-top:50px !important;
@@ -44,7 +53,10 @@
     padding-top:5px !important;
     padding-bottom:5px !important;
 }
-
+.ptb15{
+    padding-top:15px !important;
+    padding-bottom:15px !important;
+}
 /*字体*/
 
 .text-nowrap{
@@ -64,13 +76,19 @@
 
 /*active  */
 .active{
-    background: #a95ee1;
+    background: #47233e;
 }
 
 .active a{
     color:#fff;
 }
 
+.active-red{
+    background:#bf383c;
+}
+.active-red a{
+    color:#fff
+}
 /*BUTTON*/
 .btn-main-pur {
     color: #fff;

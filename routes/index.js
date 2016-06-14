@@ -66,3 +66,8 @@ exports.divineDetail = function(req,res){
         "defaultPaizu":defaultPaizu
     });
 };
+
+//显示单牌详细全部内容
+exports.showCardWhole = function(req,res){
+
+};

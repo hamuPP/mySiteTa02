@@ -42,7 +42,7 @@
     </div>
 
     <section class="container main-content ">
-        <form class="t-form-inline mt50" id="divineDetail" role="form">
+        <form class="t-form-inline mt10" id="divineDetail" role="form">
             <div class="t-form-group">
                 <label class="col-sm-3 plr0" for="paiZu">所用牌组:</label>
                 <div class="t-inline-dis col-sm-7">
@@ -67,7 +67,7 @@
             </div>
             <div class="t-form-group">
                 <button type="button" id="take" class="btn btn-default">抽牌</button>
-                <button type="button" id="takeDefault" class="btn btn-info" data-extras="cardForm=<%= cardsForm %>&paiZu=<%= defaultPaizu %>">默认</button>
+                <button type="button" id="takeDefault" class="btn btn-main-pur" data-extras="cardForm=<%= cardsForm %>&paiZu=<%= defaultPaizu %>">默认</button>
             </div>
 
 
@@ -83,21 +83,26 @@
            <canvas id="canvas" ></canvas>
            <canvas id="canvas2"></canvas>
         </div>
-        <button class="btn btn-info " id="openCardBtn" style="margin:10px auto;padding:10px 60px;display: none;">翻开</button>
-        <div class="panel panel-info" id="resultExplain">
-            <div class="panel-heading">
-                <h3 class="panel-title">本次测算释义：</h3>
+        <button class="btn btn-main-pur " id="openCardBtn" style="margin:10px auto;padding:10px 60px;display: none;">翻开</button>
+        <div style="position: relative">
+            <div class="" id="resultExplain" style="position: relative;z-index: 2">
+                <div class="">
+                    <h3 class="">本次测算释义：</h3>
+                </div>
+                <table id="resultExplainTable" class="table table-bordered">
+                    <tr class="text-nowrap">
+                        <th>所选牌组：</th>
+                        <th id="selectedPaiZu"></th>
+                        <th>所选牌形：</th>
+                        <th id="selectedCardForm"></th>
+                    </tr>
+                    <tbody id="tbody" style="width:100%;"></tbody>
+                </table>
             </div>
-            <table id="resultExplainTable" class="table table-bordered">
-                <tr class="text-nowrap">
-                    <th>所选牌组：</th>
-                    <th id="selectedPaiZu"></th>
-                    <th>所选牌形：</th>
-                    <th id="selectedCardForm"></th>
-                </tr>
-                <tbody id="tbody" style="width:100%;"></tbody>
-            </table>
+            <div class="blur-mask-full" style="z-index: 1;background:#330F10;"></div>
+
         </div>
+
     </section>
     <% include common-footer.ejs %>
 </div>

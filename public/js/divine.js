@@ -25,7 +25,7 @@ switch (cardSum){
     default:
         activeCardSumLi=cardSumLis[0];
 };
-activeCardSumLi.className="active";
+activeCardSumLi.className="active-red";
 
 /*根据后台返回的expertIn值，给第二个ul(擅长的ul)的li添加active样式*/
 var expertInUl = document.getElementById("expertInUl"),
@@ -57,5 +57,5 @@ switch (expertIn){
     default:
         activeExpertInLi=expertInLis[0];
 };
-activeExpertInLi.className="active";
+activeExpertInLi.className="active-red";
 

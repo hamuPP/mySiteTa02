@@ -35,7 +35,7 @@ $(function(){
                         registerResultMSG.attr("class","help-block small color-green");
                         registerResultMSG.html("注册成功！即将跳转到首页");
                         setTimeout(function(){
-                            window.location = "index";
+                            window.location = "indexv2";
                         },400);
                     }
                 },
@@ -165,7 +165,7 @@ function _turnGray(){
             sendValidateToEmail.html("发送验证码");
         }else{
             timeCountDown -= 1;
-            sendValidateToEmail.html("重发验证码 "+timeCountDown+" s");
+            sendValidateToEmail.html("重新发送 "+timeCountDown+" s");
         }
 
     },1000);

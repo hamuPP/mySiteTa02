@@ -20,6 +20,10 @@
             background-size: cover;
             margin-bottom:0;
         }
+        .main-content-below{
+            padding-right: 15px;
+            padding-left: 15px;
+        }
         .back,.cover{
             position: absolute;
             top:0;
@@ -55,6 +59,15 @@
             height: 100%;
             width:100%;
         }
+        .small-cards-gallery-box img{
+            width:100%;
+        }
+        .small-cards-gallery-thumbnail{
+            padding:12px;
+            background:#672A2B;
+            display: block;
+            margin-bottom:30px;
+        }
     </style>
 </head>
 <body>
@@ -73,78 +86,40 @@
             </section>
             <section class="cover" id="cover"></section>
         </section>
-        <div class="row">
-            <div class="col-xs-12">
-                <h2 class="h2 mt20 text-center">- 愚人之旅 -</h2>
+        <div class="container"></div>
+        <div class="main-content-below">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h2 class="h2 mtb30 text-center">- 卡牌 -</h2>
+                </div>
             </div>
-        </div>
-        <div class="img-list-block">
-            <ul>
-                <li class="img-list-li col-xs-6" style="background-image:url(imgs/0fool.jpg)">
-                    <a href="javascript:;" target="_self">
-                        <div class="blur-mask-bottom" style="background-image:url(imgs/0fool.jpg)"></div>
-                        <div class="tips">
-                            <h5 class="text-center">0</h5>
-                            <p class="text-center">愚人</p>
-                            <p class="text-center">fool</p>
-                        </div>
+            <div class="row small-cards-gallery-box">
+                <div class="col-xs-6 col-sm-3">
+                    <a href="#" class="small-cards-gallery-thumbnail">
+                        <img src="imgs/21world.jpg" alt="21world" class="small-cards-gallery-item-img"/>
                     </a>
-                </li>
-                <li class="img-list-li" style="background-image:url(imgs/1magician.jpg)">
-                    <a href="javascript:;" target="_self">
-                        <div class="blur-mask-bottom" style="background-image:url(imgs/1magician.jpg)"></div>
-                        <div class="tips">
-                            <h5 class="text-center">1</h5>
-                            <p class="text-center">魔术师</p>
-                            <p class="text-center">magician</p>
-                        </div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    <a href="#" class="small-cards-gallery-thumbnail">
+                        <img src="imgs/17star.jpg" alt="17star" class="small-cards-gallery-item-img"/>
                     </a>
-                </li>
-                <li class="img-list-li" style="background-image:url(imgs/2high-priestess.jpg)">
-                    <a href="javascript:;" target="_self">
-                        <div class="blur-mask-bottom" style="background-image:url(imgs/2high-priestess.jpg)"></div>
-                        <div class="tips">
-                            <h5 class="text-center">2</h5>
-                            <p class="text-center">女教主</p>
-                            <p class="text-center">high priestess</p>
-                        </div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    <a href="#" class="small-cards-gallery-thumbnail">
+                        <img src="imgs/cups-6.jpg" alt="cups-6" class="small-cards-gallery-item-img"/>
                     </a>
-                </li>
-                <li class="img-list-li" style="background-image:url(imgs/3empress.jpg)">
-                    <a href="javascript:;" target="_self">
-                        <div class="blur-mask-bottom" style="background-image:url(imgs/3empress.jpg)"></div>
-                        <div class="tips">
-                            <h5 class="text-center">3</h5>
-                            <p class="text-center">皇后</p>
-                            <p class="text-center">empress</p>
-                        </div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    <a href="#" class="small-cards-gallery-thumbnail">
+                        <img src="imgs/pentacles-1.jpg" alt="pentacles-1" class="small-cards-gallery-item-img"/>
                     </a>
-                </li>
-                <li class="img-list-li" style="background-image:url(imgs/4emperor.jpg)">
-                    <a href="javascript:;" target="_self">
-                        <div class="blur-mask-bottom" style="background-image:url(imgs/4emperor.jpg)"></div>
-                        <div class="tips">
-                            <h5 class="text-center">4</h5>
-                            <p class="text-center">皇帝</p>
-                            <p class="text-center">emperor</p>
-                        </div>
-                    </a>
-                </li>
-                <li class="img-list-li" style="background-image:url(imgs/5hierophant.jpg)">
-                    <a href="javascript:;" target="_self">
-                        <div class="blur-mask-bottom" style="background-image:url(imgs/5hierophant.jpg)"></div>
-                        <div class="tips">
-                            <h5 class="text-center">5</h5>
-                            <p class="text-center">教主</p>
-                            <p class="text-center">hierophant</p>
-                        </div>
-                    </a>
-                </li>
-            </ul>
+                </div>
+            </div>
         </div>
         <% include common-footer.ejs%>
     </div>
     <script src="js/jquery-1.11.2-min.js"></script>
+    <script src="js/jquery.dotdotdot.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/common.js"></script>
     <script src="js/indexJS.js"></script>

@@ -27,7 +27,7 @@
             <div class="row mtb15 border-b">
                 <div class="col-xs-12">
                     <span class="text-nowrap " style="display:inline-block">张数 ：</span>
-                    <ul style="display:inline-block" class="ul-horiz" id="cardSumUl" data-cardsum="<%= cardSum%>">
+                    <ul class="ul-horiz divine-nav-block" id="cardSumUl" data-cardsum="<%= cardSum%>">
                         <li class=""><a href="/divine?cardSum=all">全部</a></li>
                         <li><a href="/divine?cardSum=1" data-ct="1">1张</a></li>
                         <li><a href="/divine?cardSum=2" data-ct="2">2张</a></li>
@@ -40,7 +40,7 @@
             <div class="row mtb15 border-b">
                 <div class="col-xs-12">
                     <span class="text-nowrap"  style="display:inline-block">擅长 ：</span>
-                    <ul  style="display:inline-block" class="ul-horiz" id="expertInUl" data-expertin="<%= expertIn%>">
+                    <ul  class="ul-horiz divine-nav-block" id="expertInUl" data-expertin="<%= expertIn%>">
                         <li ><a href="/divine?cardSum=<%= cardSum%>&expertIn=all">全部</a></li>
                         <li><a href="/divine?cardSum=<%= cardSum%>&expertIn=通用">通用</a></li>
                         <li><a href="/divine?cardSum=<%= cardSum%>&expertIn=爱情">爱情</a></li>
@@ -82,7 +82,7 @@
 
                 <% for(var i = 0;i<maxpage;i++){ %>
                     <%if(i+1 == curpage){%>
-                        <li class="active"><a href="#"><%=i+1%></a></li>
+                        <li class="active-red"><a href="#"><%=i+1%></a></li>
                     <%}else{ %>
                         <li class=""><a href="/divine?curpage=<%=i+1%>"><%=i+1%></a></li>
                     <%}%>
