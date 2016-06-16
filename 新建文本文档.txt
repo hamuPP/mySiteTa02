@@ -33,3 +33,6 @@ routes/divineDetail.js----逻辑基本不改了，只有数据表在改（本地
 
 
 https://threehundredandsixtysix.wordpress.com/?s=the+star
+
+
+test新增文字，用来查看文件状态的颜色
