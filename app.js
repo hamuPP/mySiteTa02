@@ -22,7 +22,7 @@ var my = require('./routes/my');
 var app = express();
 
 // all environments
-app.set('port', process.env.PORT || 1888);
+app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));// 设置模板相对路径(相对当前目录)
 //app.set('view engine', 'jade');//设置模板引擎为jade
 app.set('view engine', 'ejs');//设置模板引擎为jade
