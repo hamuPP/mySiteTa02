@@ -126,6 +126,39 @@ function checkUserAgent(){
 }
 checkUserAgent();
 
+function goTop(sEleId, iSpeed){
+    var oGoTopLink = document.getElementById(sEleId);
+    var iClientHeight = document.documentElement.clientHeight;
+    var timer = null;
+
+    window.onscroll = function () {
+        //判断是否滚到了第二屏,是则显示"回到顶部"，否则隐藏
+        var sScrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+        if (sScrollTop >= iClientHeight) {
+            oGoTopLink.style.display = "block";
+        } else {
+            oGoTopLink.style.display = "none";
+        }
+    };
+
+    oGoTopLink.onclick = function () {
+        timer = setInterval(function () {
+            var sScrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+            var iScrollSpeed = Math.floor(-sScrollTop / iSpeed);
+            document.body.scrollTop = document.documentElement.scrollTop = sScrollTop + iScrollSpeed;
+            document.body.onmousewheel = function(){
+                return false;
+            };
+            if (sScrollTop <= 0) {
+                clearInterval(timer);
+                document.body.onmousewheel = function(){
+                    return true;
+                };
+            }
+        }, 30);
+    };
+    return undefined;
+}
 /*加载页面时，主动调用getSession*/
 
 $(document).ready(function(){
@@ -184,6 +217,8 @@ $(document).ready(function(){
 
     }
 
+    //页面右侧固定工具栏
+    goTop("goTop", 12);
 });
 
 /*退出登录*/
