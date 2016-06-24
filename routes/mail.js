@@ -16,8 +16,8 @@ var transporter = nodemailer.createTransport({
     pool:true,
     service:'QQ',
     auth:{
-        user:"734877275@qq.com",
-        pass:"Hy1shmhslgd"
+        user:"3450302573@qq.com",
+        pass:"icqxizxcjzhjdbgh"
     }
 });
 var validationCode = "";
@@ -52,10 +52,10 @@ exports.sendmail = function(req,res){
 
                         //send validate code to user's email
                         mailOptions = {
-                            from: '734877275@qq.com', // sender address
+                            from: '"jusctice_service"<3450302573@qq.com>', // sender address
                             to: email, // list of receivers
                             subject: '验证码', // Subject line
-                            html: '验证码为<br/>'+validationCode+'<br/>验证码有效时间为半小时，请尽快使用。'
+                            html: '验证码为<br/>'+validationCode+'<br/>验证码有效时间为半小时，请尽快使用。<br/><hr/>--这是一封来自jusctice.cn的注册验证码邮件，如果你对此封邮件并没有印象，请无视掉它。因为可能是其他人误填了您的邮箱--'
                         };
 
                         transporter.sendMail(mailOptions, function(error, info){
@@ -80,10 +80,11 @@ exports.sendmail = function(req,res){
                         // send mail with defined transport object
                         //send validate code to user's email
                         mailOptions = {
-                            from: '734877275@qq.com', // sender address
+                            from: '"jusctice_service"<3450302573@qq.com>', // sender address
                             to: email, // list of receivers
                             subject: '验证码', // Subject line
-                            html: '验证码为<br/>'+validationCode+'<br/>验证码有效时间为半小时，请尽快使用。'
+                            html: '验证码为<br/>' + validationCode
+                                + '<br/>验证码有效时间为半小时，请尽快使用。<br/><hr/>--这是一封来自jusctice.cn的注册验证码邮件，如果你对此封邮件并没有印象，请无视掉它。因为可能是其他人误填了您的邮箱--'
                         };
 
                         transporter.sendMail(mailOptions, function(error, info){
