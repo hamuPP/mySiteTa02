@@ -55,6 +55,7 @@ app.get('/search',search.navToSearchPage);
 app.get('/login',login.navToLoginPage);
 app.get('/register',register.navToRegisterPage);
 app.get('/my',my.myPage);
+app.get('/itemDetail', search.itemDetail);
 
 /*首页的各种请求 start*/
 app.get('/', index.indexv2);
@@ -107,6 +108,16 @@ app.locals.showHoursMinutes = function(sDate) {
 
   return (dDate.getHours() < 10 ? "0" : "") + dDate.getHours() + ":" +
       (dDate.getMinutes() < 10 ? "0" : "") + dDate.getMinutes();
+};
+
+/*辅助方法-分隔字符串*/
+/**
+ * @param sSeptation
+ * @param sStr
+ * @returns {Array}
+ */
+app.locals.splitString = function(sSeptation, sStr) {
+    return sStr.split(sSeptation)
 };
 
 

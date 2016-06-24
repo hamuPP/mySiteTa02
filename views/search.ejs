@@ -11,7 +11,7 @@
     <![endif]-->
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/common.css"/>
-    <title>登录</title>
+    <title>搜寻结果</title>
 
 </head>
 <body>
@@ -25,23 +25,23 @@
     </div>
 
     <section class="container main-content ptb15">
-        <div class="list-group">
+        <div class="list-group" id="searchItemList">
             <% if(cardRows.length == 0 && paixingRows.length == 0){%>
                 <p>没有相关数据，也许你想换个关键词搜搜？</p>
             <%}else{%>
                 <% for(var i = 0, len = cardRows.length; i < len; i++){%>
-                    <a href="#" class="list-group-item">
-                        <h4 class="list-group-item-heading">[卡牌] <%= cardRows[i].cardName%></h4>
-                        <p class="list-group-item-text"><%= cardRows[i].cardSummary%></p>
+                    <a href="/itemDetail?sItemId=card-<%= cardRows[i].id%>" class="list-group-item" >
+                        <h4 class="list-group-item-heading" >[卡牌] <%= cardRows[i].cardName%></h4>
+                        <p class="list-group-item-text" ><%= cardRows[i].cardSummary%></p>
                     </a>
                 <% } %>
 
-            <% for(var j = 0, paixingLen = paixingRows.length; j < paixingLen; j++){%>
-                <a href="#" class="list-group-item">
-                    <h4 class="list-group-item-heading">[牌型] <%= paixingRows[j].pxName%></h4>
-                    <p class="list-group-item-text"><%= paixingRows[j].pxSummary %></p>
-                </a>
-            <% } %>
+                <% for(var j = 0, paixingLen = paixingRows.length; j < paixingLen; j++){%>
+                    <a href="itemDetail?sItemId=px-<%= paixingRows[j].id%>" class="list-group-item" >
+                        <h4 class="list-group-item-heading" >[牌型] <%= paixingRows[j].pxName%></h4>
+                        <p class="list-group-item-text" ><%= paixingRows[j].pxSummary %></p>
+                    </a>
+                <% } %>
             <% } %>
         </div>
     </section>
@@ -50,5 +50,6 @@
     <script src="js/jquery-1.11.2-min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/common.js"></script>
+    <script src="js/search.js"></script>
 </body>
 </html>

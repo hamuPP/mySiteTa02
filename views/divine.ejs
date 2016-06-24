@@ -27,7 +27,7 @@
             <div class="row mtb15 border-b">
                 <div class="col-xs-12">
                     <span class="text-nowrap " style="display:inline-block">张数 ：</span>
-                    <ul class="ul-horiz divine-nav-block" id="cardSumUl" data-cardsum="<%= cardSum%>">
+                    <ul class="list-unstyled ul-horiz divine-nav-block" id="cardSumUl" data-cardsum="<%= cardSum%>">
                         <li class=""><a href="/divine?cardSum=all">全部</a></li>
                         <li><a href="/divine?cardSum=1" data-ct="1">1张</a></li>
                         <li><a href="/divine?cardSum=2" data-ct="2">2张</a></li>
@@ -40,7 +40,7 @@
             <div class="row mtb15 border-b">
                 <div class="col-xs-12">
                     <span class="text-nowrap"  style="display:inline-block">擅长 ：</span>
-                    <ul  class="ul-horiz divine-nav-block" id="expertInUl" data-expertin="<%= expertIn%>">
+                    <ul  class="list-unstyled ul-horiz divine-nav-block" id="expertInUl" data-expertin="<%= expertIn%>">
                         <li ><a href="/divine?cardSum=<%= cardSum%>&expertIn=all">全部</a></li>
                         <li><a href="/divine?cardSum=<%= cardSum%>&expertIn=通用">通用</a></li>
                         <li><a href="/divine?cardSum=<%= cardSum%>&expertIn=爱情">爱情</a></li>
@@ -56,7 +56,7 @@
             <% include common-no-data.ejs%>
         <%}else{%>
             <div class="img-list-block">
-                <ul>
+                <ul class="list-unstyled">
                     <% for(var i =0;i< r.length;i++){ %>
                     <li class="img-list-li" style="background-image:url(<%= r[i].pxBanner %>)">
                         <a href="/divineDetail?cardsForm=<%= r[i].pxName %>&defaultPaizu=<%= r[i].pxDefaultPaizu%>" target="_self">

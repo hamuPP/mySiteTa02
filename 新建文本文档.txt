@@ -7,7 +7,9 @@
 
 /*一些通用设定*/
 	后台返回code:
-	-1:错误，0：成功
+	-1: 错误，
+	0 ：成功,并且有查到数据
+	1 : 成功，但是没有查到信息
 
 	当为-1时，后台再传一个msg字段，用于显示在前台
 
@@ -36,3 +38,5 @@ https://threehundredandsixtysix.wordpress.com/?s=the+star
 
 
 test新增文字，用来查看文件状态的颜色？？
+试验将此文件加入.gitignore，查看是否会提交
+试验将此文件加入.gitignore，查看是否会提交 second
