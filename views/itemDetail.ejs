@@ -49,7 +49,7 @@
                 <% include common-no-data.ejs %>
             <% }else if(code == 0){ %>
                 <% if(sCategoryFlag == "card"){ %>
-                    <img src="imgs/21world.jpg" alt="" class="thumbnail" id="thumbnail"/>
+                    <img src=<%= cardSrc %> alt=<%= cardSrc %> class="thumbnail" id="thumbnail"/>
                     <div class="text-block">
                         <h3><%= cardNum%>.<%= cardName%></h3>
                         <p><%= cardSummary%></p>
@@ -64,7 +64,7 @@
                         <p><%= cardReversePos%></p>
                     </div>
                 <% }else if(sCategoryFlag == "px"){ %>
-                    <img src=<%= pxBanner %> alt="" class="thumbnail" id="thumbnail"/>
+                    <img src=<%= pxBanner %> alt=<%= pxBanner %> class="thumbnail" id="thumbnail"/>
                     <div class="text-block">
                         <h3><%= pxName%></h3>
                         <p><%= pxExpertIn%></p>

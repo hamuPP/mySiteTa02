@@ -90,6 +90,8 @@ function _searchItemDetail(sSql, aCondition, sCategoryFlag, res){
         if(e){
             console.log("routes/search.js 81 line : " + e);
         }else{
+            console.log(r);
+            console.log(r.length);
             if(r && r.length > 0) {
                 //console.log(92);
                 r[0].code = 0;
