@@ -148,6 +148,10 @@ a{
   width: 200px;
   height:$header-height;
   float:right;
+  .header-search-input:focus{
+    outline: none;
+    border-bottom: 1px solid $main-border-color-lightpur;
+  }
 }
 
 @media (min-width: 768px) {
@@ -174,11 +178,11 @@ a{
   width: 0;
   color: #fff;
   /*设置动画样式*/
-  -webkit-transition: width 400ms ease;
-  -moz-transition: width 400ms ease ;
-  -ms-transition: width 400ms ease ;
-  -o-transition: width 400ms ease ;
-  transition: width 400ms ease ;
+  -webkit-transition: all 400ms ease;
+  -moz-transition: all 400ms ease ;
+  -ms-transition: all 400ms ease ;
+  -o-transition: all 400ms ease ;
+  transition: all 400ms ease ;
 }
 
 .header-search-input:focus{
