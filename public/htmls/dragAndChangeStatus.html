@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+		<title>QQ面板拖拽与改变状态的效果</title>
+		<link rel="stylesheet" href="../css/dragAndChangeStatus.css" />
+		<style></style>
+	</head>
+	<body>
+		<div class="loginPanel" id="loginPanel">
+			<div class="close-wrap">
+				<div class="close-icon" id="closeIcon"></div>
+			</div>
+			<div class="logo-QQ"></div>
+			<div class="input-wrap">
+				<div class="sign-input">
+					<span>账号：</span>
+					<span>
+						<input type="text" name="username" placeholder="请输入账号"/>
+					</span>
+				</div>
+				<div class="sign-input">
+					<span>密码：</span>
+					<span>
+						<input type="password" name="psw"  placeholder="请输入密码"/>
+					</span>
+				</div>				
+			</div>
+			<div class="bottom-wrap">
+				<div class="btn login-btn">登录</div>
+				<div class="login-status-wrap" id="loginStatusWrap">					
+					<div class="login-state-show online" id="loginStateShow"></div>
+					<div class="down-triggle"></div>
+					<div class="login-status-txt" id="loginStatusText">在线</div>
+					
+					<ul class="status-list" id="statusList" style="display: none;">
+						<li id="online">
+							<div class="status-list-icon online"></div>
+							<div class="status-list-text">在线</div>
+						</li>
+						<li id="busy">
+							<div class="status-list-icon busy"></div>
+							<div class="status-list-text">忙碌</div>
+						</li>
+						<li id="hidden">
+							<div class="status-list-icon hidden"></div>
+							<div class="status-list-text">隐身</div>
+						</li>						
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script src="../js/dragAndChangeStatus.js"></script>
+	</body>
+</html>

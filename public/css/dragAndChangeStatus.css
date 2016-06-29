@@ -1,0 +1,122 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	list-style: none;
+}
+/*通用CSS 开始*/
+
+.btn{
+	width: 80px;
+	height: 25px;
+	text-align: center;
+	line-height: 25px;
+	background: #38f;
+	color: #fff;
+}
+/*通用CSS 结束*/
+.loginPanel{
+	width: 280px;
+	height: 127px;
+	position: absolute;
+	left:50%;
+	top:50%;
+	border:1px solid black;
+	background: #eee;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	box-shadow:0 0 8px #006400;
+}
+.close-wrap{
+	position: relative;
+	z-index: 1;
+}
+.close-icon{
+	background:url(../images/qq/boxy_btn.png) no-repeat;
+	width: 28px;
+	height: 28px;
+	position:absolute;
+	top:-10px;
+	right:-10px;
+	z-index: 1;
+}
+.logo-QQ{
+	background:url(../images/qq/login_window_logo.png) no-repeat -210px 0;
+	height: 44px;
+	width:auto;
+	margin:5px 0 0 50px;
+	cursor:move;
+}
+/*底部 开始*/
+.bottom-wrap{
+	margin:5px 55px;
+	position: relative;
+}
+.bottom-wrap .login-btn{
+	float: left;
+	cursor: pointer;	
+}
+.bottom-wrap .login-status-wrap{
+	float: left;
+	height: 16px;
+	margin:5px 0 0 20px;
+	/*background: pink;*/	
+	font-size: 16px;
+	cursor: pointer;
+}
+.login-status-wrap > div{
+	float: left;
+}
+.login-state-show{
+	height: 16px;
+	width: 16px;
+	overflow: hidden;
+
+}
+.login-state-show.online{
+		background: url(../images/qq/ptlogin.png) 0 0 no-repeat;
+}
+.login-state-show.busy{
+		background: url(../images/qq/ptlogin.png) -36px 0 no-repeat;
+}
+.login-state-show.hidden{
+		background: url(../images/qq/ptlogin.png) -54px 0 no-repeat;
+}
+.down-triggle{
+	background: url(../images/qq/ptlogin.png) 0 -22px no-repeat;
+	height: 6px;
+	width: 6px;
+	margin:6px 4px 0;	
+}
+.login-status-txt{}
+.status-list{
+	position: absolute;
+	top:21px;
+	width: 80px;
+	background: #fff;
+	box-shadow: 0 1px 2px 2px #3388FF;
+}
+.status-list li{
+	overflow: hidden;
+	margin:5px 0;
+}
+.status-list li div{
+	float: left;
+}
+.status-list-icon{
+	width: 14px;
+	height: 14px;
+	margin:0 1px;
+}
+.status-list-icon.online{
+		background: url(../images/qq/ptlogin.png) 0 0 no-repeat;
+}
+.status-list-icon.busy{
+		background: url(../images/qq/ptlogin.png) -36px 0 no-repeat;
+}
+.status-list-icon.hidden{
+		background: url(../images/qq/ptlogin.png) -54px 0 no-repeat;
+}
+/*底部 结束*/
+
