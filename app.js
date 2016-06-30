@@ -19,6 +19,7 @@ var register = require('./routes/register');
 var user = require('./routes/user');
 var mail = require('./routes/mail');
 var my = require('./routes/my');
+var editMyFile = require('./routes/editMyFile');
 var app = express();
 
 // all environments
@@ -87,6 +88,9 @@ app.get('/logout',login.logout);
 /*详情界面的添加到购物车*/
 
 app.get("/getSession",login.getSession);
+
+/*编辑个人信息*/
+app.get("/editMyFile", editMyFile.navToEditMyFile);
 
 /*辅助方法，ejs用的*/
 /*转换毫秒时间到当地时间*/

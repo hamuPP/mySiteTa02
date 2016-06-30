@@ -1,6 +1,7 @@
 ﻿/.idea
-app.js
+#app.js
 /routes/divineDetail.js
 /node_modules
+/public/htmls
 新建文本文档.txt
 计划.rtf

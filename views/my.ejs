@@ -12,14 +12,20 @@
             -moz-border-radius: 50%;
             border-radius: 50%;
         }
-
+        .avatar-wrap{
+            padding-top:2rem;
+        }
         .avatar-name {
             color: #fff;
+            font-size:1.1rem;
             font-weight: 600;
-            margin: 10px 10px 20px;
+            margin: 1rem 10px 2rem;
             text-align: center;
         }
-
+        .edit-avatar{
+            font-size:1rem;
+            font-weight: 400;
+        }
         .history-time > p {
             margin: 8px 0;
         }
@@ -41,8 +47,7 @@
             <div class="avatar-wrap">
                 <img src="<%= user.u_avatar%>" id="avatarImg" alt="头像" class="avatar"/>
 
-                <p id="avatarName" class="avatar-name"><%= user.u_name %></p>
-                <a href="javascript:;">编辑头像（暂未开放）</a>
+                <p id="avatarName" class="avatar-name"><%= user.u_name %>&nbsp;<a href="/editMyFile?uid=<%= user.uid%>" class="edit-avatar">编辑头像</a></p>
             </div>
         </div>
     </div>
