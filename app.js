@@ -91,6 +91,7 @@ app.get("/getSession",login.getSession);
 
 /*编辑个人信息*/
 app.get("/editMyFile", editMyFile.navToEditMyFile);
+app.post("/updataAvatar", editMyFile.updataAvatar);
 
 /*辅助方法，ejs用的*/
 /*转换毫秒时间到当地时间*/

@@ -32,3 +32,14 @@ exports.navToEditMyFile = function(req, res){
 
 	res.render("editMyFile");
 };
+
+exports.updataAvatar = function(req, res) {
+	var imgdata = req.body.imgDataURL;
+	var img = req.body.img;
+	//console.log(imgdata);
+	//生成七牛云的uptoken
+};
+
+function _putPolicyForUploadToken() {
+
+}
