@@ -30,7 +30,7 @@ $(document).ready(function() {
 	$("#uploadToServiceBtn").on("click", function(){
 		//获得裁剪后的图片
 		var imgCanvas = $("#avatarPreview").cropper("getCroppedCanvas");
-		var imgDataURL = imgCanvas.toDataURL();
+		var imgDataURL = imgCanvas.toDataURL("image/jpeg");
 		//console.log(imgCanvas);
 
 		//canvas 转成 图片
@@ -40,15 +40,16 @@ $(document).ready(function() {
 		$.ajax({
 			url:"/updataAvatar",
 			type:"post",
-			data:{
-				"imgDataURL": imgDataURL,
-				"img": oJPEG
-			},
+			data:'imgDataURL='+imgDataURL+'&img='+oJPEG,
 			success: function(param){
-				console.log(param);
+				if(param.code === 0){
+					window.location = "/my"
+				}else{
+					alert("上传图片出错，请稍后再试"+param.code+param.msg)
+				}
 			},
-			error:function(xhr,e){
-				console.log("错误了");
+			error:function(xhr,err,errObjc){
+				alert("上传图片出错，请稍后再试"+err)
 			}
 		});
 
