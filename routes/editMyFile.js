@@ -16,31 +16,19 @@ exports.navToEditMyFile = function(req, res){
         res.render('login');
         return ;
     }
-    //若已经登陆，查询用户历史测算记录
-    //var userName = user.u_name,
-    //    con = db.dbGetCon(),
-    //    curpage = req.query.curpage,
-    //    sql = "select * from t_userdivinehistory where udhUserName = ? order by udhId desc";
-	//
-    //db.queryByPage(con,curpage,10,sql,[userName],function(e,r,f,page){
-    //    if(e){
-    //        console.log("有错误"+e);
-    //    }else{
-    //        page.user = user;
-    //        page.aInfo = r;
-    //        res.render('my',page);
-    //    }
-    //});
-
 	res.render("editMyFile");
 };
 
 exports.updataAvatar = function(req, res) {
 	var imgdata = req.body.imgDataURL;
-	var img = req.body.img;
-	console.log(img);
-	console.log(imgdata);
+	var user = req.session.user;
+	var uid = user.uid;
 
+	//若未登陆，跳到登陆页面
+	if(!user){
+		res.render('login');
+		return ;
+	}
 	//过滤base64头部
 	var index = imgdata.indexOf(",") + 1;
 	var imgBase64WithoutHeader = imgdata.substr(index);
@@ -49,24 +37,22 @@ exports.updataAvatar = function(req, res) {
 	var imgBase64 = imgBase64WithoutHeader.replace(/\s/g,"+");
 
 	//nodejs解码图片base64并且保存到服务器
-	var uid = 17
-	var filename = "public/imgs/useravatar/"+uid+".jpg";
-	_base64_decode(imgBase64, filename, res);
-
+	var filename = "imgs/useravatar/"+uid+".jpg";
+	_base64_decode(imgBase64, filename, uid, req, res);
 };
 
 /**
- * nodejs 解码并保存base64
+ * 解码并保存base64图片到本机
  * @param {String} base64str
  * @param {String} filename
  * @param res
  * @return undefined
  */
-function _base64_decode(base64str, filename, res) {
+function _base64_decode(base64str, filename, uid, req, res) {
 	// create buffer object from base64 encoded string, it is important to tell the constructor that the string is base64 encoded
 	var bitmap = new Buffer(base64str, 'base64');
 	// write buffer to file
-	fs.writeFile(filename, bitmap, function(err){
+	fs.writeFile("public/"+filename, bitmap, function(err){
 		if(err){
 			console.log(err);
 			res.json({
@@ -74,13 +60,42 @@ function _base64_decode(base64str, filename, res) {
 				msg: err
 			});
 		}else{
+			//更新user数据表
+			_updateUserTable(uid, filename, req, res);
+		}
+	});
+}
+
+/**
+ * 更新user数据表，将头像字段更新进去
+ * @param userId
+ * @param avatarFileName
+ * @param res
+ * @private
+ */
+function _updateUserTable(userId, avatarFileName, req, res){
+	var con = db.dbGetCon(),
+		sql = "update t_user set u_avatar = ? where uid = ?",
+		result;
+
+	con.query(sql, [avatarFileName, userId], function(err, rows){
+		if(err){
+			result = err;
+			res.json({
+				code:-1,
+				msg:err
+			});
+		}else{
+			console.log(rows);
+			//更新session
+			req.session.user.u_avatar = avatarFileName;
 			res.json({
 				code:0
 			});
 		}
 	});
+	con.end();
 }
-
 //七牛上传--暂时不用了
 ////需要填写你的 Access Key 和 Secret Key
 //	qiniu.conf.ACCESS_KEY = 'FIHVT_vx7m9zkXEfzIu3FtuXnSWzdXszj2Cs8_IZ';

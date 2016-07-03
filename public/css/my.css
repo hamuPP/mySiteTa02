@@ -1,36 +1,27 @@
 /*history list start*/
-/* line 2, ../sass/my.scss */
 .history-list {
   margin-top: 20px;
-  overflow: hidden;
-}
+  overflow: hidden; }
 
-/* line 6, ../sass/my.scss */
 .history-list-item {
   display: -webkit-box;
   display: -moz-box;
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
-  display: flex;
-}
-/* line 13, ../sass/my.scss */
-.history-list-item:hover {
-  background: #eee;
-  cursor: pointer;
-}
+  display: flex; }
+  .history-list-item:hover {
+    background: #eee;
+    cursor: pointer; }
 
-/* line 18, ../sass/my.scss */
 .left-info {
   width: 105px;
   height: 120px;
   border-right: 1px solid rgba(187, 156, 255, 0.3);
   position: relative;
   vertical-align: top;
-  margin-top: 10px;
-}
+  margin-top: 10px; }
 
-/* line 27, ../sass/my.scss */
 .history-small-point {
   position: absolute;
   top: 0;
@@ -40,22 +31,17 @@
   background: #790d86;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
-  border-radius: 50%;
-}
+  border-radius: 50%; }
 
-/* line 38, ../sass/my.scss */
 .right-info {
   padding-left: 20px;
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
   /*box-flex: 1;*/
-  flex: 1;
-}
+  flex: 1; }
 
-/* line 46, ../sass/my.scss */
 .media-object {
   width: 120px;
-  height: 100px;
-}
+  height: 100px; }
 
 /*history list end*/
