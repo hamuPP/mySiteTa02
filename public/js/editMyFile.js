@@ -17,13 +17,16 @@ $(document).ready(function() {
 	document.getElementById("uploadImage").onchange = loadImageFile;
 
 	function loadImageFile() {
-		if (document.getElementById("uploadImage").files.length > 0) {
+		var uploadImageBtn = document.getElementById("uploadImage");
+		if (uploadImageBtn.files.length > 0) {
 			var oFile = document.getElementById("uploadImage").files[0];
 			if (!rFilter.test(oFile.type)) {
 				alert("You must select a valid image file!");
 				return;
 			}
 			oFReader.readAsDataURL(oFile);
+			document.getElementById("reSelectFile").style.display = "block";
+			document.getElementById("selectFile").style.display = "none";
 		}
 	}
 
