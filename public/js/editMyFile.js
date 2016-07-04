@@ -6,12 +6,11 @@ $(document).ready(function() {
 
 	oFReader.onload = function (e) {
 		document.getElementById("avatarPreview").src = imgData = e.target.result;
-		//初始化裁剪
 		$("#avatarPreview").cropper({
 			aspectRatio:1,
 			guides: false,
 			dragCrop:false
-		});
+		}).cropper("replace", imgData);
 	};
 
 	document.getElementById("uploadImage").onchange = loadImageFile;
@@ -21,7 +20,7 @@ $(document).ready(function() {
 		if (uploadImageBtn.files.length > 0) {
 			var oFile = document.getElementById("uploadImage").files[0];
 			if (!rFilter.test(oFile.type)) {
-				alert("You must select a valid image file!");
+				alert("只能选择图片文件！");
 				return;
 			}
 			oFReader.readAsDataURL(oFile);

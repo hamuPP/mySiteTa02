@@ -50,7 +50,8 @@ exports.registerAtDb = function(req,res){
                             req.session.user = {
                                 "u_name":username,
                                 "u_pwd":pwd,
-                                "u_email":email
+                                "u_email":email,
+								"uid":rows.insertId
                             };
 
                             res.json({msg:"注册成功",code:0});
