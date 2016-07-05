@@ -36,11 +36,40 @@ exports.divineShowAll = function(req,res){
         sql = "select pxName,pxCardSum,pxExpertIn,pxSummary,pxBanner,pxDefaultPaizu from paixing where pxExpertIn = ?";
         condition = [expertIn];
     }else if(cardSum != 'all' && expertIn == 'all'){
-        sql = "select pxName,pxCardSum,pxExpertIn,pxSummary,pxBanner,pxDefaultPaizu from paixing where pxCardSum = ? ";
-        condition = [cardSum];
+        if(cardSum.indexOf("~") >= 0){
+			var aCardSum = cardSum.split("~");
+			var sSmallCardSum = aCardSum[0];
+			var sBigCardSum = aCardSum[1];
+
+			if(sBigCardSum){
+				sql = "select pxName,pxCardSum,pxExpertIn,pxSummary,pxBanner,pxDefaultPaizu from paixing where pxCardSum >= ? and pxCardSum <= ?";
+				condition = [sSmallCardSum, sBigCardSum];
+			}else{
+				sql = "select pxName,pxCardSum,pxExpertIn,pxSummary,pxBanner,pxDefaultPaizu from paixing where pxCardSum >= ?";
+				condition = [sSmallCardSum];
+			}
+
+		}else{
+			sql = "select pxName,pxCardSum,pxExpertIn,pxSummary,pxBanner,pxDefaultPaizu from paixing where pxCardSum = ? ";
+			condition = [cardSum];
+		}
     }else{
-        sql = "select pxName,pxCardSum,pxExpertIn,pxSummary,pxBanner,pxDefaultPaizu from paixing where pxCardSum = ? and pxExpertIn = ?";
-        condition = [cardSum,expertIn];
+		if(cardSum.indexOf("~") >= 0){
+			var aCardSum = cardSum.split("~");
+			var sSmallCardSum = aCardSum[0];
+			var sBigCardSum = aCardSum[1];
+
+			if(sBigCardSum){
+				sql = "select pxName,pxCardSum,pxExpertIn,pxSummary,pxBanner,pxDefaultPaizu from paixing where pxCardSum >= ? and pxCardSum <= ? and pxExpertIn = ?";
+				condition = [sSmallCardSum, sBigCardSum, expertIn];
+			}else{
+				sql = "select pxName,pxCardSum,pxExpertIn,pxSummary,pxBanner,pxDefaultPaizu from paixing where pxCardSum >= ? and pxExpertIn = ?";
+				condition = [sSmallCardSum, expertIn];
+			}
+		}else{
+			sql = "select pxName,pxCardSum,pxExpertIn,pxSummary,pxBanner,pxDefaultPaizu from paixing where pxCardSum = ? and pxExpertIn = ?";
+			condition = [cardSum,expertIn];
+		}
     }
 
     db.queryByPage(con,curpage,8,sql,condition,function(e,r,f,page){
