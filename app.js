@@ -145,8 +145,8 @@ log4js.configure({
 	]
 });
 var logger = log4js.getLogger('normal');
-logger.setLevel('TRACE');
-app.use(log4js.connectLogger(logger, {level: log4js.levels.TRACE}));
+logger.setLevel('INFO');
+app.use(log4js.connectLogger(logger, {level: log4js.levels.INFO}));
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
