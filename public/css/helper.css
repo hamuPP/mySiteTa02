@@ -73,6 +73,9 @@
 .fr{
     float:right;
 }
+.fl{
+    float:left;
+}
 
 /*active  */
 .active{

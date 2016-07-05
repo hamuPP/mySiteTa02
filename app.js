@@ -21,10 +21,11 @@ var user = require('./routes/user');
 var mail = require('./routes/mail');
 var my = require('./routes/my');
 var editMyFile = require('./routes/editMyFile');
+var about = require("./routes/about");
 var app = express();
 
 // all environments
-app.set('port', process.env.PORT || 3001);
+app.set('port', process.env.PORT || 80);
 app.set('views', path.join(__dirname, 'views'));// 设置模板相对路径(相对当前目录)
 //app.set('view engine', 'jade');//设置模板引擎为jade
 app.set('view engine', 'ejs');//设置模板引擎为jade
@@ -94,6 +95,8 @@ app.get("/getSession",login.getSession);
 app.get("/editMyFile", editMyFile.navToEditMyFile);
 app.post("/updataAvatar", editMyFile.updataAvatar);
 
+app.get("/about", about.about);
+
 /*辅助方法，ejs用的*/
 /*转换毫秒时间到当地时间*/
 app.locals.showYear = function(sDate) {
@@ -135,12 +138,11 @@ log4js.configure({
 		{
 			type: 'file', //文件输出
 			filename: 'logs/access.log',
-			maxLogSize: 1024,
+			maxLogSize: 1024*16,
 			backups: 3,
 			category: 'normal'
 		}
-	],
-	replaceConsole: true
+	]
 });
 var logger = log4js.getLogger('normal');
 logger.setLevel('TRACE');
