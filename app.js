@@ -8,6 +8,7 @@ var routes = require('./routes');
 var http = require('http');
 var path = require('path');
 var product = require('./routes/product');
+var log4js = require('log4js');
 
 //var webRouter = require('./webRouter');
 
@@ -128,6 +129,22 @@ app.locals.splitString = function(sSeptation, sStr) {
 
 /*新版本*/
 app.get('/indexv2',index.indexv2);
+
+log4js.configure({
+	appenders: [
+		{
+			type: 'file', //文件输出
+			filename: 'logs/access.log',
+			maxLogSize: 1024,
+			backups: 3,
+			category: 'normal'
+		}
+	],
+	replaceConsole: true
+});
+var logger = log4js.getLogger('normal');
+logger.setLevel('TRACE');
+app.use(log4js.connectLogger(logger, {level: log4js.levels.TRACE}));
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
