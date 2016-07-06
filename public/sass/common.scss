@@ -93,8 +93,14 @@ a{
   }
   .navbar-header{
     height:100%;
+    position: relative;
     .header-search-input{
       font-size: 1.6rem;
+    }
+    .header-search-box-mobile{
+      position: absolute;
+      right:60px;
+      width:100%;
     }
   }
   .navbar-toggle{
@@ -145,9 +151,9 @@ a{
 .header-search-box-mobile{
   padding-top:10px;
   padding-bottom: 10px;
-  width: 200px;
   height:$header-height;
-  float:right;
+  //position:relative;
+  z-index:5;
   .header-search-input:focus{
     outline: none;
     border-bottom: 1px solid $main-border-color-lightpur;

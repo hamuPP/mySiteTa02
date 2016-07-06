@@ -12,14 +12,7 @@ function getUrlParam(name,uri) {
     var r = (uri || decodeURIComponent(window.location.search.substr(1))).match(reg);
     if (r != null) return decodeURIComponent(r[2]); return null;
 }
-/**
- * 获得url格式的字符串的参数
- */
-//function getUriFormatStrParam(name){
-//    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-//    var r = decodeURIComponent(window.location.search.substr(1)).match(reg);
-//    if (r != null) return decodeURIComponent(r[2]); return null;
-//}
+
 /**
  * 获得画布的父元素的宽高,然后设置其中画布的宽高
  * @param {String} wrapid 画布父元素
@@ -170,25 +163,11 @@ $(document).ready(function(){
                 var u_name = param.u_name,
                     u_avararImg = param.u_avatar;
 
-                $("#userName").attr("class","show");
+                $("#userName").attr("class","active show");
                 $("#logout").attr("class","show");
                 $("#login").attr("class","hide");
                 $("#register").attr("class","hide");
                 $("#userNameText").html(u_name);
-
-                //若是个人页面，显示名字和头像--放在路由里做，用渲染模板的方式显示
-                //if(window.location.pathname == "/my"){
-                //    var  avatarImg = $("#avatarImg"),
-                //        avatarText = $("#avatarName");
-                //
-                //    avatarText.html(u_name);
-                //
-                //    //若用户未设置头像，则使用默认头像图片
-                //    if(!u_avararImg || u_avararImg == ""){
-                //        u_avararImg = "../../imgs/moon.jpg";
-                //    }
-                //    avatarImg.attr("src",u_avararImg);
-                //}
             }
         }
     });
@@ -212,7 +191,6 @@ $(document).ready(function(){
             $("#register").attr("class","active");
             break;
         default :
-            $("#headerNavIndex").attr("class","active");
             break;
 
     }
@@ -237,7 +215,12 @@ function logout(){
 
 /*通用头部的搜索框*/
 var headerSearchFormMobile = $("#headerSearchFormMobile"),
-    headerSearchForm = $("#headerSearchForm");
+    headerSearchForm = $("#headerSearchForm"),
+	headerSeachBoxMobile = $(".header-search-box-mobile #headerSearchInputMobile");
+
+headerSeachBoxMobile.focus(function(){
+	$(".logo-img").hide();
+});
 
 headerSearchFormMobile.submit(function(){
     var searchValue = $("#headerSearchInputMobile").val();
