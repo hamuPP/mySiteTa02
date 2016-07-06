@@ -161,13 +161,19 @@ $(document).ready(function(){
         success:function(param){
             if(param.u_name){
                 var u_name = param.u_name,
-                    u_avararImg = param.u_avatar;
+					userNameLink = $("#userName"),
+					userNameOldClass = userNameLink.attr("class");
+				console.log(userNameOldClass);
 
-                $("#userName").attr("class","active show");
-                $("#logout").attr("class","show");
-                $("#login").attr("class","hide");
-                $("#register").attr("class","hide");
-                $("#userNameText").html(u_name);
+				if(window.location.pathname.substring(1) == "my"){
+					userNameLink.attr("class","show active");
+				}else{
+					userNameLink.attr("class","show");
+				}
+				$("#logout").attr("class","show");
+				$("#login").attr("class","hide");
+				$("#register").attr("class","hide");
+				$("#userNameText").html(u_name);
             }
         }
     });

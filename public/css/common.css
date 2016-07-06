@@ -303,7 +303,7 @@ form .control-label {
   width: 40px;
   height: 40px;
   display: none;
-  background: url(../imgs/icons/top_bg.png) no-repeat; }
+  background: url(http://pic.jusctice.cn/icons/top_bg.png) no-repeat; }
 
 .go-top-with-img:hover, .qq-service:hover {
   background-position: left -40px; }
@@ -312,7 +312,7 @@ form .control-label {
   width: 40px;
   height: 40px;
   display: block;
-  background: url(../imgs/icons/qq_bg.png) no-repeat; }
+  background: url(http://pic.jusctice.cn/icons/qq_bg.png) no-repeat; }
 
 .select-file-block {
   overflow: hidden;
