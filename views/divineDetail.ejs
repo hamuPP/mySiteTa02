@@ -18,6 +18,12 @@
             z-index:10;
             opacity: 0;
         }
+        .header-row{
+            white-space: nowrap;
+        }
+        .header-row th:nth-child(odd){
+            width: 3rem;
+        }
     </style>
 </head>
 <body>
@@ -78,14 +84,14 @@
                 <div class="">
                     <h3 class="">本次测算释义：</h3>
                 </div>
-                <table id="resultExplainTable" class="table table-bordered">
-                    <tr class="text-nowrap">
+                <table id="resultExplainTable" class="table table-bordered result-explain-table">
+                    <tr class="header-row">
                         <th>所选牌组：</th>
                         <th id="selectedPaiZu"></th>
                         <th>所选牌形：</th>
                         <th id="selectedCardForm"></th>
                     </tr>
-                    <tbody id="tbody" style="width:100%;"></tbody>
+                    <tbody id="tbody"></tbody>
                 </table>
             </div>
             <div class="blur-mask-full" style="z-index: 1;background:#330F10;"></div>

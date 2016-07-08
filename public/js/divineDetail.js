@@ -2,8 +2,6 @@
  * Created by ty on 2016/2/14.
  */
 
-var cAll = document.getElementsByTagName("canvas");/*待删*/
-
 var c = document.getElementById("canvas"),
     c2 = document.getElementById("canvas2"),
     ctx = c.getContext("2d"),
@@ -88,7 +86,6 @@ function showCarsFormAndAddIntoDbs(datas){
             }
         }
     });
-
 };
 
 //初始化抽卡界面
@@ -116,23 +113,21 @@ function showCarsForm(datas){
                 return ;
             }
 
-            var h = res.pxEachCardH,
-                w = res.pxEachCardW,
+            var h = Number(res.pxEachCardH),
+                w = Number(res.pxEachCardW),
                 x = res.pxEachCardX.split(","),
-                y = res.pxEachCardY.split(","),
-                text = res.pxPositionMeaning ? res.pxPositionMeaning.split(/#/g) : null;
-
+                y = res.pxEachCardY.split(",");
             /*显示的牌形的摆放位置*/
             for(var i = 0, len = res.pxCardSum; i< len; i++){
-                var textEach = text ? text[i] : "暂未收录";
-                var singleCard = new BaseCard(h,w,x[i],y[i],wrapW,wrapH,ctx,"../imgs/card-back-side.jpg",(i+1)+"."+textEach),
+                //var textEach = text ? text[i] : "暂未收录";
+                var singleCard = new BaseCard(h, w, Number(x[i]), Number(y[i]), wrapW,wrapH,ctx,"../imgs/card-back-side.jpg",(i+1)),
                     singleCard2 = null;
 
                 //如果是逆位,则修改cardSrc为逆位的src
                 if(res.cardInfo[i].isRightPos){
-                    singleCard2 = new BaseCard(h,w,x[i],y[i],wrapW,wrapH,ctx2,res.cardInfo[i].cardSrc,(i+1)+".");
+                    singleCard2 = new BaseCard(h,w, Number(x[i]), Number(y[i]),wrapW,wrapH,ctx2,res.cardInfo[i].cardSrc,(i+1));
                 }else{
-                    singleCard2 = new BaseCard(h,w,x[i],y[i],wrapW,wrapH,ctx2,res.cardInfo[i].cardSrcReverse,(i+1)+".");
+                    singleCard2 = new BaseCard(h,w, Number(x[i]), Number(y[i]),wrapW,wrapH,ctx2,res.cardInfo[i].cardSrcReverse,(i+1));
                 }
 
                 singleCard.put();
