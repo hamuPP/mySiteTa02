@@ -181,7 +181,7 @@ if(getCookie("divineUsageMsgNoNotify")){
  * @param {JSON} res 是ajax返回信息，用于填充表格内容
  */
 function showResultTable(data,res){
-    var table = document.getElementById("resultExplainTable"),
+    var resultInnerBox = document.getElementById("resultInnerBox"),
         selectedPaiZu=document.getElementById("selectedPaiZu"),
         selectedCardForm=document.getElementById("selectedCardForm"),
         tbody = document.getElementById("tbody"),
@@ -197,15 +197,12 @@ function showResultTable(data,res){
             cardSummary = cardInfo[i].isRightPos ? cardInfo[i].cardSummary :cardInfo[i].cardReversePos,
             pxEachPositionMeaning = pxPositionMeaningArr ? pxPositionMeaningArr[i] : "未收录相关信息";
 
-        str += "<tr>"+
-                "<td>第"+(i+1)+"张牌:</td>"+
-                "<td>"+pxEachPositionMeaning + "</td>"+
-                "<td>"+cardName+"</td>"+
-                "<td>"+cardSummary+"</td>"+
-            "<tr>";
+        str +=  "<div class='col-xs-12 col-sm-6 text-center'>"+(i+1)+"."+pxEachPositionMeaning+"</div>"+
+                "<div class='col-xs-12 col-sm-6 text-center'>"+cardName+"</div>"+
+                "<div class='col-xs-12'>"+cardSummary+"</div>";
     }
     tbody.innerHTML = str;
-    table.style.display="block";
+	document.getElementById("resultExplain").style.display="block";
 
 }
 
