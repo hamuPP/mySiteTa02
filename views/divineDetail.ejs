@@ -18,6 +18,17 @@
             z-index:10;
             opacity: 0;
         }
+        .resultInnerBox > div > div{
+            border:1px solid rgb(221,221,221);
+            line-height: 1.6;
+        }
+        .title-row{
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+        .resultInnerBox > .title-row > div{
+            line-height: 2;
+        }
     </style>
 </head>
 <body>
@@ -73,23 +84,21 @@
            <canvas id="canvas2"></canvas>
         </div>
         <button class="btn btn-main-pur " id="openCardBtn" style="margin:10px auto;padding:10px 60px;display: none;">翻开</button>
-        <div style="position: relative">
-            <div class="" id="resultExplain" style="position: relative;z-index: 2">
-                <div class="">
-                    <h3 class="">本次测算释义：</h3>
+        <div class="row">
+            <div id="resultExplain" class="col-xs-12" style="display: none;">
+                <div>
+                    <h3>本次测算释义：</h3>
                 </div>
-                <table id="resultExplainTable" class="table table-bordered">
-                    <tr class="text-nowrap">
-                        <th>所选牌组：</th>
-                        <th id="selectedPaiZu"></th>
-                        <th>所选牌形：</th>
-                        <th id="selectedCardForm"></th>
-                    </tr>
-                    <tbody id="tbody" style="width:100%;"></tbody>
-                </table>
+                <div class="resultInnerBox" id="resultInnerBox">
+                    <div class="text-center title-row">
+                        <div class="col-xs-12 col-sm-6">所选牌组：</div>
+                        <div class="col-xs-12 col-sm-6" id="selectedPaiZu"></div>
+                        <div class="col-xs-12 col-sm-6">所选牌形：</div>
+                        <div class="col-xs-12 col-sm-6" id="selectedCardForm"></div>
+                    </div>
+                    <div id="tbody"></div>
+                </div>
             </div>
-            <div class="blur-mask-full" style="z-index: 1;background:#330F10;"></div>
-
         </div>
 
     </section>
