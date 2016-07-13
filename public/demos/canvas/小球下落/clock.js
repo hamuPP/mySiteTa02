@@ -25,10 +25,12 @@ window.onload = function() {
 
 	currentShowTimeSeconds = getCurrentShowTimeSeconds();
 
-	id = setInterval(function() {
-		render(ctx);
-		update();
-	}, 50);
+	setTimeout(function(){
+		id = setInterval(function() {
+			render(ctx);
+			update();
+		}, 50);
+	}, 1000);
 }
 
 function render(context){
