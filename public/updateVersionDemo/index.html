@@ -3,39 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <link href="//cdn.bootcss.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/compo.css"/>
     <style>
-        .content-line-box{
-            margin:0 auto;
+        .content-line-box {
+            margin: 0 auto;
         }
-        .item{
-            border:1px solid red;
+
+        .item {
+            border: 1px solid red;
             width: 30%;
             height: 300px;
             display: inline-block;
-            margin-left:5px;
-            margin-right:5px;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+
+        .div1 {
+            width: 500px;
+            height: 300px;
+            background: black;
+        }
+
+        .div2 {
+            width: 100px;
+            height: 100px;
+            background: green;
+            margin-left: auto;
+            margin-right: auto;
         }
     </style>
 </head>
 <body>
-    <h3>相关书籍</h3>
-    <div class="content-line-box"><img src="content_line.png" alt=""/></div>
-    <div class="content">
-        <div class="img-list-comtainer">
-            <div class="img-list-item">
-                <img src="../imgs/0fool.jpg" alt=""/>
-                <p class="img-list-item-content">文字</p>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-xs-12 col-md-5">
+                <h3>卡牌</h3>
+                <div class="content-line-box">
+                    <img class="content-line" src="content_line.png" alt=""/>
+                </div>
+                </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="img-list-comtainer">
+                <div class="img-list-item">
+                    <img src="../imgs/0fool.jpg" alt=""/>
+
+                    <p class="img-list-item-content">文字</p>
+                </div>
+                <div class="img-list-item">
+                    <img src="../imgs/0fool.jpg" alt=""/>
+
+                    <p class="img-list-item-content">文字</p>
+                </div>
+                <div class="img-list-item">
+                    <img src="../imgs/0fool.jpg" alt=""/>
+
+                    <p class="img-list-item-content">文字</p>
+                </div>
             </div>
-            <div class="img-list-item">
-                <img src="../imgs/0fool.jpg" alt=""/>
-                <p class="img-list-item-content">文字</p>
-            </div>
-            <div class="img-list-item">
-                <img src="../imgs/0fool.jpg" alt=""/>
-                <p class="img-list-item-content">文字</p>
             </div>
         </div>
     </div>
+    <script src="//cdn.bootcss.com/jquery/1.11.2/jquery.min.js" type="text/javascript"></script>
+    <script src="//cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.js"></script>
+    <script>
+        $("img").lazyload();
+    </script>
 </body>
 </html>
