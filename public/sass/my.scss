@@ -1,50 +1,82 @@
 /*history list start*/
-.history-list{
-  margin-top:20px;
-  overflow: hidden;
+.history-list {
+	padding: 0;
+	overflow: hidden;
 }
-.history-list-item{
-  display:-webkit-box;
-  display:-moz-box;
-  display:-webkit-flex;
-  display:-moz-flex;
-  display:-ms-flexbox;
-  display:flex;
-  &:hover{
-    background:#eee;
-    cursor: pointer;
-  }
+
+.history-list-item {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: flex;
+	&:hover {
+		background: #47233e;
+		cursor: pointer;
+	}
 }
-.left-info{
-  width: 105px;
-  height: 120px;
-  //display: inline-block;
-  border-right: 1px solid rgba(187,156,255,.3);
-  position: relative;
-  vertical-align: top;
-  margin-top:10px;
+
+.left-info {
+	width: 105px;
+	height: 120px;
+	//display: inline-block;
+	border-right: 1px solid rgba(187, 156, 255, .3);
+	position: relative;
+	vertical-align: top;
+	margin-top: 10px;
 }
-.history-small-point{
-  position: absolute;
-  top:0;
-  right:-4px;
-  width: 8px;
-  height: 8px;
-  background:#790d86;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
+
+.history-small-point {
+	position: absolute;
+	top: 0;
+	right: -4px;
+	width: 8px;
+	height: 8px;
+	background: #790d86;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
 }
-.right-info{
-  padding-left:20px;
-  //display: inline-block;
-  -webkit-box-flex: 1;
-  -moz-box-flex:1;
-  /*box-flex: 1;*/
-  flex:1;
+
+.right-info {
+	padding-left: 20px;
+	//display: inline-block;
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	/*box-flex: 1;*/
+	flex: 1;
 }
-.media-object{
-  width: 120px;
-  height: 100px;
+
+.media-object {
+	width: 120px;
+	height: 100px;
 }
+
+.border {
+	border: 1px solid rgba(187, 156, 255, .3);
+}
+
+.tl-breadcrumb {
+	padding: 0;
+	list-style: none;
+	border: 1px solid rgba(187, 156, 255, .3);
+	margin: 0;
+	& > li {
+		display: inline-block;
+		line-height: 40px;
+
+		a {
+			display: inline-block;
+			padding: 1px 5px;
+		}
+
+		& + li:before {
+			color: #ccc;
+			content: "|";
+		}
+	}
+
+}
+
 /*history list end*/

@@ -203,6 +203,10 @@ $(document).ready(function(){
 
     //页面右侧固定工具栏
     goTop("goTop", 12);
+
+
+	/*建设中 未开放功能 start*/
+	showBuilding();
 });
 
 /*退出登录*/
@@ -239,3 +243,10 @@ headerSearchForm.submit(function(){
     window.location = "/search?userinput="+searchValue;
     return false;
 });
+
+
+function showBuilding(){
+	$(".building").on("click",function(){
+		alert("功能开发中！暂未开放");
+	});
+}

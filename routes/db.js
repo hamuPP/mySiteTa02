@@ -8,7 +8,7 @@ function dbGetCon() {
 	var con = mysql.createConnection({
 		host: "127.0.0.1",
 		database: "d_tarotall",
-		port: 3306,
+		port: 3307,
 		user: "root",
 		password: "cc77"
 	});
@@ -25,10 +25,6 @@ function queryByPage(con, curpage, eachpage, sql, param, func) {
 		func = param;
 		param = [];
 	}
-	//console.log("db.js 32 line:"+sql+",param: "+param);
-//    con.query(sql,function(e,r,f){
-//        console.log(r);
-//    });
 
 	con.query("select count(*) cnt from (" + sql + ") t", param, function (e, r, f) {
 		console.log("db.js 38line: " + r[0]);
