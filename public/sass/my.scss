@@ -12,7 +12,7 @@
 	display: -ms-flexbox;
 	display: flex;
 	&:hover {
-		background: #47233e;
+		background: $hover-bgcolor-lightpur;
 		cursor: pointer;
 	}
 }

@@ -21,6 +21,7 @@ var mail = require('./routes/mail');
 var my = require('./routes/my');
 var editMyFile = require('./routes/editMyFile');
 var about = require("./routes/about");
+var book = require("./routes/book");
 var app = express();
 
 // all environments
@@ -95,6 +96,10 @@ app.get("/editMyFile", editMyFile.navToEditMyFile);
 app.post("/updataAvatar", editMyFile.updataAvatar);
 
 app.get("/about", about.about);
+
+/*看书 start*/
+app.get("/book", book.openBook);
+/*看书 end*/
 
 /*辅助方法，ejs用的*/
 /*转换毫秒时间到当地时间*/

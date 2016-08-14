@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title></title>
     <link href="//cdn.bootcss.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/compo.css"/>
+    <link rel="stylesheet" href="../css/common.css"/>
     <style>
         .content-line-box {
             margin: 0 auto;
@@ -32,14 +32,17 @@
             margin-left: auto;
             margin-right: auto;
         }
+        .border-r {
+            border:1px solid red;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container border-r">
 
         <div class="row">
-            <div class="col-xs-12 col-md-5">
-                <h3>卡牌</h3>
+            <div class="col-xs-12 col-md-5 text-center">
+                <h3>看书</h3>
                 <div class="content-line-box">
                     <img class="content-line" src="content_line.png" alt=""/>
                 </div>
@@ -49,22 +52,34 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="img-list-comtainer">
-                <div class="img-list-item">
-                    <img src="../imgs/0fool.jpg" alt=""/>
+                    <a href="/book?id=1" target="_blank" class="img-list-item">
+                        <img src="../imgs/0fool.jpg" alt=""/>
 
-                    <p class="img-list-item-content">文字</p>
-                </div>
-                <div class="img-list-item">
-                    <img src="../imgs/0fool.jpg" alt=""/>
+                        <p class="img-list-item-content">
+                            《其实你已经很塔罗》<br/>
+                            sdfsdfsdf<br/>
+                            sdsdf
+                        </p>
+                    </a>
+                    <div class="img-list-item">
+                        <img src="../imgs/0fool.jpg" alt=""/>
 
-                    <p class="img-list-item-content">文字</p>
-                </div>
-                <div class="img-list-item">
-                    <img src="../imgs/0fool.jpg" alt=""/>
+                        <p class="img-list-item-content">文字</p>
+                    </div>
+                    <div class="img-list-item">
+                        <img src="../imgs/0fool.jpg" alt=""/>
 
-                    <p class="img-list-item-content">文字</p>
+                        <p class="img-list-item-content">文字</p>
+                    </div>
+                    <div class="img-list-item">
+                        <img src="../imgs/0fool.jpg" alt=""/>
+
+                        <p class="img-list-item-content">文字</p>
+                    </div>
                 </div>
             </div>
+            <div class="col-xs-12">
+                <a href="#" class="see-more">更多 > </a>
             </div>
         </div>
     </div>

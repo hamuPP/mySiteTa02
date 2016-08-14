@@ -15,8 +15,7 @@
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  margin-bottom: 40px;
-  padding: 0 8px; }
+  margin-bottom: 10px; }
 
 .img-list-item {
   display: block;
@@ -50,6 +49,7 @@
     height: 30px;
     width: 100%;
     padding: 0 5%;
+    margin: 0;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -334,6 +334,17 @@ form .control-label {
     position: absolute;
     left: 0;
     top: 0; }
+
+/*显示更多 的a标签 start*/
+.see-more {
+  float: right;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  padding: 3px 22px; }
+  .see-more:hover {
+    background-color: #47233e;
+    text-decoration: none; }
 
 /*vars start*/
 /*vars end*/

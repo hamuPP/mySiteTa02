@@ -1,6 +1,7 @@
 /*vars start*/
 $hover-bgcolor-grey: #e4e4e4;
 $main-font-color-pur:#790d86;
+$hover-bgcolor-lightpur: #47233e;
 /*vars end*/
 
 /*img list start*/
@@ -16,15 +17,12 @@ $main-font-color-pur:#790d86;
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  margin-bottom: 40px;
-  padding:0 8px;
+  margin-bottom: 10px;
 }
 .img-list-item {
   display: block;
   overflow: hidden;
   flex:1;
-//  background: url(../imgs/bg-main.jpg) no-repeat;
-//  background-size: 100% 100%;
   padding:8px;
   max-width: 294px;
   margin: 15px 8px;
@@ -58,6 +56,7 @@ $main-font-color-pur:#790d86;
     height:30px;
     width:100%;
     padding:0 5%;
+	  margin:0;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -416,4 +415,16 @@ form{
     left:0;
     top:0
   }
+}
+/*显示更多 的a标签 start*/
+.see-more {
+	float: right;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	padding:3px 22px;
+	&:hover {
+		background-color: $hover-bgcolor-lightpur;
+		text-decoration: none;
+	}
 }

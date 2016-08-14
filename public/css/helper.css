@@ -113,3 +113,10 @@
     background-color: #a95ee1;
     border-color: #9d4ae1
 }
+
+/*布局 start*/
+.text-center {
+    text-align: center;
+}
+
+/*布局 end*/
