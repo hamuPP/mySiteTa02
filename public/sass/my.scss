@@ -1,3 +1,5 @@
+$hover-bgcolor-lightpur: #47233e;
+
 /*history list start*/
 .history-list {
 	padding: 0;
@@ -11,6 +13,7 @@
 	display: -moz-flex;
 	display: -ms-flexbox;
 	display: flex;
+	padding:0 15px;
 	&:hover {
 		background: $hover-bgcolor-lightpur;
 		cursor: pointer;

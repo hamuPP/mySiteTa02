@@ -9,7 +9,8 @@
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
-  display: flex; }
+  display: flex;
+  padding: 0 15px; }
   .history-list-item:hover {
     background: #47233e;
     cursor: pointer; }
