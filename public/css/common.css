@@ -335,7 +335,7 @@ form .control-label {
     left: 0;
     top: 0; }
 
-/*ÏÔÊ¾¸ü¶à µÄa±êÇ© start*/
+/*ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ ï¿½ï¿½aï¿½ï¿½Ç© start*/
 .see-more {
   float: right;
   -webkit-border-radius: 20px;
@@ -343,13 +343,101 @@ form .control-label {
   border-radius: 20px;
   padding: 3px 22px; }
   .see-more:hover {
-    background-color: #47233e;
-    text-decoration: none; }
+    background-color: #f44c23;
+    text-decoration: none;
+    font-weight: normal;
+    color: #fff; }
+
+.content-line-box {
+  text-align: center;
+  padding: 1px; }
+
+@media (max-width: 406px) {
+  .content-line {
+    width: 100%; } }
+
+/*ball nav start*/
+.ball-nav {
+  display: block;
+  margin: 3px auto;
+  text-align: center; }
+  .ball-nav .item {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    padding-top: 25px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 1px solid rgba(187, 156, 255, 0.3); }
+    .ball-nav .item:hover {
+      text-decoration: none;
+      font-weight: normal;
+      background-color: #47233e; }
+    .ball-nav .item:visited {
+      text-decoration: none; }
+    .ball-nav .item:focus {
+      text-decoration: none;
+      outline: none; }
+    .ball-nav .item.active {
+      padding: 46px 20px 0;
+      color: #efecb9;
+      width: 120px;
+      height: 120px;
+      border: none;
+      background: url(../imgs/purple-star.png) no-repeat;
+      background-size: 100%; }
+
+/*ball nav end*/
+.right-title-info {
+  margin: -22px 200px 0 0;
+  float: right;
+  color: #a7a7a7; }
+  .right-title-info > span {
+    display: inline-block;
+    line-height: 23px; }
+
+@media (max-width: 490px) {
+  .right-title-info {
+    margin: -12px; } }
+
+@media (max-width: 991px) {
+  .right-title-info {
+    margin-right: 100px; } }
+
+@media (max-width: 714px) {
+  .right-title-info {
+    margin-right: 40px; } }
+
+@media (max-width: 714px) {
+  .right-title-info {
+    margin-right: 0; } }
+
+.recommend-divine {
+  text-align: center; }
+  .recommend-divine .item {
+    display: block;
+    width: 20%;
+    height: 100px;
+    margin-top: 4px;
+    float: left;
+    overflow: hidden;
+    padding: 0 2px; }
+    .recommend-divine .item .content {
+      padding: 0 5px;
+      background: #a49bbb;
+      height: 100%;
+      display: inline-block;
+      color: #fff; }
 
 /*vars start*/
 /*vars end*/
 html {
   font-size: 10px; }
+
+a:hover {
+  text-decoration: none; }
 
 @media only screen and (min-width: 360px) {
   html {

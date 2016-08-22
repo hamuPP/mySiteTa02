@@ -1,4 +1,4 @@
-/*字体颜色*/
+/*字体颜色 start*/
 .color-purp-main{
     color: #a95ee1;
 }
@@ -11,6 +11,13 @@
 .color-green{
     color: #008f00 !important;
 }
+/*字体颜色 end*/
+
+/*背景颜色 start*/
+.bg-purple1{
+	background: #a49bbb;
+}
+/*背景颜色 end*/
 
 /*无边框*/
 .no-border{
