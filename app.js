@@ -25,7 +25,7 @@ var book = require("./routes/book");
 var app = express();
 
 // all environments
-app.set('port', process.env.PORT || 8880);
+app.set('port', process.env.PORT || 80);
 app.set('views', path.join(__dirname, 'views'));// 设置模板相对路径(相对当前目录)
 //app.set('view engine', 'jade');//设置模板引擎为jade
 app.set('view engine', 'ejs');//设置模板引擎为jade
@@ -136,6 +136,10 @@ app.locals.splitString = function(sSeptation, sStr) {
 
 /*新版本*/
 app.get('/indexv2',index.indexv2);
+
+app.get('/u1',function(req,res){
+	res.sendfile('public/uploadImgDemo.html');
+});
 
 log4js.configure({
 	appenders: [
