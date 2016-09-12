@@ -5,17 +5,8 @@
 
 @import "common-var";
 
-/*vars start*/
-//$hover-bgcolor-grey: #e4e4e4;
-//$hover-bgcolor-lightpur: #47233e;
-//$bgcolor-mauve: #330f10;
-//$main-font-color-pur:#790d86;
-//$main-font-color-lightpur:#bac2f5;
-//$main-border-color-lightpur: rgba(187,156,255,.3);
-//$header-height:50px;
-/*vars end*/
 html {
-  font-size: 10px;
+  font-size: 10px !important;
 }
 a:hover{
 	text-decoration: none;

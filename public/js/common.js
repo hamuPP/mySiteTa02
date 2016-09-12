@@ -250,3 +250,13 @@ function showBuilding(){
 		alert("功能开发中！暂未开放");
 	});
 }
+
+/**
+ * 数字转成百分比
+ * @param {Number} num
+ * @returns {string}
+ */
+function number2percentage(num){
+	return Math.round(num*100).toFixed(2) + '%'
+}
+

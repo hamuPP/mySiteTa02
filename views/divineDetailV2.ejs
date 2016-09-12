@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<% include common-tags.ejs %>
+    <title>预测 - 塔罗Ju</title>
+    <style>
+        .resultInnerBox > div > div{
+            border:1px solid rgb(221,221,221);
+            line-height: 1.6;
+        }
+        .title-row{
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+        .resultInnerBox > .title-row > div{
+            line-height: 2;
+        }
+        .loading{
+            display:none;
+            width:100%;
+            padding:1em;
+            position:absolute;
+            z-index:20;
+        }
+        .open-cards-btn{
+            margin:10px auto;
+            padding:10px 60px;
+            display: none;
+        }
+        .open-cards-animation{
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+
+    <% include common-header.ejs %>
+
+    <div id="IENotice" class="IE-notice">
+        看到此消息，说明你的浏览器是IE9以下。本站不支持IE9以下，为达到更好浏览效果，请换其他浏览器
+        <a href="javascript:;">关闭提示</a>
+    </div>
+
+    <section class="container main-content ">
+        <form class="t-form-inline mt10" id="divineDetail" role="form">
+            <div class="t-form-group">
+                <label class="col-sm-3 plr0" for="paiZu">所用牌组:</label>
+                <div class="t-inline-dis col-sm-7">
+                    <select name="paiZu" id="paiZu"  class="">
+                        <option value="22张大牌">22张大牌</option>
+                        <option value="56张小牌">56张小牌</option>
+                        <option value="全78张牌">全78张牌</option>
+                        <option value="权杖">权杖</option>
+                        <option value="宝剑">宝剑</option>
+                        <option value="五角星">五角星</option>
+                        <option value="圣杯">圣杯</option>
+                    </select>
+                </div>
+            </div>
+            <div class="t-form-group">
+                <label class="col-sm-3 plr0" for="oneCard">牌形：</label>
+                <div class="t-inline-dis col-sm-7">
+                    <select name="cardForm" id="cardForm"  class="">
+                        <option value="<%= cardsForm%>"><%= cardsForm%></option>
+                    </select>
+                </div>
+            </div>
+            <div class="t-form-group">
+                <button type="button" id="take" class="btn btn-default">抽牌</button>
+                <button type="button" id="takeDefault" class="btn btn-main-pur" data-extras="cardForm=<%= cardsForm %>&paiZu=<%= defaultPaizu %>">默认</button>
+            </div>
+
+
+        </form>
+        <% include divine-usage-msg.ejs %>
+
+        <div class="row divine-result-wrap" id="canvasWrap">
+            <div class="col-xs-12 hide errorMsgBlock" id="errorMsgBlock">
+                <div class="alert alert-info" id="errorMsg"></div>
+            </div>
+            <div id="loading" class="loading">
+                <img src="imgs/icons/loading.gif" style="display:block;margin:auto;"/>
+            </div>
+            <div class="col-xs-12 col-md-6 col-md-push-3">
+                <div class="open-cards-animation" id="openCardsAnimation">
+                    <div id="animationMainContent"></div>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-main-pur open-cards-btn" id="openCardBtn" style="">翻开</button>
+        <div class="row">
+            <div id="resultExplain" class="col-xs-12" style="display: none;">
+                <div>
+                    <h3>本次测算释义：</h3>
+                </div>
+                <div class="resultInnerBox" id="resultInnerBox">
+                    <div class="text-center title-row">
+                        <div class="col-xs-12 col-sm-6 title">所选牌组：</div>
+                        <div class="col-xs-12 col-sm-6" id="selectedPaiZu"></div>
+                        <div class="col-xs-12 col-sm-6 title">所选牌形：</div>
+                        <div class="col-xs-12 col-sm-6" id="selectedCardForm"></div>
+                    </div>
+                    <div id="tbody"></div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <% include common-footer.ejs %>
+</div>
+<script src="js/jquery-1.11.2-min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/common.js"></script>
+<!--<script src="js/CardsClass.js"></script>-->
+<script src="js/divineDetailV2.js"></script>
+</body>
+</html>

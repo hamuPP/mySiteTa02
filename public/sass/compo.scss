@@ -543,3 +543,46 @@ form{
 		}
 	}
 }
+
+/*翻转卡牌 css3 start*/
+.img-wrap-box{
+	position: absolute;
+	display: inline-block;
+}
+.scale-image-front{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height: 100%;
+	transform: scale(1,1);
+	-webkit-transition: all 300ms ease-in-out 0s;
+	-moz-transition: all 300ms ease-in-out 0s;
+	-ms-transition: all 300ms ease-in-out 0s;
+	-o-transition: all 300ms ease-in-out 0s;
+	transition: all 300ms ease-in-out 0s;
+}
+.scale-image-back{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height: 100%;
+	transform: scale(0,1);
+	-webkit-transition: all 300ms ease-in-out 300ms;
+	-moz-transition: all 300ms ease-in-out 300ms;
+	-ms-transition: all 300ms ease-in-out 300ms;
+	-o-transition: all 300ms ease-in-out 300ms;
+	transition: all 300ms ease-in-out 300ms;
+}
+
+.resultInnerBox{
+	div{
+		padding:5px 0;
+	}
+	.title{
+		background-color:$hover-bgcolor-lightpur;
+		font-weight:bolder;
+		color:$hover-bgcolor-yellow;
+	}
+}
