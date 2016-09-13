@@ -32,6 +32,9 @@
 .border-b{
     border-bottom:1px solid rgba(187, 156, 255, .3);
 }
+.border-all{
+	border:1px solid rgba(187, 156, 255, .3);
+}
 /*内外补丁*/
 .mt10{
     margin-top: 1rem !important;
@@ -63,6 +66,9 @@
 .ptb15{
     padding-top:15px !important;
     padding-bottom:15px !important;
+}
+.p15{
+	padding:15px !important;
 }
 /*字体*/
 
@@ -124,6 +130,9 @@
 /*布局 start*/
 .text-center {
     text-align: center;
+}
+.overflow-hide{
+	overflow: hidden;
 }
 
 /*布局 end*/

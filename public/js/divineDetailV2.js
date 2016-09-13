@@ -16,7 +16,9 @@ var animationWraper = document.getElementById("openCardsAnimation"),/*动画的�
 	x = 0,
 	y = 0,
 	width,
-	height;
+	height,
+	cardlabel,
+	imgOuterWrap;
 
 
 /*抽牌*/
@@ -166,6 +168,7 @@ function showCarsForm(datas){
 					srcBack:res.cardInfo[i].cardSrc,
 					isRightPos:res.cardInfo[i].isRightPos,
 					rotate:aRotate[i],
+					text:i+1,
 					animationMainContent:animationMainContent
 				};
 
@@ -257,6 +260,7 @@ function createCard (opts){
 	var rotate= opts.rotate;
 	var text = opts.text;
 	var animationMainContent = opts.animationMainContent;
+	imgOuterWrap = document.createElement("div");
 	
 	width = opts.width;
 	height = width * 1.7;//卡牌高度是宽度的1.7倍
@@ -268,15 +272,23 @@ function createCard (opts){
 	imgWrapBox = document.createElement("div");
 	imageFront = document.createElement("img");
 	imageBack = document.createElement("img");
+	cardlabel = document.createElement("p");
 
+	imgOuterWrap.setAttribute("class", "outerW");
+	imgOuterWrap.style.position = "absolute";
 	imgWrapBox.setAttribute("class", "img-wrap-box");
 	imageFront.setAttribute("class", "scale-image-front");
 	imageFront.setAttribute("src", srcFront);
 	imageBack.setAttribute("class", "scale-image-back");
 	imageBack.setAttribute("src", srcBack);
+	cardlabel.setAttribute("class","text");
+	cardlabel.style.fontSize = "1.4rem";
+	cardlabel.innerHTML= text;
 	imgWrapBox.appendChild(imageFront);
 	imgWrapBox.appendChild(imageBack);
 
+	imgOuterWrap.appendChild(imgWrapBox);
+	imgOuterWrap.appendChild(cardlabel);
 	updateCardsSize();
 
 	//设置图片的包裹元素的旋转角度-针对卡牌倾斜摆放的,以及逆位时旋转180度
@@ -286,7 +298,7 @@ function createCard (opts){
 		imgWrapBox.style.transform = "rotate("+rotate + "deg)";
 	}
 
-	animationMainContent.appendChild(imgWrapBox);
+	animationMainContent.appendChild(imgOuterWrap);
 };
 
 /**
@@ -296,8 +308,14 @@ function updateCardsSize(){
 	if(!imageFront){
 		return;
 	}
-	imgWrapBox.style.marginLeft = number2percentage(x);
-	imgWrapBox.style.marginTop = number2percentage(y) ;
-	imgWrapBox.style.width = number2percentage(width);
-	imgWrapBox.style.height = animationWraperWidth * height + "px";
+	imgOuterWrap.style.marginLeft = number2percentage(x);
+	imgOuterWrap.style.marginTop = number2percentage(y) ;
+	imgOuterWrap.style.width = number2percentage(width);
+	imgOuterWrap.style.height = animationWraperWidth * height + "px";
+
+	//imgWrapBox.style.marginLeft = number2percentage(x);
+	//imgWrapBox.style.marginTop = number2percentage(y) ;
+	//imgWrapBox.style.width = number2percentage(width);
+	//imgWrapBox.style.height = animationWraperWidth * height + "px";
+	//imgWrapBox.style.paddingBottom = cardlabelHeight + "px";
 }

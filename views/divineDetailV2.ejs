@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <% include common-tags.ejs %>
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
     <title>预测 - 塔罗Ju</title>
     <style>
         .resultInnerBox > div > div{
@@ -42,6 +43,26 @@
     </div>
 
     <section class="container main-content ">
+        <div id="pxDetailBox" class="text-width-left-img overflow-hide border-all p15" style="-webkit-box-shadow: 2px 2px 2px rgba(255,5,255,.1);-moz-box-shadow: 2px 2px 2px rgba(255,5,255,.1);box-shadow: 2px 2px 2px rgba(255,5,255,.1);" data-content="<%= pxDetail%>">
+            <img src=<%= pxBanner %> alt=<%= pxBanner %> class="thumbnail" id="thumbnail"/>
+            <div id="pxDetailContentbox" class="text-block"></div>
+        </div>
+        <script>
+            var pxDetailBox = document.getElementById("pxDetailBox");
+            var pxDetailContentBox = document.getElementById("pxDetailContentbox");
+            pxDetailContentBox.innerHTML = pxDetailBox.dataset.content;
+        </script>
+
+        <div class="col-xs-12 mt50 border-b">
+            <h3>
+                <span class="fa-stack">
+                    <i class="fa fa-circle-thin fa-stack-2x" style="color: #f44c23;"></i>
+                    <i class="fa fa-pagelines fa-stack-1x fa-inverse" style="color: #00A76F;"></i>
+                </span>
+                在线占卜
+            </h3>
+        </div>
+
         <form class="t-form-inline mt10" id="divineDetail" role="form">
             <div class="t-form-group">
                 <label class="col-sm-3 plr0" for="paiZu">所用牌组:</label>
@@ -87,7 +108,7 @@
                 </div>
             </div>
         </div>
-        <button class="btn btn-main-pur open-cards-btn" id="openCardBtn" style="">翻开</button>
+        <button class="btn btn-main-pur open-cards-btn" id="openCardBtn" style="">翻&nbsp;开</button>
         <div class="row">
             <div id="resultExplain" class="col-xs-12" style="display: none;">
                 <div>

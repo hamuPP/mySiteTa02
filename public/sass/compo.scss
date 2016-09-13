@@ -1,14 +1,4 @@
 @charset "UTF-8";
-
-/*vars start*/
-//$hover-bgcolor-grey: #e4e4e4;
-//$main-font-color-pur:#790d86;
-//$hover-bgcolor-lightpur: #47233e;
-//$hover-bgcolor-yellow: #f44c23;
-//$main-border-color-lightpur: rgba(187,156,255,.3);
-
-/*vars end*/
-
 @import "common-var";
 
 /*img list start*/
@@ -452,6 +442,7 @@ form{
 	display: block;
 	margin:3px auto;
 	text-align: center;
+	min-height:120px;
 	.item{
 		display: inline-block;
 		width: 80px;
@@ -479,11 +470,23 @@ form{
 		&.active{
 			padding:46px 20px 0;
 			color: #efecb9;
+			font-size: 14px;
 			width: 120px;
 			height: 120px;
 			border:none;
+			-webkit-transition: 500ms;
+			-moz-transition: 500ms;
+			-ms-transition: 500ms;
+			-o-transition: 500ms;
+			transition: 500ms;
+
+			-webkit-transform:rotate(360deg);
+			-moz-transform: scale(1.1);
+			-ms-transform:scale(1.1);
+			-o-transform: scale(1.1);
+			transform: rotate(360deg);
 			background: url(../imgs/purple-star.png) no-repeat;
-			background-size: 100%;;
+			background-size: 100%;
 		}
 	}
 }
@@ -548,6 +551,16 @@ form{
 .img-wrap-box{
 	position: absolute;
 	display: inline-block;
+	width:100%;
+	height: 100%;
+	& + .text{
+		font-size:1.4rem;
+		line-height: 1.4rem;
+		margin:0;
+		position: absolute;
+		bottom:-2rem;
+		left:45%;
+	}
 }
 .scale-image-front{
 	position:absolute;
@@ -585,4 +598,34 @@ form{
 		font-weight:bolder;
 		color:$hover-bgcolor-yellow;
 	}
+}
+
+.text-width-left-img .thumbnail{
+	width: 170px;
+	margin: 20px 10px 0 0;
+	float: left;
+}
+@media only screen and (min-width: 360px) {
+	.text-width-left-img .thumbnail{
+		width: 200px;
+	}
+}
+@media only screen and (min-width: 428px) {
+	.text-width-left-img .thumbnail{
+		width: 220px;
+	}
+}
+@media only screen and (min-width: 700px) {
+	.text-width-left-img .thumbnail{
+		width: 250px;
+	}
+}
+.text-width-left-img .text-block{
+	padding:1px;
+}
+
+/*border*/
+.shadow-border{
+	-webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }

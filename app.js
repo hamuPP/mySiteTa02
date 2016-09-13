@@ -41,11 +41,21 @@ app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+	var err = new Error('您请求的页面不存在');
+	err.status = 404;
+	next(err);
+});
 
-// development only
-if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
-}
+// error handlers
+app.use(function(err, req, res, next) {
+	res.status(err.status || 500);
+	res.render('error', {
+		message: err.message,
+		error: err
+	});
+});
 
 app.get('/users', user.list);
 app.get('/users', user.list);

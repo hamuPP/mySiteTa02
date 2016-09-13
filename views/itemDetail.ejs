@@ -1,29 +1,29 @@
 <% include common-tags.ejs %>
     <title>搜寻详情 - 塔罗Ju</title>
     <style>
-        .thumbnail{
-            width: 170px;
-            margin: 20px 10px 0 0;
-            float: left;
-        }
-        @media only screen and (min-width: 360px) {
-            .thumbnail{
-                width: 200px;
-            }
-        }
-        @media only screen and (min-width: 428px) {
-            .thumbnail{
-                width: 220px;
-            }
-        }
-        @media only screen and (min-width: 700px) {
-            .thumbnail{
-                width: 250px;
-            }
-        }
-        .text-block{
-            padding:1px;
-        }
+        /*.thumbnail{*/
+            /*width: 170px;*/
+            /*margin: 20px 10px 0 0;*/
+            /*float: left;*/
+        /*}*/
+        /*@media only screen and (min-width: 360px) {*/
+            /*.thumbnail{*/
+                /*width: 200px;*/
+            /*}*/
+        /*}*/
+        /*@media only screen and (min-width: 428px) {*/
+            /*.thumbnail{*/
+                /*width: 220px;*/
+            /*}*/
+        /*}*/
+        /*@media only screen and (min-width: 700px) {*/
+            /*.thumbnail{*/
+                /*width: 250px;*/
+            /*}*/
+        /*}*/
+        /*.text-block{*/
+            /*padding:1px;*/
+        /*}*/
     </style>
 </head>
 <body>
@@ -32,7 +32,7 @@
         <% include common-header.ejs %>
         <% include IENotice.ejs %>
 
-        <div class="container main-content">
+        <div class="container main-content text-width-left-img">
             <% if(code == 1){ %>
                 <% include common-no-data.ejs %>
             <% }else if(code == 0){ %>

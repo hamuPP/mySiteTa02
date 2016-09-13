@@ -86,14 +86,33 @@ exports.divineShowAll = function(req,res){
 };
 
 //显示测算详页面、
-exports.divineDetail = function(req,res){
-    console.log("90 line "+req.body.cardsForm+" / "+ req.query.cardsForm+" / "+req.data);
+exports.divineDetail = function(req,res,next){
+    //console.log("90 line "+req.body.cardsForm+" / "+ req.query.cardsForm+" / "+req.data);
     var cardsForm = req.query.cardsForm,
-        defaultPaizu = req.query.defaultPaizu;
-    res.render('divineDetailV2',{
-        "cardsForm":cardsForm,
-        "defaultPaizu":defaultPaizu
-    });
+        defaultPaizu = req.query.defaultPaizu,
+		con = db.dbGetCon(),
+		sql = "select pxDetail,pxBanner from paixing where pxName = ?";
+
+	//检查数据库是否有合适数据
+	con.query(sql,[cardsForm],function(error,rows){
+		if(error){
+			console.log("LINE 101:"+error);
+		}else{
+			if(rows.length == 1){
+				res.render('divineDetailV2',{
+					"cardsForm":cardsForm,
+					"defaultPaizu":defaultPaizu,
+					"pxDetail":rows[0].pxDetail,
+					"pxBanner":rows[0].pxBanner
+				});
+			}else{
+				var err = new Error("您请求的资源不存在");
+				err.status = 404;
+				next(err);
+			}
+		}
+	});
+
 };
 
 //显示单牌详细全部内容
