@@ -436,11 +436,15 @@ form .control-label {
     overflow: hidden;
     padding: 0 2px; }
     .recommend-divine .item .content {
-      padding: 0 5px;
-      background: #a49bbb;
       height: 100%;
       display: inline-block;
-      color: #fff; }
+      color: #fff;
+      border: 1px dashed rgba(187, 156, 255, 0.3); }
+      .recommend-divine .item .content h4 {
+        width: 100%;
+        margin: 0;
+        padding: 5px 0;
+        border-bottom: 1px solid rgba(187, 156, 255, 0.3); }
 
 /*翻转卡牌 css3 start*/
 .img-wrap-box {

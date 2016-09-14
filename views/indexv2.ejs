@@ -1,4 +1,5 @@
 <% include common-tags.ejs %>
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
     <title>塔罗Ju</title>
     <style>
         .main-content{
@@ -81,7 +82,7 @@
                     <h3 class="text-center">在线占卜</h3>
                     <small class="right-title-info">
                         <span>精选常用款式</span>
-                        <a class="see-more" href="javascript:;">更多牌型 > </a></small>
+                        <a class="see-more" href="/divine">更多牌型 > </a></small>
                     <div class="content-line-box">
                         <img class="content-line" src="imgs/content_line.png" alt=""/>
                     </div>
@@ -107,40 +108,44 @@
 
                         <!-- 随便看看分类下的-->
                         <div class="content" id="recommendRandom">
-                            <a href="" class="item">
+                            <a href="/divineDetail?cardsForm=心理自测" target="_self" class="item">
                                 <div class="content">
-                                    <h5>心里自测</h5>
+                                    <h4>
+                                        <i class="fa fa-pagelines fa-inverse" style="color: #00A76F;"></i>
+                                        心里自测</h4>
                                     <p>测自我精神状态、当下的情绪好恶</p>
                                 </div>
                             </a>
-                            <a href="" class="item">
+                            <a href="/divineDetail?cardsForm=每日动向" class="item">
                                 <div class="content">
-                                    <h5>心里自测</h5>
-                                    <p>测自我精神状态、当下的情绪好恶</p>
+                                    <h4>
+                                        <i class="fa fa-pagelines fa-inverse" style="color: #00A76F;"></i>
+                                        每日动向</h4>
+                                    <p>今日有什么事难以决定，又事关重要？可以利用此牌形</p>
                                 </div>
                             </a>
-                            <a href="" class="item">
+                            <a href="/divineDetail?cardsForm=是否判断" class="item">
                                 <div class="content">
-                                    <h5>心里自测</h5>
-                                    <p>测自我精神状态、当下的情绪好恶</p>
+                                    <h4>
+                                        <i class="fa fa-balance-scale fa-inverse" style="color: #00A76F;"></i>
+                                        是否判断</h4>
+                                    <p>对一个问题进行"是"或"否"的判断</p>
                                 </div>
                             </a>
-                            <a href="" class="item">
+                            <a href="/divineDetail?cardsForm=一周大势" class="item">
                                 <div class="content">
-                                    <h5>心里自测</h5>
-                                    <p>测自我精神状态、当下的情绪好恶</p>
+                                    <h4>
+                                        <i class="fa fa-smile-o fa-inverse" style="color: #00A76F;"></i>
+                                        一周大势</h4>
+                                    <p>一周内对你影响重大之事</p>
                                 </div>
                             </a>
-                            <a href="" class="item">
+                            <a href="/divineDetail?cardsForm=今日运程" class="item">
                                 <div class="content">
-                                    <h5>心里自测</h5>
-                                    <p>测自我精神状态、当下的情绪好恶</p>
-                                </div>
-                            </a>
-                            <a href="" class="item">
-                                <div class="content">
-                                    <h5>心里自测</h5>
-                                    <p>测自我精神状态、当下的情绪好恶</p>
+                                    <h4>
+                                        <i class="fa fa-leaf fa-inverse" style="color: #00A76F;"></i>
+                                        今日运程</h4>
+                                    <p>今日可能发生之事情，及影响</p>
                                 </div>
                             </a>
                         </div>
