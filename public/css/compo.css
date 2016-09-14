@@ -443,7 +443,12 @@ form .control-label {
         width: 100%;
         margin: 0;
         padding: 5px 0;
+        color: #bfbd93;
         border-bottom: 1px solid rgba(187, 156, 255, 0.3); }
+      .recommend-divine .item .content p {
+        padding: 3px; }
+    .recommend-divine .item:hover {
+      outline: 1px solid #ff6573; }
 
 /*翻转卡牌 css3 start*/
 .img-wrap-box {

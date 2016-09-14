@@ -546,14 +546,18 @@ form{
 				width: 100%;
 				margin:0;
 				padding:5px 0;
-				//line-height: 2.2;
+				color:#bfbd93;
 				border-bottom:1px solid $main-border-color-lightpur;
-				//background: #000;
-				//color:#eee;
-				//.fa{
-				//	font-size:16px;
-				//}
 			}
+			p{
+				padding: 3px;
+			}
+		}
+		&:hover{
+			//-webkit-box-shadow: 1px 1px 1px #fff;
+			//-moz-box-shadow: 1px 1px 1px #fff;
+			//box-shadow: 1px 1px 1px #fff;
+			outline:1px solid #ff6573;
 		}
 	}
 }
