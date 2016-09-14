@@ -1,6 +1,3 @@
-/*
- * GET home page.
- */
 var db = require("./db");
 
 exports.navToSearchPage = function (req, res) {

@@ -58,6 +58,26 @@
 				randomBlock.css("display", "block");
 				break;
 		}
+	});
 
+	/*卡牌展示列表*/
+
+	$.ajax({
+		url:"../localData/cardslist.json",
+		type:"get",
+		success:function(param){
+			var str = "";
+			var aResult = param.items;
+			for(var i = 0, len = aResult.length;i < len; i++){
+				str += '<li class="media border-all">' +
+						'<a class="pull-left" href="'+ aResult[i].href +'">' +
+						'<img style="width:100px;height:170px;" class="media-object" src="' + aResult[i].imgsrc + '" alt="' + aResult[i].imgsrc + '">' +
+						'</a><div class="media-body ptb15">' +
+						'<h4 class="media-heading">'+ aResult[i].heading +'</h4>' +
+						aResult[i].content +
+						'</div></li>';
+			}
+			$("#cardsList").html(str);
+		}
 	});
 });

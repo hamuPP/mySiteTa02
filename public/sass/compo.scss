@@ -530,34 +530,31 @@ form{
 .recommend-divine {
 	text-align: center;
 	.item{
-		display: block;
-		width: 20%;
+		display: inline-block;
 		height: 100px;
 		margin-top:4px;
-		float: left;
+		float: none;
 		overflow: hidden;
-		padding:0 2px;
+		//padding:0 8px;
 		.content{
 			height: 100%;
+			width:100%;
 			display: inline-block;
 			color: #fff;
 			border:1px dashed $main-border-color-lightpur;
+			&:hover{
+				border-color:#ff6573;
+			}
 			h4{
 				width: 100%;
 				margin:0;
 				padding:5px 0;
 				color:#bfbd93;
-				border-bottom:1px solid $main-border-color-lightpur;
+				font-size:16px;
 			}
 			p{
 				padding: 3px;
 			}
-		}
-		&:hover{
-			//-webkit-box-shadow: 1px 1px 1px #fff;
-			//-moz-box-shadow: 1px 1px 1px #fff;
-			//box-shadow: 1px 1px 1px #fff;
-			outline:1px solid #ff6573;
 		}
 	}
 }
@@ -617,7 +614,7 @@ form{
 
 .text-width-left-img .thumbnail{
 	width: 170px;
-	margin: 20px 10px 0 0;
+	margin: 20px 15px 0 0;
 	float: left;
 }
 @media only screen and (min-width: 360px) {

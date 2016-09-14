@@ -91,7 +91,7 @@ exports.divineDetail = function(req,res,next){
     var cardsForm = req.query.cardsForm,
         defaultPaizu = req.query.defaultPaizu,
 		con = db.dbGetCon(),
-		sql = "select pxDetail,pxBanner from paixing where pxName = ?";
+		sql = "select pxDetail,pxBanner,pxOLDivine from paixing where pxName = ?";
 
 	//检查数据库是否有合适数据
 	con.query(sql,[cardsForm],function(error,rows){
@@ -103,7 +103,8 @@ exports.divineDetail = function(req,res,next){
 					"cardsForm":cardsForm,
 					"defaultPaizu":defaultPaizu,
 					"pxDetail":rows[0].pxDetail,
-					"pxBanner":rows[0].pxBanner
+					"pxBanner":rows[0].pxBanner,
+					"pxOLDivine":rows[0].pxOLDivine
 				});
 			}else{
 				var err = new Error("您请求的资源不存在");

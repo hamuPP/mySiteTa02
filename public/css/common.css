@@ -428,28 +428,28 @@ form .control-label {
 .recommend-divine {
   text-align: center; }
   .recommend-divine .item {
-    display: block;
-    width: 20%;
+    display: inline-block;
     height: 100px;
     margin-top: 4px;
-    float: left;
+    float: none;
     overflow: hidden;
-    padding: 0 2px; }
+    }
     .recommend-divine .item .content {
       height: 100%;
+      width: 100%;
       display: inline-block;
       color: #fff;
       border: 1px dashed rgba(187, 156, 255, 0.3); }
+      .recommend-divine .item .content:hover {
+        border-color: #ff6573; }
       .recommend-divine .item .content h4 {
         width: 100%;
         margin: 0;
         padding: 5px 0;
         color: #bfbd93;
-        border-bottom: 1px solid rgba(187, 156, 255, 0.3); }
+        font-size: 16px; }
       .recommend-divine .item .content p {
         padding: 3px; }
-    .recommend-divine .item:hover {
-      outline: 1px solid #ff6573; }
 
 /*翻转卡牌 css3 start*/
 .img-wrap-box {
@@ -501,7 +501,7 @@ form .control-label {
 
 .text-width-left-img .thumbnail {
   width: 170px;
-  margin: 20px 10px 0 0;
+  margin: 20px 15px 0 0;
   float: left; }
 
 @media only screen and (min-width: 360px) {
