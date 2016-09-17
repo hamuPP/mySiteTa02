@@ -207,6 +207,17 @@ $(document).ready(function(){
 
 	/*建设中 未开放功能 start*/
 	showBuilding();
+
+	/*logo图片加上点击跳转首页的功能*/
+	$("#logoImg").on("click",function(){
+		alert(7778);
+	});
+	$(".navbar-header").on("click",function(e){
+		console.log(e.target);
+	});
+	$(".header-container").on("click",function(e){
+		console.log(e.target);
+	});
 });
 
 /*退出登录*/
@@ -226,21 +237,21 @@ function logout(){
 /*通用头部的搜索框*/
 var headerSearchFormMobile = $("#headerSearchFormMobile"),
     headerSearchForm = $("#headerSearchForm"),
-	headerSeachBoxMobile = $(".header-search-box-mobile #headerSearchInputMobile");
+	headerSeachBoxMobile = $("#headerSearchInputMobile");
 
 headerSeachBoxMobile.focus(function(){
 	$(".logo-img").hide();
 });
 
 headerSearchFormMobile.submit(function(){
-    var searchValue = $("#headerSearchInputMobile").val();
-    window.location = "/search?userinput="+searchValue;
+    var searchValue = $("#headerSearchInputMobile").val() || "愚者";
+    window.open("/search?userinput="+searchValue);
     return false;
 });
 
 headerSearchForm.submit(function(){
-    var searchValue = $("#headerSearchInput").val();
-    window.location = "/search?userinput="+searchValue;
+    var searchValue = $("#headerSearchInput").val() || "愚者";
+    window.open("/search?userinput="+searchValue);
     return false;
 });
 

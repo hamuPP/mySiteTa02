@@ -74,27 +74,31 @@ function _base64_decode(base64str, filename, uid, req, res) {
  * @private
  */
 function _updateUserTable(userId, avatarFileName, req, res){
-	var con = db.dbGetCon(),
+	var pool = db.dbGetPool(),
 		sql = "update t_user set u_avatar = ? where uid = ?",
 		result;
 
-	con.query(sql, [avatarFileName, userId], function(err, rows){
-		if(err){
-			result = err;
-			res.json({
-				code:-1,
-				msg:err
-			});
-		}else{
-			console.log(rows);
-			//更新session
-			req.session.user.u_avatar = avatarFileName;
-			res.json({
-				code:0
-			});
-		}
+	pool.getConnection(function(err,con){
+		con.query(sql, [avatarFileName, userId], function(err, rows){
+			if(err){
+				result = err;
+				res.json({
+					code:-1,
+					msg:err
+				});
+			}else{
+				console.log(rows);
+				//更新session
+				req.session.user.u_avatar = avatarFileName;
+				res.json({
+					code:0
+				});
+			}
+
+			con.release();
+		});
 	});
-	con.end();
+
 }
 //七牛上传--暂时不用了
 ////需要填写你的 Access Key 和 Secret Key

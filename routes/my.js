@@ -16,11 +16,11 @@ exports.myPage = function(req, res){
     }
     //若已经登陆，查询用户历史测算记录
     var userName = user.u_name,
-        con = db.dbGetCon(),
+        pool = db.dbGetPool(),
         curpage = req.query.curpage,
         sql = "select * from t_userdivinehistory where udhUserName = ? order by udhId desc";
 
-    db.queryByPage(con,curpage,10,sql,[userName],function(e,r,f,page){
+    db.queryByPage(pool,curpage,10,sql,[userName],function(e,r,f,page){
         if(e){
             console.log("有错误"+e);
         }else{

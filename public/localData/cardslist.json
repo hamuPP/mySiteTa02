@@ -4,13 +4,25 @@
 			"imgsrc": "imgs/0fool.jpg",
 			"href": "/itemDetail?sItemId=card-1",
 			"heading": "愚人",
-			"content": "愚人牌暗示着你现在不顾风险而有所行动。愚人是一张代表自发性行为的牌，一段跳脱某种状态的日子，或尽情享受眼前日子的一段时光。对旅游而言，这是一张积极的牌，暗示你将会活在当下，并且会有和生命紧密结合的感觉。"
+			"content": "愚人牌暗示着你现在不顾风险而有所行动。"
 		},
 		{
 			"imgsrc": "imgs/1magician.jpg",
 			"href": "/itemDetail?sItemId=card-2",
 			"heading": "魔术师",
 			"content": "魔术牌意味着：现在是展开新计划的好时机。"
+		},
+		{
+			"imgsrc": "imgs/2high-priestess.jpg",
+			"href": "/itemDetail?sItemId=card-3",
+			"heading": "女教主",
+			"content": "女教皇意味着：这是向内探索、沉思，或按兵不动的时刻。"
+		},
+		{
+			"imgsrc": "imgs/3empress.jpg",
+			"href": "/itemDetail?sItemId=card-4",
+			"heading": "皇后",
+			"content": "女皇牌暗示家庭和谐及稳定"
 		}
 	]
 }

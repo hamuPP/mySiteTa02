@@ -2,28 +2,30 @@ var db = require("./db");
 
 exports.navToSearchPage = function (req, res) {
     var userInput = "%" + req.query.userinput + "%",
-        con = db.dbGetCon(),
-        con2 = db.dbGetCon(),
+        pool1 = db.dbGetPool(),
         sqlCard = "select id,cardName,cardSummary from cardLocalhost where cardName like?",
         sqlPaixing = "select id,pxName,pxSummary from paixing where pxName like ?",
         page = {};
 
     /*first:search card*/
-    con.query(sqlCard, [userInput], function (e, r) {
-        if (e) {
-            console.log("routes/search.js: 16 Line:" + e);
-        } else {
-            console.log(r);
-            if (r.length > 0) {
-                page.cardRows = r;
-            } else {
-                page.cardRows = [];
-            }
+	pool1.getConnection(function(err,con){
+		con.query(sqlCard, [userInput], function (e, r) {
+			if (e) {
+				console.log("routes/search.js: 15 Line:" + e);
+			} else {
+				console.log(r);
+				if (r.length > 0) {
+					page.cardRows = r;
+				} else {
+					page.cardRows = [];
+				}
 
-            _searchPaixing(sqlPaixing, userInput, page, res);
-        }
-    });
-    con.end();
+				_searchPaixing(sqlPaixing, userInput, page, res);
+			}
+
+			con.release();
+		});
+	});
 };
 
 /**
@@ -33,7 +35,6 @@ exports.navToSearchPage = function (req, res) {
  */
 exports.itemDetail = function(req, res){
     var sItemIdWithCategory = req.query.sItemId;
-    console.log(sItemIdWithCategory);
     var sCategoryFlag = sItemIdWithCategory.split("-")[0];
     var nItemId = Number(sItemIdWithCategory.split("-")[1]);
     var sql = "";
@@ -58,21 +59,25 @@ exports.itemDetail = function(req, res){
 };
 
 function _searchPaixing(sqlPaixing, userInput, page, res) {
-    var innerCon = db.dbGetCon();
-    innerCon.query(sqlPaixing, [userInput], function (e, r) {
-        if (e) {
-            console.log("routes/search.js: 37 Line:" + e);
-        } else {
-            if (r.length > 0) {
-                page.paixingRows = r;
-            } else {
-                page.paixingRows = [];
-            }
-            res.render('search', page);
-            console.log(page);
-        }
-    });
-    innerCon.end();
+    var _pool = db.dbGetPool();
+	_pool.getConnection(function(err,_con){
+		_con.query(sqlPaixing, [userInput], function (e, r) {
+			if (e) {
+				console.log("routes/search.js: 37 Line:" + e);
+			} else {
+				if (r.length > 0) {
+					page.paixingRows = r;
+				} else {
+					page.paixingRows = [];
+				}
+				res.render('search', page);
+				console.log(page);
+			}
+
+			_con.release();
+		});
+
+	});
 };
 
 /**
@@ -82,29 +87,29 @@ function _searchPaixing(sqlPaixing, userInput, page, res) {
  * @private
  */
 function _searchItemDetail(sSql, aCondition, sCategoryFlag, res){
-    var con = db.dbGetCon();
-    con.query(sSql, aCondition, function(e,r){
-        if(e){
-            console.log("routes/search.js 81 line : " + e);
-        }else{
-            console.log(r);
-            console.log(r.length);
-            if(r && r.length > 0) {
-                //console.log(92);
-                r[0].code = 0;
-                r[0].sCategoryFlag = sCategoryFlag;
-                res.render("itemDetail", r[0]);
-                //console.log(95);
-                //res.json(r[0]);
-            }else{
-                res.render("itemDetail",
-                    {
-                        code:1
-                    }
-                );
-                //res.json({code:1});
-            }
-        }
-    });
-    con.end();
+    var pool = db.dbGetPool();
+
+	pool.getConnection(function(err,con){
+		con.query(sSql, aCondition, function(e,r){
+			if(e){
+				console.log("routes/search.js 95 line : " + e);
+			}else{
+				if(r && r.length > 0) {
+					r[0].code = 0;
+					r[0].sCategoryFlag = sCategoryFlag;
+					res.render("itemDetail", r[0]);
+					//res.json(r[0]);
+				}else{
+					res.render("itemDetail",
+						{
+							code:1
+						}
+					);
+					//res.json({code:1});
+				}
+			}
+
+			con.release();
+		});
+	});
 };

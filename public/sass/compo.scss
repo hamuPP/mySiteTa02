@@ -533,7 +533,7 @@ form{
 		display: inline-block;
 		height: 100px;
 		margin-top:4px;
-		float: none;
+		//float: none;
 		overflow: hidden;
 		//padding:0 8px;
 		.content{
@@ -555,6 +555,14 @@ form{
 			p{
 				padding: 3px;
 			}
+		}
+	}
+}
+
+@media (min-width:992px){
+	.recommend-divine {
+		.item {
+			float: none;
 		}
 	}
 }
@@ -640,4 +648,38 @@ form{
 .shadow-border{
 	-webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/*重设首页下方media list样式*/
+.media-list.custom {
+	&>.media{
+		width:48%;
+		float: left;
+		margin-top:0;
+		margin-right:2%;
+
+		&:nth-child(3){
+			margin-top:10px;
+		}
+		&:nth-child(4){
+			margin-top:10px;
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.media-list.custom {
+		&>.media{
+			width: 24%;
+			margin-right:1%;
+			margin-top:0;
+
+			&:nth-child(3){
+				margin-top:0;
+			}
+			&:nth-child(4){
+				margin-top:0;
+			}
+		}
+	}
 }

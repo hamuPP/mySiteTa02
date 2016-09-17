@@ -6,12 +6,10 @@ exports.showPaixing = function(req,res){
     var pxName = req.query.cardForm,
         paiZu = req.query.paiZu,
         userName = req.query.userName,
-        con = db.dbGetCon(),
+        pool = db.dbGetPool(),
         innerSql = "SELECT * FROM cardLocalhost WHERE cardCategory = ?",
         paizu = "",
         innerCondition = [];
-    console.log(req.query);
-    console.log(pxName+" / " +paiZu+" / "+userName);
 
     if(!paiZu || !pxName){
         res.json({code:-1,msg:"没有查到相关信息，去逛逛别的吧！"});
@@ -53,47 +51,49 @@ exports.showPaixing = function(req,res){
             break;
     }
     //先确定牌型，再确定牌组：即抽对应的大卡or小卡or全78张牌
-    con.query("select * from paixing where pxName=?",[pxName],function(e,row){
-        if(e){
-            console.log("routes/divineDetail.js 10line : "+e);
-        }else{
-            console.log(row);
-            if(row && row.length > 0){
-                var innerCon = db.dbGetCon(),
-                    cardsArr = [];
+	pool.getConnection(function(err,con){
+		con.query("select * from paixing where pxName=?",[pxName],function(e,row){
+			if(e){
+				console.log("routes/divineDetail.js 10line : "+e);
+			}else{
+				if(row && row.length > 0){
+					var innerPool = db.dbGetPool(),
+						cardsArr = [];
 
-             //   innerCondition.push(row[0].pxCardSum);待删，这个数组不需要这个数值了
-                console.log("innerSql:"+innerSql+"innerCondition:"+innerCondition);
-                innerCon.query(innerSql, innerCondition, function(e,innerRow){
-                    if(e){
-                        console.log("routes/divineDetail.js: 67 Line: "+e);
-                    }else{
-                        console.log("routes/divineDetail.js: 69 Line: 本次测算抽出的牌为"+innerRow);
-                        //根据牌形的张数，获得相当数量的卡牌
-                        cardsArr = _getArrayItems(innerRow, row[0].pxCardSum);
-                        //对每张牌随机正逆位置，true-正位，false-逆位
-                        for(var i = 0, len = cardsArr.length; i < len; i++){
-                            cardsArr[i].isRightPos = halfProbability([true,false]);
-                        }
-                        row[0].cardInfo = cardsArr;
-                        row[0].code = 0;
-                        res.json(row[0]);
+					innerPool.getConnection(function(err,innerCon){
+						innerCon.query(innerSql, innerCondition, function(e,innerRow){
+							if(e){
+								console.log("routes/divineDetail.js: 67 Line: "+e);
+							}else{
+								console.log("routes/divineDetail.js: 69 Line: 本次测算抽出的牌为"+innerRow);
+								//根据牌形的张数，获得相当数量的卡牌
+								cardsArr = _getArrayItems(innerRow, row[0].pxCardSum);
+								//对每张牌随机正逆位置，true-正位，false-逆位
+								for(var i = 0, len = cardsArr.length; i < len; i++){
+									cardsArr[i].isRightPos = halfProbability([true,false]);
+								}
+								row[0].cardInfo = cardsArr;
+								row[0].code = 0;
+								res.json(row[0]);
 
-                        //若用户登录了，把本次测算信息存入数据库
-                        if(userName){
-                            console.log("routes/divineDetail.js 69 LINE:用户为："+userName+"本次测算信息："+JSON.stringify(row[0]));
-                            _saveUserDivineHistory(userName,paizu,row[0]);
-                        }
-                    }
-                });
-                innerCon.end();
-            }else{
-                res.json({code:-1,msg:"没有查到相关信息，去逛逛别的吧！"});
-            }
-        }
-    });
-    con.end();
+								//若用户登录了，把本次测算信息存入数据库
+								if(userName){
+									console.log("routes/divineDetail.js 69 LINE:用户为："+userName+"本次测算信息："+JSON.stringify(row[0]));
+									_saveUserDivineHistory(userName,paizu,row[0]);
+								}
+							}
 
+							innerCon.release();
+						});
+					});
+				}else{
+					res.json({code:-1,msg:"没有查到相关信息，去逛逛别的吧！"});
+				}
+			}
+
+			con.release();
+		});
+	});
 };
 
 /**
@@ -121,7 +121,7 @@ function _saveUserDivineHistory(sUserName,sPaizu,JSONInfo){
     }
 
     //不需要查询是否有用户名，直接一条一条往里插就是了
-    var con = db.dbGetCon(),
+    var pool = db.dbGetPool(),
         sql = "insert into t_userdivinehistory(udhUserName, udhPxName, udhPxBanner, udhPaiZu, udhPxEachCardName, udhGenerateTime) value(?,?,?,?,?,?)",
         sGenerateTime = new Date().getTime(),
         aCardInfo =JSONInfo.cardInfo,
@@ -134,17 +134,19 @@ function _saveUserDivineHistory(sUserName,sPaizu,JSONInfo){
         sPxEachCardName += cardName+",";
     }
 
-  //  console.log(pxName);
-    con.query(sql,[sUserName, JSONInfo.pxName, JSONInfo.pxBanner, sPaizu, sPxEachCardName, sGenerateTime],
-        function(err){
-            if(err){
-                console.log("routes/divineDetail.js 124 Line:保存用户测算记录到数据库失败"+ err);
-            }else{
-                console.log("routes/divineDetail.js 126 Line:保存用户测算记录到数据库成功");
-            }
-        }
-    );
-    con.end();
+	pool.getConnection(function(err,con){
+		con.query(sql,[sUserName, JSONInfo.pxName, JSONInfo.pxBanner, sPaizu, sPxEachCardName, sGenerateTime],
+			function(err){
+				if(err){
+					console.log("routes/divineDetail.js 124 Line:保存用户测算记录到数据库失败"+ err);
+				}else{
+					console.log("routes/divineDetail.js 126 Line:保存用户测算记录到数据库成功");
+				}
+
+				con.release();
+			}
+		);
+	});
 };
 
 function _getArrayItems(arr, num) {

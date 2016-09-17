@@ -3,8 +3,9 @@
  */
 var mysql = require("mysql");
 
+
 /**连接数据库d_tarotall**/
-function dbGetCon() {
+function dbGetPool() {
 	var con = mysql.createConnection({
 		host: "127.0.0.1",
 		database: "d_tarotall",
@@ -12,12 +13,21 @@ function dbGetCon() {
 		user: "root",
 		password: "cc77"
 	});
-	return con;
+
+	var pool = mysql.createPool({
+		host: "127.0.0.1",
+		database: "d_tarotall",
+		port: 3306,
+		user: "root",
+		password: "cc77"
+	});
+
+	return pool;
 }
 
 
 //分页查询-正序
-function queryByPage(con, curpage, eachpage, sql, param, func) {
+function queryByPage(pool, curpage, eachpage, sql, param, func) {
 	if (!curpage || curpage <= 0) {
 		curpage = 1;
 	}
@@ -26,21 +36,25 @@ function queryByPage(con, curpage, eachpage, sql, param, func) {
 		param = [];
 	}
 
-	con.query("select count(*) cnt from (" + sql + ") t", param, function (e, r, f) {
-		console.log("db.js 38line: " + r[0]);
-		//获取总数量
-		var count = r[0].cnt;
-		//获取总页码
-		var maxpage = Math.ceil(count / eachpage);
-		sql += " limit " + ((curpage - 1) * eachpage) + "," + eachpage;
-		var inner_con = dbGetCon();
-		inner_con.query(sql, param, function (e, r, f) {
-			var page = {"curpage": curpage, "maxpage": maxpage, "eachpage": eachpage};
-			func(e, r, f, page);
+	pool.getConnection(function(err,con){
+		con.query("select count(*) cnt from (" + sql + ") t", param, function (e, r, f) {
+			//获取总数量
+			var count = r[0].cnt;
+			//获取总页码
+			var maxpage = Math.ceil(count / eachpage);
+			sql += " limit " + ((curpage - 1) * eachpage) + "," + eachpage;
+			var innerPool = dbGetPool();
+			innerPool.getConnection(function(err,inner_con){
+				inner_con.query(sql, param, function (e, r, f) {
+					var page = {"curpage": curpage, "maxpage": maxpage, "eachpage": eachpage};
+					func(e, r, f, page);
+				});
+
+				inner_con.release();
+			});
+			con.release();
 		});
-		inner_con.end();
 	});
-	con.end();
 }
 
 //分页查询-倒叙
@@ -74,5 +88,5 @@ function queryByPageDesc(con, curpage, eachpage, sql, param, func) {
 	con.end();
 }
 
-exports.dbGetCon = dbGetCon;
+exports.dbGetPool = dbGetPool;
 exports.queryByPage = queryByPage;

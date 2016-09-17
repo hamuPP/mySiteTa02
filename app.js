@@ -9,8 +9,6 @@ var http = require('http');
 var path = require('path');
 var log4js = require('log4js');
 
-//var webRouter = require('./webRouter');
-
 var index = require('./routes/index');
 var divineDetail = require('./routes/divineDetail');
 var search = require('./routes/search');
@@ -27,7 +25,6 @@ var app = express();
 // all environments
 app.set('port', process.env.PORT || 8880);
 app.set('views', path.join(__dirname, 'views'));// 设置模板相对路径(相对当前目录)
-//app.set('view engine', 'jade');//设置模板引擎为jade
 app.set('view engine', 'ejs');//设置模板引擎为jade
 app.use(express.favicon());
 app.use(express.logger('dev'));
@@ -72,6 +69,7 @@ app.get('/itemDetail', search.itemDetail);
 /*首页的各种请求 start*/
 app.get('/', index.indexv2);
 app.get('/divineDetail',index.divineDetail);
+app.get('/indexShowMoreCards', index.indexShowMoreCards);
 /*首页的各种请求 end*/
 
 /*测算详页 start*/
@@ -81,7 +79,7 @@ app.get('/showPaixing', divineDetail.showPaixing);
 /*测算详页 end*/
 
 /*显示卡牌详细*/
-app.get('/cardsDetail',index.showCardWhole);
+//app.get('/cardsDetail',index.showCardWhole);
 
 /*注册账户到数据库*/
 app.post('/registerAtDb',register.registerAtDb);

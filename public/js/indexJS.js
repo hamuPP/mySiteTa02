@@ -13,6 +13,9 @@
 		$("#IENotice").hide();
 
 	});
+
+	$("#showMoreCards").on("click",showMoreCards);
+
 	//取消鼠标右键菜单
 	//document.oncontextmenu=function(){
 	//    return false;
@@ -61,7 +64,6 @@
 	});
 
 	/*卡牌展示列表*/
-
 	$.ajax({
 		url:"../localData/cardslist.json",
 		type:"get",
@@ -70,7 +72,7 @@
 			var aResult = param.items;
 			for(var i = 0, len = aResult.length;i < len; i++){
 				str += '<li class="media border-all">' +
-						'<a class="pull-left" href="'+ aResult[i].href +'">' +
+						'<a class="pull-left" target="_blank" href="'+ aResult[i].href +'">' +
 						'<img style="width:100px;height:170px;" class="media-object" src="' + aResult[i].imgsrc + '" alt="' + aResult[i].imgsrc + '">' +
 						'</a><div class="media-body ptb15">' +
 						'<h4 class="media-heading">'+ aResult[i].heading +'</h4>' +
@@ -80,4 +82,39 @@
 			$("#cardsList").html(str);
 		}
 	});
+
+	/*其余卡牌*/
+	function showMoreCards(){
+		$.ajax({
+			url:"/indexShowMoreCards",
+			type:"get",
+			success:function(param){
+				var str = "";
+				var aResult = param.items;
+				for(var i = 0, len = param.length;i < len; i++){
+					str += '<a target="_blank" href="/itemDetail?sItemId=card-'+param[i].id+'">' + param[i].cardName + '</a>';
+				}
+				str += '<a href="javascript:;" id="retractMoreCards">↑收起列表</a>';
+				$("#showMoreCards").hide();
+				$("#otherCards").append(str);
+				$("#retractMoreCards").on("click",retractMoreCards);
+			}
+		});
+	}
+
+	/**
+	 * 向上收起更多卡牌名字
+	 */
+	function retractMoreCards(){
+		var str = '<a href="/itemDetail?sItemId=card-5" target="_blank">皇帝</a>' +
+			'<a href="/itemDetail?sItemId=card-6" target="_blank">教主</a>' +
+			'<a href="/itemDetail?sItemId=card-7" target="_blank">情侣</a>' +
+			'<a href="/itemDetail?sItemId=card-8" target="_blank">战车</a>' +
+			'<a href="/itemDetail?sItemId=card-9" target="_blank">力量</a>' +
+			'<a href="javascript:;" id="showMoreCards">↓显示更多</a>';
+
+		$("#otherCards").html(str);
+		$("#showMoreCards").on("click",showMoreCards);
+	}
+
 });

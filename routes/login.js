@@ -22,20 +22,23 @@ exports.userLogin = function(req,res){
     var user= req.body.username,
         pwd = req.body.password,
         sql = "select * from t_user where u_name = ? and u_pwd = ?",
-        con = db.dbGetCon();
-    con.query(sql,[user,pwd],function(error,rows){
-        if(error){
-            console.log("登录出错+"+error);
-        }else{
-            if(rows.length>0){
-                //注册信息到session
-                req.session.user=rows[0];
-            }
-            res.json(rows);
-        }
-    });
-    con.end();
+        pool = db.dbGetPool();
 
+	pool.getConnection(function(err,connection){
+		connection.query(sql,[user,pwd],function(error,rows){
+			if(error){
+				console.log("登录出错+"+error);
+			}else{
+				if(rows.length>0){
+					//注册信息到session
+					req.session.user=rows[0];
+				}
+				res.json(rows);
+			}
+
+			connection.release();
+		});
+	});
 };
 
 /*判断是否已经登录*/

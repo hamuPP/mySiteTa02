@@ -49,21 +49,27 @@ exports.itemDetail = function(req, res){
 };
 
 function _searchPaixing(sqlPaixing, userInput, page, res) {
-    var innerCon = db.dbGetCon();
-    innerCon.query(sqlPaixing, [userInput], function (e, r) {
-        if (e) {
-            console.log("routes/search.js: 37 Line:" + e);
-        } else {
-            if (r.length > 0) {
-                page.paixingRows = r;
-            } else {
-                page.paixingRows = [];
-            }
-            res.render('search', page);
-            console.log(page);
-        }
-    });
-    innerCon.end();
+    var innerPool = db.dbGetPool();
+
+
+	innerPool.getConnection(function(err,innerCon){
+		innerCon.query(sqlPaixing, [userInput], function (e, r) {
+			if (e) {
+				console.log("routes/search.js: 37 Line:" + e);
+			} else {
+				if (r.length > 0) {
+					page.paixingRows = r;
+				} else {
+					page.paixingRows = [];
+				}
+				res.render('search', page);
+				console.log(page);
+			}
+
+			innerCon.release();
+		});
+	});
+
 };
 
 /**
@@ -73,29 +79,28 @@ function _searchPaixing(sqlPaixing, userInput, page, res) {
  * @private
  */
 function _searchItemDetail(sSql, aCondition, sCategoryFlag, res){
-    var con = db.dbGetCon();
-    con.query(sSql, aCondition, function(e,r){
-        if(e){
-            console.log("routes/search.js 81 line : " + e);
-        }else{
-            console.log(r);
-            console.log(r.length);
-            if(r && r.length > 0) {
-                //console.log(92);
-                r[0].code = 0;
-                r[0].sCategoryFlag = sCategoryFlag;
-                res.render("itemDetail", r[0]);
-                //console.log(95);
-                //res.json(r[0]);
-            }else{
-                res.render("itemDetail",
-                    {
-                        code:1
-                    }
-                );
-                //res.json({code:1});
-            }
-        }
-    });
-    con.end();
+    var pool = db.dbGetPool();
+
+	pool.getConnection(function(err,con){
+		con.query(sSql, aCondition, function(e,r){
+			if(e){
+				console.log("routes/search.js 81 line : " + e);
+			}else{
+				if(r && r.length > 0) {
+					r[0].code = 0;
+					r[0].sCategoryFlag = sCategoryFlag;
+					res.render("itemDetail", r[0]);
+				}else{
+					res.render("itemDetail",
+						{
+							code:1
+						}
+					);
+				}
+			}
+
+			con.release();
+		});
+	});
+
 };

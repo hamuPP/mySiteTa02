@@ -35,6 +35,9 @@
 .border-all{
 	border:1px solid rgba(187, 156, 255, .3);
 }
+.border-red{
+	border:1px solid red;
+}
 /*内外补丁*/
 .mt10{
     margin-top: 1rem !important;
