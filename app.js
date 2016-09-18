@@ -22,8 +22,27 @@ var about = require("./routes/about");
 var book = require("./routes/book");
 var app = express();
 
+log4js.configure({
+	appenders: [
+		{
+			type: 'file', //文件输出
+			filename: 'logs/access.log',
+			maxLogSize: 1024*16,
+			backups: 3,
+			category: ['normal','console']
+		},
+		{
+			type: 'console'
+		}
+	],
+	replaceConsole: true
+});
+var logger = log4js.getLogger('normal');
+logger.setLevel('INFO');
+app.use(log4js.connectLogger(logger, {level: log4js.levels.INFO}));
+
 // all environments
-app.set('port', process.env.PORT || 8880);
+app.set('port', process.env.PORT || 8881);
 app.set('views', path.join(__dirname, 'views'));// 设置模板相对路径(相对当前目录)
 app.set('view engine', 'ejs');//设置模板引擎为jade
 app.use(express.favicon());
@@ -147,21 +166,6 @@ app.get('/indexv2',index.indexv2);
 app.get('/u1',function(req,res){
 	res.sendfile('public/uploadImgDemo.html');
 });
-
-log4js.configure({
-	appenders: [
-		{
-			type: 'file', //文件输出
-			filename: 'logs/access.log',
-			maxLogSize: 1024*16,
-			backups: 3,
-			category: 'normal'
-		}
-	]
-});
-var logger = log4js.getLogger('normal');
-logger.setLevel('INFO');
-app.use(log4js.connectLogger(logger, {level: log4js.levels.INFO}));
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
