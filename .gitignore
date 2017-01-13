@@ -1,4 +1,5 @@
-﻿/.idea
+﻿#/.idea
+.idea
 #app.js
 /routes/divineDetail.js
 /node_modules
@@ -7,3 +8,4 @@
 计划.rtf
 Thumbs.db
 /logs
+进度.txt

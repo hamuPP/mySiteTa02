@@ -33,7 +33,6 @@
 
 		$("#recommenNav a").attr("class", "item");
 		$("#recommendDivine > div").css("display", "none");
-		console.log(clickedId);
 
 		switch (clickedId) {
 			case "money":
